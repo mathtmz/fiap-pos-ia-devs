@@ -26,8 +26,6 @@ Tech Challenge/Fase 2/
 ├── RELATORIO_TECNICO.md
 ├── data/
 ├── code/
-│   ├── pcos_diagnostico.ipynb
-│   ├── pcos_diagnostico_executado.ipynb
 │   ├── src/
 │   │   ├── config.py
 │   │   ├── data_loader.py
@@ -41,6 +39,7 @@ Tech Challenge/Fase 2/
 │   │   ├── models/
 │   │   ├── metrics/
 │   │   └── figures/
+│   ├── scripts/
 │   └── tests/
 ```
 
@@ -48,17 +47,16 @@ Tech Challenge/Fase 2/
 
 1. Preservar a copia da Fase 1 em `Tech Challenge/Fase 1`.
 2. Trabalhar somente em `Tech Challenge/Fase 2`.
-3. Validar que o notebook copiado ainda executa com os caminhos relativos corrigidos.
+3. Validar que o pipeline modular executa com caminhos relativos.
 4. Registrar versoes de dependencias em `requirements.txt` ou equivalente.
 5. Separar artefatos gerados em `code/outputs/`.
 
 ## Fase 1 - Modularizacao do Pipeline
 
-Extrair do notebook da Fase 1 os blocos de codigo essenciais:
+Extrair da implementacao da Fase 1 os blocos de codigo essenciais:
 
-- carregamento dos arquivos `PCOS_data_without_infertility.xlsx` e `PCOS_infertility.csv`;
+- carregamento do arquivo `PCOS_data_without_infertility.xlsx`;
 - normalizacao dos nomes de colunas;
-- merge das bases;
 - tratamento de valores ausentes;
 - separacao entre features e alvo;
 - split treino/teste estratificado;
@@ -69,8 +67,8 @@ Extrair do notebook da Fase 1 os blocos de codigo essenciais:
 Critério de aceite:
 
 - reproduzir metricas proximas ao baseline da Fase 1;
-- ter funcoes reutilizaveis pelo notebook e pelo algoritmo genetico;
-- evitar duplicacao pesada de codigo no notebook.
+- ter funcoes reutilizaveis pelos scripts e pelo algoritmo genetico;
+- evitar duplicacao pesada de codigo nos scripts de demonstracao.
 
 ## Fase 2 - Algoritmo Genetico
 
@@ -226,7 +224,7 @@ Testes minimos:
 
 Validacoes minimas:
 
-- notebook executa do inicio ao fim;
+- scripts executam do inicio ao fim;
 - scripts executam por linha de comando;
 - graficos e metricas sao gerados;
 - resultados sao reprodutiveis com `random_state`.

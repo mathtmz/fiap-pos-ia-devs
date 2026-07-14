@@ -104,10 +104,12 @@ fase2/
 ├── README.md
 ├── pyproject.toml ou requirements.txt
 ├── data/
-│   ├── PCOS_data_without_infertility.xlsx
-│   └── PCOS_infertility.csv
-├── notebooks/
-│   └── demo_fase2_otimizacao_llm.ipynb
+│   └── PCOS_data_without_infertility.xlsx
+├── scripts/
+│   ├── run_baseline.py
+│   ├── run_ga_experiments.py
+│   ├── finalize_ga_results.py
+│   └── generate_llm_report.py
 ├── src/
 │   ├── data/
 │   │   ├── loader.py

@@ -18,7 +18,6 @@ FIGURES_DIR = OUTPUT_DIR / "figures"
 REPORTS_DIR = OUTPUT_DIR / "reports"
 
 EXCEL_PATH = DATA_DIR / "PCOS_data_without_infertility.xlsx"
-CSV_PATH = DATA_DIR / "PCOS_infertility.csv"
 
 GENERATED_FEATURES = [
     "total_foliculos",
