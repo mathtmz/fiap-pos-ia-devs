@@ -1,0 +1,32 @@
+feature,importance,type
+total_foliculos,0.15489693021204792,feature_engineering
+Follicle No. (R),0.13869734344988105,original
+Follicle No. (L),0.11382568304636843,original
+soma_sintomas,0.10304647105078754,feature_engineering
+hair growth(Y/N),0.05031385258979918,original
+Skin darkening (Y/N),0.038432230837931194,original
+Weight gain(Y/N),0.03724892518495849,original
+AMH(ng/mL),0.03259375082202475,original
+Cycle(R/I),0.02508281198800307,original
+razao_lh_fsh,0.02437610166116489,feature_engineering
+Cycle length(days),0.022413709693709004,original
+BMI,0.02090546329348847,original
+Fast food (Y/N),0.020557154794223896,original
+Weight (Kg),0.01881276134298929,original
+Vit D3 (ng/mL),0.018217150364299047,original
+LH(mIU/mL),0.018087779903250698,original
+ Age (yrs),0.017657097595658366,original
+Hip(inch),0.0174132243367192,original
+Marraige Status (Yrs),0.016929636465723586,original
+Height(Cm) ,0.013692049345134948,original
+Endometrium (mm),0.013592273359086079,original
+Hb(g/dl),0.012961414597350089,original
+Pimples(Y/N),0.012621536030745036,original
+Waist(inch),0.012459544371304756,original
+Avg. F size (R) (mm),0.011967906371992914,original
+Avg. F size (L) (mm),0.011834717949623094,original
+Pulse rate(bpm) ,0.0067303582544864455,original
+Hair loss(Y/N),0.005218843359892694,original
+faixa_imc,0.003746458364960801,feature_engineering
+Reg.Exercise(Y/N),0.0037136370202003445,original
+No. of aborptions,0.00195318234219457,original
