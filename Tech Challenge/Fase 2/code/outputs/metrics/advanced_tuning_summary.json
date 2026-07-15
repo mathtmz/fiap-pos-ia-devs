@@ -1,0 +1,98 @@
+[
+  {
+    "experiment": "GA-Tuning-Recall-Clinico",
+    "objective": "clinical_recall",
+    "elapsed_seconds": 50.79080254199653,
+    "best_model_family": "logistic_regression",
+    "best_genes": {
+      "C": 0.1,
+      "penalty": "l1",
+      "solver": "liblinear",
+      "class_weight": "balanced",
+      "max_iter": 3000,
+      "threshold": 0.3
+    },
+    "cv_metrics": {
+      "accuracy": 0.7986111111111112,
+      "precision_pos": 0.6271033653846154,
+      "recall_pos": 0.9716269841269841,
+      "f1_pos": 0.760688784395681,
+      "auc_roc": 0.9530988394216133,
+      "confusion_matrix": [
+        [
+          208,
+          83
+        ],
+        [
+          4,
+          137
+        ]
+      ]
+    },
+    "test_metrics": {
+      "accuracy": 0.7706422018348624,
+      "precision_pos": 0.5964912280701754,
+      "recall_pos": 0.9444444444444444,
+      "f1_pos": 0.7311827956989247,
+      "auc_roc": 0.9501522070015221,
+      "confusion_matrix": [
+        [
+          50,
+          23
+        ],
+        [
+          2,
+          34
+        ]
+      ]
+    }
+  },
+  {
+    "experiment": "GA-Tuning-Balanceado",
+    "objective": "balanced",
+    "elapsed_seconds": 38.4447493330008,
+    "best_model_family": "logistic_regression",
+    "best_genes": {
+      "C": 0.1,
+      "penalty": "l1",
+      "solver": "liblinear",
+      "class_weight": null,
+      "max_iter": 1000,
+      "threshold": 0.5
+    },
+    "cv_metrics": {
+      "accuracy": 0.9074074074074073,
+      "precision_pos": 0.867016806722689,
+      "recall_pos": 0.8579365079365079,
+      "f1_pos": 0.8594267337071991,
+      "auc_roc": 0.9534902288540987,
+      "confusion_matrix": [
+        [
+          271,
+          20
+        ],
+        [
+          20,
+          121
+        ]
+      ]
+    },
+    "test_metrics": {
+      "accuracy": 0.9357798165137615,
+      "precision_pos": 0.9393939393939394,
+      "recall_pos": 0.8611111111111112,
+      "f1_pos": 0.8985507246376812,
+      "auc_roc": 0.9493911719939118,
+      "confusion_matrix": [
+        [
+          71,
+          2
+        ],
+        [
+          5,
+          31
+        ]
+      ]
+    }
+  }
+]

@@ -1,7 +1,13 @@
 from __future__ import annotations
 
+import json
 import os
+import ssl
+import urllib.error
+import urllib.request
 from dataclasses import dataclass
+
+import certifi
 
 
 SYSTEM_RULES = """Voce e um assistente de apoio a interpretacao de modelos de machine learning em saude.
@@ -91,16 +97,118 @@ def evaluate_response_safety(response: str) -> dict[str, bool]:
     }
 
 
+def openai_llm_response(request: LLMExplanationRequest) -> str:
+    api_key = os.getenv("LLM_API_KEY") or os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise ValueError("Defina LLM_API_KEY ou OPENAI_API_KEY para usar LLM_PROVIDER=openai.")
+
+    model = os.getenv("LLM_MODEL", "gpt-4o-mini")
+    endpoint = os.getenv("LLM_API_URL", "https://api.openai.com/v1/chat/completions")
+    payload = {
+        "model": model,
+        "temperature": 0.2,
+        "messages": [
+            {"role": "system", "content": SYSTEM_RULES},
+            {"role": "user", "content": build_prompt(request)},
+        ],
+    }
+
+    http_request = urllib.request.Request(
+        endpoint,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+
+    try:
+        ssl_context = ssl.create_default_context(cafile=certifi.where())
+        with urllib.request.urlopen(http_request, timeout=45, context=ssl_context) as response:
+            response_payload = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as error:
+        details = error.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"Falha na chamada da LLM: HTTP {error.code} - {details}") from error
+    except urllib.error.URLError as error:
+        raise RuntimeError(f"Falha de conexao com a LLM: {error.reason}") from error
+
+    choices = response_payload.get("choices", [])
+    if not choices:
+        raise RuntimeError(f"Resposta da LLM sem choices: {response_payload}")
+    return choices[0]["message"]["content"].strip()
+
+
+def gemini_llm_response(request: LLMExplanationRequest) -> str:
+    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("LLM_API_KEY")
+    if not api_key:
+        raise ValueError("Defina GEMINI_API_KEY ou LLM_API_KEY para usar LLM_PROVIDER=gemini.")
+
+    model = os.getenv("LLM_MODEL", "gemini-2.5-flash-lite")
+    endpoint = os.getenv(
+        "GEMINI_API_URL",
+        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+    )
+    payload = {
+        "systemInstruction": {
+            "parts": [{"text": SYSTEM_RULES}],
+        },
+        "contents": [
+            {
+                "role": "user",
+                "parts": [{"text": build_prompt(request)}],
+            }
+        ],
+        "generationConfig": {
+            "temperature": 0.2,
+        },
+    }
+
+    separator = "&" if "?" in endpoint else "?"
+    url = f"{endpoint}{separator}key={api_key}"
+    http_request = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    try:
+        ssl_context = ssl.create_default_context(cafile=certifi.where())
+        with urllib.request.urlopen(http_request, timeout=45, context=ssl_context) as response:
+            response_payload = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as error:
+        details = error.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"Falha na chamada da Gemini API: HTTP {error.code} - {details}") from error
+    except urllib.error.URLError as error:
+        raise RuntimeError(f"Falha de conexao com a Gemini API: {error.reason}") from error
+
+    candidates = response_payload.get("candidates", [])
+    if not candidates:
+        raise RuntimeError(f"Resposta da Gemini API sem candidates: {response_payload}")
+
+    parts = candidates[0].get("content", {}).get("parts", [])
+    text_parts = [part.get("text", "") for part in parts if part.get("text")]
+    if not text_parts:
+        raise RuntimeError(f"Resposta da Gemini API sem texto: {response_payload}")
+    return "\n".join(text_parts).strip()
+
+
 def generate_explanation(request: LLMExplanationRequest) -> tuple[str, dict[str, bool]]:
     provider = os.getenv("LLM_PROVIDER", "mock").strip().lower()
 
-    # O provider real fica isolado para manter os testes e a demo reproduziveis.
-    # Sem chave configurada, a explicacao mock permite demonstrar prompt,
-    # formato e regras de seguranca sem enviar dados sensiveis para terceiros.
-    if provider == "mock" or not os.getenv("LLM_API_KEY"):
+    # O mock e o modo padrao para manter a demo reproduzivel e evitar envio de
+    # dados clinicos para terceiros quando uma chave real nao foi configurada.
+    if provider == "mock":
         response = mock_llm_response(request)
         return response, evaluate_response_safety(response)
 
-    raise NotImplementedError(
-        "Provider real de LLM ainda nao configurado. Use LLM_PROVIDER=mock para a demo local."
-    )
+    if provider == "openai":
+        response = openai_llm_response(request)
+        return response, evaluate_response_safety(response)
+
+    if provider == "gemini":
+        response = gemini_llm_response(request)
+        return response, evaluate_response_safety(response)
+
+    raise ValueError("LLM_PROVIDER deve ser 'mock', 'openai' ou 'gemini'.")
