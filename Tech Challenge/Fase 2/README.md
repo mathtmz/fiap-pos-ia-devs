@@ -74,6 +74,28 @@ Para usar Gemini API pelo Google AI Studio:
 LLM_PROVIDER=gemini GEMINI_API_KEY=sua_chave LLM_MODEL=gemini-2.5-flash-lite python scripts/generate_llm_report.py
 ```
 
+Execute a API local:
+
+```bash
+PYTHONPATH=src LLM_PROVIDER=mock python -m uvicorn pcos_fase2.api:app --host 0.0.0.0 --port 8000
+```
+
+Endpoints principais:
+
+- `GET /health`: verifica se a API e o modelo estao disponiveis.
+- `GET /features`: lista as features esperadas pelo modelo.
+- `POST /predict`: retorna risco estimado de SOP.
+- `POST /explain`: retorna a predicao e uma explicacao com LLM.
+- `GET /metrics`: mostra contadores simples de uso, erros e latencia.
+
+Para montar o payload de predicao, consulte primeiro a lista de features:
+
+```bash
+curl http://localhost:8000/features
+```
+
+O `POST /predict` deve conter todas as features retornadas em `GET /features`. A API recebe dados numericos ja no formato esperado pelo modelo, o que mantem a entrega simples e direta para demonstracao.
+
 Execute os testes:
 
 ```bash
@@ -143,8 +165,14 @@ flowchart LR
     J -->|openai/gemini| L[Modelo pre-treinado via API]
     K --> M[Avaliacao de seguranca]
     L --> M
-    M --> N[Relatorio para demonstracao]
+    F --> Q[API FastAPI]
+    M --> Q
+    Q --> R[Logs e metricas]
+    Q --> S[Container Cloud Run]
+    S --> T[Autoscaling HTTP]
 ```
+
+Para a parte de escalabilidade, a entrega inclui `Dockerfile` e `cloudrun-service.yaml`. O Cloud Run foi escolhido porque resolve o autoscaling de forma simples para uma API HTTP: escala para zero quando nao ha uso e aumenta instancias conforme chegam requisicoes.
 
 ## Artefatos principais
 
@@ -162,6 +190,8 @@ flowchart LR
 - `code/outputs/figures/feature_importance.png`
 - `code/outputs/figures/advanced_tuning_fitness.png`
 - `code/outputs/reports/llm_explanation.md`
+- `code/Dockerfile`
+- `code/cloudrun-service.yaml`
 
 ## Documentos
 
@@ -179,5 +209,7 @@ flowchart LR
 - [x] Executar tuning avancado separado.
 - [x] Gerar graficos e metricas.
 - [x] Implementar explicacao com LLM/mock e providers reais via API.
+- [x] Criar API de inferencia e explicacao.
+- [x] Adicionar logging, metricas e configuracao cloud-ready.
 - [x] Criar testes automatizados.
 - [x] Atualizar relatorio tecnico.
