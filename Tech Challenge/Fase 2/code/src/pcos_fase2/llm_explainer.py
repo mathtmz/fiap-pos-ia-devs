@@ -103,7 +103,7 @@ def openai_llm_response(request: LLMExplanationRequest) -> str:
         raise ValueError("Defina LLM_API_KEY ou OPENAI_API_KEY para usar LLM_PROVIDER=openai.")
 
     model = os.getenv("LLM_MODEL", "gpt-4o-mini")
-    endpoint = os.getenv("LLM_API_URL", "https://api.openai.com/v1/chat/completions")
+    api_url = os.getenv("LLM_API_URL", "https://api.openai.com/v1/chat/completions")
     payload = {
         "model": model,
         "temperature": 0.2,
@@ -114,7 +114,7 @@ def openai_llm_response(request: LLMExplanationRequest) -> str:
     }
 
     http_request = urllib.request.Request(
-        endpoint,
+        api_url,
         data=json.dumps(payload).encode("utf-8"),
         headers={
             "Authorization": f"Bearer {api_key}",
@@ -145,7 +145,7 @@ def gemini_llm_response(request: LLMExplanationRequest) -> str:
         raise ValueError("Defina GEMINI_API_KEY ou LLM_API_KEY para usar LLM_PROVIDER=gemini.")
 
     model = os.getenv("LLM_MODEL", "gemini-2.5-flash-lite")
-    endpoint = os.getenv(
+    api_url = os.getenv(
         "GEMINI_API_URL",
         f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
     )
@@ -164,8 +164,8 @@ def gemini_llm_response(request: LLMExplanationRequest) -> str:
         },
     }
 
-    separator = "&" if "?" in endpoint else "?"
-    url = f"{endpoint}{separator}key={api_key}"
+    separator = "&" if "?" in api_url else "?"
+    url = f"{api_url}{separator}key={api_key}"
     http_request = urllib.request.Request(
         url,
         data=json.dumps(payload).encode("utf-8"),
