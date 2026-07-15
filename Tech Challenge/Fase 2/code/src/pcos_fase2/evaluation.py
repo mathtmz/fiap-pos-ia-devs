@@ -38,6 +38,16 @@ class ModelMetrics:
 def evaluate_classifier(model, x_test, y_test) -> ModelMetrics:
     predictions = model.predict(x_test)
     probabilities = model.predict_proba(x_test)[:, 1]
+    return evaluate_predictions(y_test, predictions, probabilities)
+
+
+def evaluate_classifier_with_threshold(model, x_test, y_test, threshold: float) -> ModelMetrics:
+    probabilities = model.predict_proba(x_test)[:, 1]
+    predictions = (probabilities >= threshold).astype(int)
+    return evaluate_predictions(y_test, predictions, probabilities)
+
+
+def evaluate_predictions(y_test, predictions, probabilities) -> ModelMetrics:
     false_positive_rate, true_positive_rate, _ = roc_curve(y_test, probabilities)
 
     return ModelMetrics(

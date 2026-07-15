@@ -44,6 +44,12 @@ Execute os experimentos de algoritmo genetico:
 python scripts/run_ga_experiments.py
 ```
 
+Execute a etapa separada de investigacao e tuning avancado:
+
+```bash
+python scripts/run_advanced_tuning.py
+```
+
 Consolide resultados a partir dos logs JSONL:
 
 ```bash
@@ -54,6 +60,18 @@ Gere a explicacao em linguagem natural:
 
 ```bash
 LLM_PROVIDER=mock python scripts/generate_llm_report.py
+```
+
+Para usar uma LLM real por API:
+
+```bash
+LLM_PROVIDER=openai LLM_API_KEY=sua_chave LLM_MODEL=gpt-4o-mini python scripts/generate_llm_report.py
+```
+
+Para usar Gemini API pelo Google AI Studio:
+
+```bash
+LLM_PROVIDER=gemini GEMINI_API_KEY=sua_chave LLM_MODEL=gemini-2.5-flash-lite python scripts/generate_llm_report.py
 ```
 
 Execute os testes:
@@ -88,17 +106,61 @@ Melhor cromossomo encontrado na validacao do algoritmo genetico:
 
 No teste final, o modelo otimizado atingiu accuracy de 92.66%, recall positivo de 83.33%, F1 positivo de 88.24% e AUC-ROC de 94.98%. O resultado nao supera o Random Forest baseline no teste, o que e uma discussao relevante para o relatorio: a busca evolutiva melhorou o desempenho em validacao, mas nao trouxe ganho real de generalizacao no conjunto de teste.
 
+Como etapa adicional de investigacao, foi criado um fluxo separado de tuning avancado em `scripts/run_advanced_tuning.py`. Essa etapa testa duas abordagens:
+
+- GA com validacao cruzada e objetivo de recall clinico;
+- GA com objetivo balanceado;
+- calibracao de threshold dos modelos baseline.
+
+O melhor resultado dessa investigacao foi a calibracao do threshold do Random Forest para `0.60`, que superou o baseline original:
+
+| Modelo | Accuracy | Precision SOP | Recall SOP | F1 SOP | AUC-ROC |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Random Forest baseline | 93.58% | 96.77% | 83.33% | 89.55% | 95.05% |
+| Random Forest com threshold 0.60 | 94.50% | 100.00% | 83.33% | 90.91% | 95.05% |
+| GA balanceado | 93.58% | 93.94% | 86.11% | 89.86% | 94.94% |
+
+O ganho final veio mais da calibracao do ponto de corte do que de hiperparametros complexos. Isso e coerente com datasets pequenos: uma mudanca simples na regra de decisao pode generalizar melhor que uma busca muito agressiva de hiperparametros.
+
+## Arquitetura
+
+```mermaid
+flowchart LR
+    A[Dataset PCOS Excel] --> B[Pipeline de dados]
+    B --> C[Baselines Fase 1]
+    B --> D[Algoritmo genetico]
+    B --> O[Tuning avancado separado]
+    D --> E[Melhor Random Forest]
+    O --> P[Validacao cruzada e threshold]
+    C --> F[Comparacao de metricas]
+    E --> F
+    P --> F
+    E --> G[Explicabilidade tecnica]
+    F --> H[Artefatos: CSV, JSONL, PNG, joblib]
+    G --> I[Prompt seguro]
+    I --> J{LLM_PROVIDER}
+    J -->|mock| K[Resposta local reprodutivel]
+    J -->|openai/gemini| L[Modelo pre-treinado via API]
+    K --> M[Avaliacao de seguranca]
+    L --> M
+    M --> N[Relatorio para demonstracao]
+```
+
 ## Artefatos principais
 
 - `code/outputs/metrics/baseline_metrics.csv`
 - `code/outputs/metrics/ga_history.csv`
 - `code/outputs/metrics/model_comparison.csv`
+- `code/outputs/metrics/advanced_tuning_comparison.csv`
+- `code/outputs/metrics/advanced_tuning_history.csv`
+- `code/outputs/metrics/advanced_threshold_sweep.csv`
 - `code/outputs/metrics/feature_importance.csv`
 - `code/outputs/models/best_model.joblib`
 - `code/outputs/figures/fitness_evolution.png`
 - `code/outputs/figures/confusion_matrix.png`
 - `code/outputs/figures/roc_curve.png`
 - `code/outputs/figures/feature_importance.png`
+- `code/outputs/figures/advanced_tuning_fitness.png`
 - `code/outputs/reports/llm_explanation.md`
 
 ## Documentos
@@ -114,7 +176,8 @@ No teste final, o modelo otimizado atingiu accuracy de 92.66%, recall positivo d
 - [x] Reproduzir baselines.
 - [x] Implementar algoritmo genetico.
 - [x] Executar tres experimentos.
+- [x] Executar tuning avancado separado.
 - [x] Gerar graficos e metricas.
-- [x] Implementar explicacao com LLM/mock.
+- [x] Implementar explicacao com LLM/mock e providers reais via API.
 - [x] Criar testes automatizados.
 - [x] Atualizar relatorio tecnico.

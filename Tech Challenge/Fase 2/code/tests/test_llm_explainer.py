@@ -3,6 +3,8 @@ from pcos_fase2.llm_explainer import (
     build_prompt,
     evaluate_response_safety,
     generate_explanation,
+    gemini_llm_response,
+    openai_llm_response,
 )
 
 
@@ -39,3 +41,27 @@ def test_safety_evaluator_rejects_prescriptive_text():
     safety = evaluate_response_safety("Este e um diagnostico definitivo. Inicie tratamento.")
 
     assert not safety["avoids_forbidden_terms"]
+
+
+def test_openai_provider_requires_api_key(monkeypatch):
+    monkeypatch.delenv("LLM_API_KEY", raising=False)
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+
+    try:
+        openai_llm_response(sample_request())
+    except ValueError as error:
+        assert "LLM_API_KEY" in str(error)
+    else:
+        raise AssertionError("Provider OpenAI deveria exigir chave de API.")
+
+
+def test_gemini_provider_requires_api_key(monkeypatch):
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.delenv("LLM_API_KEY", raising=False)
+
+    try:
+        gemini_llm_response(sample_request())
+    except ValueError as error:
+        assert "GEMINI_API_KEY" in str(error)
+    else:
+        raise AssertionError("Provider Gemini deveria exigir chave de API.")
