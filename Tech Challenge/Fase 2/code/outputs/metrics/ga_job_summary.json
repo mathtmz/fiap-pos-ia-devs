@@ -1,0 +1,49 @@
+{
+  "jobs": [
+    {
+      "experiment": "job_validacao_a",
+      "status": "success",
+      "elapsed_seconds": 2.389,
+      "best_fitness": 0.9106241440288377,
+      "recall_pos": 0.9142857142857143,
+      "f1_pos": 0.8767123287671232,
+      "auc_roc": 0.9663405088062622,
+      "accuracy": 0.9166666666666666,
+      "population_size": 6,
+      "generations": 2,
+      "mutation_rate": 0.1,
+      "crossover_rate": 0.7,
+      "best_genes": "{\"class_weight\": \"balanced\", \"max_depth\": 5, \"max_features\": \"sqrt\", \"min_samples_leaf\": 1, \"min_samples_split\": 4, \"n_estimators\": 50}"
+    },
+    {
+      "experiment": "job_validacao_b",
+      "status": "success",
+      "elapsed_seconds": 2.252,
+      "best_fitness": 0.9101518738295141,
+      "recall_pos": 0.9142857142857143,
+      "f1_pos": 0.8767123287671232,
+      "auc_roc": 0.9671232876712329,
+      "accuracy": 0.9166666666666666,
+      "population_size": 6,
+      "generations": 2,
+      "mutation_rate": 0.25,
+      "crossover_rate": 0.8,
+      "best_genes": "{\"class_weight\": \"balanced\", \"max_depth\": 8, \"max_features\": \"sqrt\", \"min_samples_leaf\": 2, \"min_samples_split\": 8, \"n_estimators\": 200}"
+    },
+    {
+      "experiment": "job_validacao_individual",
+      "status": "success",
+      "elapsed_seconds": 2.126,
+      "best_fitness": 0.9076869726869726,
+      "recall_pos": 0.9142857142857143,
+      "f1_pos": 0.8648648648648649,
+      "auc_roc": 0.9714285714285715,
+      "accuracy": 0.9074074074074074,
+      "population_size": 6,
+      "generations": 2,
+      "mutation_rate": 0.1,
+      "crossover_rate": 0.7,
+      "best_genes": "{\"class_weight\": \"balanced_subsample\", \"max_depth\": 8, \"max_features\": \"log2\", \"min_samples_leaf\": 5, \"min_samples_split\": 10, \"n_estimators\": 300}"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "status": "success",
+  "experiment": "job_validacao_individual",
+  "config": {
+    "population_size": 6,
+    "generations": 2,
+    "mutation_rate": 0.1,
+    "crossover_rate": 0.7,
+    "elitism_rate": 0.1,
+    "tournament_size": 3,
+    "patience": 8
+  },
+  "elapsed_seconds": 2.126,
+  "best_fitness": 0.9076869726869726,
+  "best_genes": {
+    "n_estimators": 300,
+    "max_depth": 8,
+    "min_samples_split": 10,
+    "min_samples_leaf": 5,
+    "max_features": "log2",
+    "class_weight": "balanced_subsample"
+  },
+  "validation_metrics": {
+    "accuracy": 0.9074074074074074,
+    "precision_pos": 0.8205128205128205,
+    "recall_pos": 0.9142857142857143,
+    "f1_pos": 0.8648648648648649,
+    "auc_roc": 0.9714285714285715,
+    "confusion_matrix": [
+      [
+        66,
+        7
+      ],
+      [
+        3,
+        32
+      ]
+    ]
+  },
+  "log_path": "outputs/metrics/ga_jobs/job_validacao_individual.jsonl"
+}
