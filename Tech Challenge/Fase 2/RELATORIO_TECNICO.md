@@ -184,7 +184,34 @@ O exemplo completo foi salvo em `code/outputs/reports/llm_explanation.md`.
 
 Essa decisao esta alinhada ao que foi visto nas aulas: treinar LLM do zero nao e viavel para este contexto; usar modelo pre-treinado com prompt engineering, controle de seguranca e avaliacao da resposta e o caminho adequado.
 
-## 7. Monitoramento e arquitetura
+## 7. API de inferencia
+
+Para aproximar o projeto de uma entrega executavel, foi adicionada uma API simples com FastAPI. A ideia nao foi criar um sistema hospitalar completo, mas expor o modelo de forma clara para demonstracao e para uma futura implantacao.
+
+A API possui quatro rotas principais:
+
+| Rota | Objetivo |
+| --- | --- |
+| `GET /health` | Verifica se a API esta ativa e se o modelo foi carregado. |
+| `GET /features` | Lista as features esperadas pelo modelo. |
+| `POST /predict` | Recebe dados numericos do paciente e retorna probabilidade estimada de SOP. |
+| `POST /explain` | Faz a predicao e gera uma explicacao com LLM. |
+| `GET /metrics` | Mostra contadores simples de uso, erros e latencia. |
+
+O contrato foi mantido propositalmente simples. A API recebe um JSON com as features numericas ja no formato usado pelo modelo:
+
+```json
+{
+  "features": {
+    " Age (yrs)": 28,
+    "Weight (Kg)": 62
+  }
+}
+```
+
+Na chamada real, o payload deve conter todas as 31 features listadas por `GET /features`. Caso alguma feature esteja ausente ou exista uma feature extra, a API retorna erro de validacao. Essa escolha evita colocar regras clinicas e limpeza de planilha dentro da camada HTTP, mantendo a API focada em inferencia.
+
+## 8. Monitoramento e arquitetura
 
 O projeto registra:
 
@@ -197,6 +224,10 @@ O projeto registra:
 - varredura de thresholds;
 - modelo final em `joblib`;
 - graficos em PNG.
+- logs de chamadas da API;
+- contadores de requisicoes, erros, latencia media e predicoes por classe.
+
+O monitoramento foi implementado de forma simples, em memoria, para atender ao objetivo academico sem adicionar banco de dados ou ferramentas externas. Em uma implantacao real, esses logs poderiam ser enviados para Cloud Logging, Datadog ou Prometheus.
 
 Arquitetura alvo cloud-ready:
 
@@ -219,12 +250,19 @@ flowchart LR
     J -->|openai/gemini| L[Modelo pre-treinado por API]
     K --> M[Avaliacao de seguranca]
     L --> M
-    M --> N[Relatorio de explicacao]
+    F --> N[API FastAPI]
+    M --> N
+    N --> Q[Logs e metricas]
+    N --> R[Container Docker]
+    R --> S[Cloud Run]
+    S --> T[Autoscaling HTTP]
 ```
 
-Em uma implantacao real, os experimentos poderiam ser executados como jobs independentes em Vertex AI, Azure ML ou SageMaker, com storage para datasets/modelos e logs centralizados.
+A configuracao cloud-ready foi feita com `Dockerfile` e `cloudrun-service.yaml`. O Cloud Run foi escolhido por ser uma forma direta de hospedar uma API HTTP com escalabilidade automatica: `minScale=0` reduz custo quando nao ha uso, e `maxScale=5` limita o crescimento para uma demonstracao controlada. As chaves de LLM nao ficam no repositorio; em um deploy real seriam configuradas como variaveis de ambiente ou secrets.
 
-## 8. Testes
+Em uma implantacao real, os experimentos de treinamento poderiam continuar como jobs independentes em Vertex AI, Azure ML ou SageMaker, enquanto a API ficaria responsavel apenas por inferencia e explicacao.
+
+## 9. Testes
 
 Foram criados testes automatizados para:
 
@@ -238,14 +276,18 @@ Foram criados testes automatizados para:
 - exigencia de chave no provider real;
 - suporte a OpenAI e Gemini como providers reais;
 - checagem de seguranca contra texto prescritivo.
+- endpoints da API;
+- validacao de payload de predicao;
+- metricas basicas da API;
+- explicacao via API usando provider mock.
 
 Resultado da suite:
 
 ```text
-12 passed
+18 passed
 ```
 
-## 9. Limitacoes
+## 10. Limitacoes
 
 As principais limitacoes permanecem:
 
@@ -255,13 +297,16 @@ As principais limitacoes permanecem:
 - risco de overfitting em otimizacao de hiperparametros;
 - calibracao de threshold avaliada no mesmo teste final, exigindo validacao externa antes de uso real;
 - dependencia de medidas de ultrassom;
+- API sem autenticacao, adequada para demonstracao local, nao para producao;
+- metricas em memoria, reiniciadas quando o processo reinicia;
+- configuracao Cloud Run preparada, mas sem deploy real nesta entrega;
 - LLM pode gerar texto inadequado se nao houver prompt e avaliacao de seguranca;
 - o sistema e apoio a triagem, nao ferramenta de diagnostico autonomo.
 
-## 10. Conclusao
+## 11. Conclusao
 
 A Fase 2 transformou o trabalho da Fase 1 em um projeto mais completo de experimentacao em IA. O algoritmo genetico foi implementado com os operadores estudados nas aulas e produziu uma configuracao competitiva. Na primeira rodada, o GA melhorou a validacao mas nao superou o melhor baseline no teste final, reforcando uma discussao importante em ciencia de dados: melhorar validacao nao garante ganho de generalizacao.
 
 A investigacao adicional mostrou uma melhoria concreta: a calibracao do threshold do Random Forest superou o baseline em acuracia e F1 positivo. Esse resultado tambem melhora a narrativa tecnica do projeto, porque demonstra que a evolucao do modelo nao depende apenas de hiperparametros; a regra de decisao final tambem precisa ser calibrada de acordo com o objetivo clinico.
 
-A integracao com LLM agregou valor na camada de interpretabilidade, desde que usada com restricoes claras e sem substituir julgamento medico. O projeto ficou mais reprodutivel, testavel e alinhado aos topicos da fase: algoritmos geneticos, PLN/LLMs, IA generativa, logging, avaliacao e arquitetura preparada para cloud.
+A integracao com LLM agregou valor na camada de interpretabilidade, desde que usada com restricoes claras e sem substituir julgamento medico. A API fechou a camada de entrega do modelo, com logs, metricas simples e configuracao para Cloud Run. Com isso, o projeto ficou mais reprodutivel, testavel e alinhado aos topicos da fase: algoritmos geneticos, PLN/LLMs, IA generativa, implantacao, logging, avaliacao e arquitetura preparada para cloud.
