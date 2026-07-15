@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import sys
 from pathlib import Path
@@ -26,7 +27,10 @@ from pcos_fase2.advanced_tuning import (
 from pcos_fase2.config import FIGURES_DIR, METRICS_DIR, ensure_output_dirs
 from pcos_fase2.data import prepare_data
 from pcos_fase2.evaluation import evaluate_classifier_with_threshold
+from pcos_fase2.logging_setup import configure_logging
 from pcos_fase2.models import train_baselines
+
+logger = logging.getLogger(__name__)
 
 
 THRESHOLDS = [0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70]
@@ -66,7 +70,9 @@ def run_threshold_sweep(models: dict[str, object], prepared) -> pd.DataFrame:
 
 
 def main() -> None:
+    configure_logging()
     ensure_output_dirs()
+    logger.info("Iniciando investigacao de tuning avancado.")
     prepared = prepare_data()
     baseline_models, baseline_metrics = train_baselines(prepared)
 
@@ -153,6 +159,7 @@ def main() -> None:
         print(f"{summary['experiment']}: {summary['best_model_family']} {summary['best_genes']}")
     print("\n=== Comparativo no teste ===")
     print(comparison.drop(columns=["confusion_matrix"], errors="ignore").to_string(index=False))
+    logger.info("Investigacao de tuning avancado concluida.")
 
 
 if __name__ == "__main__":

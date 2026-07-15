@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 import sys
 from pathlib import Path
 
@@ -11,11 +12,17 @@ sys.path.insert(0, str(PROJECT_CODE_DIR / "src"))
 from pcos_fase2.config import METRICS_DIR, ensure_output_dirs
 from pcos_fase2.data import prepare_data
 from pcos_fase2.evaluation import metrics_to_frame
+from pcos_fase2.logging_setup import configure_logging
 from pcos_fase2.models import train_baselines
+
+logger = logging.getLogger(__name__)
 
 
 def main() -> None:
+    configure_logging()
     ensure_output_dirs()
+    logger.info("Iniciando treinamento dos modelos baseline.")
+
     prepared = prepare_data()
     _, metrics = train_baselines(prepared)
 
@@ -27,6 +34,7 @@ def main() -> None:
     print("\n=== Baselines Fase 2 ===")
     print((display_frame * 100).round(2).to_string())
     print(f"\nMetricas salvas em: {output_path}")
+    logger.info("Treinamento dos modelos baseline concluido. Metricas salvas em %s.", output_path)
 
 
 if __name__ == "__main__":

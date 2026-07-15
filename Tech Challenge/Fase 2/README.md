@@ -16,6 +16,46 @@ A solucao evolui o classificador de SOP da Fase 1 com:
 - explicabilidade por feature importance e permutation importance;
 - explicacao em linguagem natural com LLM/mock seguro e providers reais.
 
+## Estrutura do projeto
+
+O codigo e um pacote Python modular, com ambiente virtual proprio e scripts separados por
+responsabilidade: preparacao de dados, modelos, algoritmo genetico, avaliacao,
+explicabilidade e integracao com LLM. Toda a execucao e local, sem dependencia de nuvem.
+
+```text
+Tech Challenge/Fase 2/
+├── README.md                    # este arquivo: execucao e resumo do projeto
+├── RELATORIO_TECNICO.md         # relatorio final da Fase 2
+├── data/
+│   └── PCOS_data_without_infertility.xlsx
+└── code/
+    ├── requirements.txt
+    ├── src/pcos_fase2/
+    │   ├── config.py            # caminhos, constantes e features geradas
+    │   ├── data.py               # limpeza, feature engineering e split
+    │   ├── models.py             # baselines e construcao de modelos
+    │   ├── genetic_optimizer.py  # algoritmo genetico (genes, selecao, crossover, mutacao)
+    │   ├── advanced_tuning.py    # investigacao adicional de tuning e threshold
+    │   ├── evaluation.py         # metricas, fitness e avaliacao
+    │   ├── explainability.py     # feature importance e permutation importance
+    │   ├── llm_explainer.py      # prompt, mock, OpenAI, Gemini, seguranca e qualidade
+    │   ├── experiment_tracking.py# tracking em arquivos e integracao com MLflow local
+    │   ├── scaling.py            # dimensionamento automatico de workers
+    │   └── logging_setup.py      # configuracao do logging de aplicacao
+    ├── scripts/
+    │   ├── run_baseline.py             # reproduz os baselines da Fase 1
+    │   ├── run_ga_experiments.py       # roda os 3 experimentos principais de GA
+    │   ├── run_ga_job.py               # roda um job individual de GA parametrizado
+    │   ├── run_ga_experiment_grid.py   # grade de jobs em paralelo com workers automaticos
+    │   ├── summarize_experiment_grid.py# consolida os resultados da grade
+    │   ├── run_advanced_tuning.py      # investigacao adicional (CV, threshold)
+    │   ├── finalize_ga_results.py      # consolida resultados principais e gera artefatos
+    │   ├── generate_llm_report.py      # gera a explicacao via LLM
+    │   └── run_full_pipeline.py        # orquestra o fluxo completo
+    ├── tests/                    # testes automatizados (25 testes)
+    └── outputs/                  # metricas, figuras, modelos, relatorios, logs e mlruns/
+```
+
 ## Como executar
 
 Entre na pasta de codigo:
@@ -55,10 +95,10 @@ python scripts/run_ga_job.py \
   --crossover-rate 0.7
 ```
 
-Execute uma grade de jobs em paralelo local:
+Execute uma grade de jobs em paralelo local (numero de workers dimensionado automaticamente):
 
 ```bash
-python scripts/run_ga_experiment_grid.py --workers 2 --quick
+python scripts/run_ga_experiment_grid.py --quick
 python scripts/summarize_experiment_grid.py
 ```
 
@@ -106,16 +146,23 @@ python -m pytest tests
 
 ## Escalabilidade e tracking
 
-O item de escalabilidade foi tratado como capacidade de executar treinamentos, testes e configuracoes de algoritmo genetico como jobs. Essa leitura segue o material de Desenvolvimento de ML na Cloud: scripts parametrizaveis, execucao de jobs, tracking de metricas e arquitetura que poderia ser levada para Azure ML, Vertex AI, SageMaker ou AutoML.
+O item de escalabilidade foi tratado como capacidade de executar treinamentos, testes e configuracoes de algoritmo genetico como jobs, seguindo a leitura do material de Desenvolvimento de ML na Cloud (`lucolivi/ml-cloud-materiais`): scripts parametrizaveis, jobs submetidos a um compute cluster e sweep jobs com limite de execucoes concorrentes. Nesse contexto, demanda corresponde ao volume de jobs de treinamento e experimentacao, e nao a trafego de inferencia.
 
-Nesta entrega, a simulacao e local e simples:
+A implementacao e local e roda inteiramente nesta maquina:
 
 - cada job recebe parametros pela linha de comando;
 - cada job salva um JSON com configuracao, tempo de execucao, melhor individuo, fitness, metricas e status;
-- cada job salva logs JSONL por geracao;
+- cada job salva logs JSONL por geracao e uma execucao correspondente no MLflow local (`code/mlruns/`); o registro nao depende de servidor, e a interface `mlflow ui` pode ser usada localmente apenas para visualizar os mesmos arquivos;
 - a consolidacao final gera CSV/JSON em `outputs/metrics`;
-- a grade de experimentos usa workers paralelos locais para representar a ideia de execucao distribuida;
-- o backend padrao usa threads por ser mais portavel; em ambientes sem restricao, `--backend process` tambem pode ser usado.
+- a grade de experimentos dimensiona o numero de workers automaticamente, a partir da quantidade de jobs pendentes e dos nucleos de CPU disponiveis (`--workers` continua disponivel como override manual);
+- o backend padrao usa threads por ser mais portavel; em ambientes sem restricao, `--backend process` tambem pode ser usado;
+- mensagens de inicio, fim e falha de cada execucao sao registradas em `outputs/logs/pipeline.log`.
+
+Para visualizar as execucoes registradas no MLflow local:
+
+```bash
+mlflow ui --backend-store-uri ./mlruns
+```
 
 ## Resultados
 
@@ -159,8 +206,8 @@ sequenceDiagram
     participant P as Pipeline de dados
     participant B as Baselines
     participant G as Grade de experimentos
-    participant W as Workers paralelos
-    participant T as Tracking local
+    participant W as Workers (dimensionamento automatico)
+    participant T as Tracking local (arquivos + MLflow)
     participant M as Melhor modelo
     participant L as LLM
     participant R as Relatorio final
@@ -168,8 +215,8 @@ sequenceDiagram
     D->>P: limpeza, features e split
     P->>B: treino dos modelos originais
     P->>G: configuracoes do algoritmo genetico
-    G->>W: dispara jobs parametrizados
-    W->>T: salva JSON, JSONL e metricas
+    G->>W: dispara jobs parametrizados, workers definidos por CPU/demanda
+    W->>T: salva JSON, JSONL, metricas e execucao MLflow
     T->>M: consolida ranking e escolhe melhor resultado
     M->>L: envia metricas e contexto para explicacao
     L->>R: gera interpretacao em linguagem natural
@@ -194,6 +241,8 @@ sequenceDiagram
 - `code/outputs/figures/feature_importance.png`
 - `code/outputs/figures/advanced_tuning_fitness.png`
 - `code/outputs/reports/llm_explanation.md`
+- `code/outputs/logs/pipeline.log`
+- `code/mlruns/` (tracking local em MLflow)
 
 ## Documentos
 
@@ -207,9 +256,10 @@ sequenceDiagram
 - [x] Reproduzir baselines.
 - [x] Implementar algoritmo genetico.
 - [x] Executar tres experimentos.
-- [x] Adicionar jobs parametrizados e grade paralela local.
+- [x] Adicionar jobs parametrizados e grade paralela local com dimensionamento automatico de workers.
 - [x] Executar tuning avancado separado.
-- [x] Gerar graficos, logs e metricas.
+- [x] Gerar graficos, metricas, logging de aplicacao e tracking MLflow local.
 - [x] Implementar explicacao com LLM/mock e providers reais.
+- [x] Avaliar qualidade das interpretacoes geradas pela LLM.
 - [x] Criar testes automatizados.
 - [x] Atualizar relatorio tecnico.

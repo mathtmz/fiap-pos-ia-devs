@@ -16,6 +16,8 @@ METRICS_DIR = OUTPUT_DIR / "metrics"
 MODELS_DIR = OUTPUT_DIR / "models"
 FIGURES_DIR = OUTPUT_DIR / "figures"
 REPORTS_DIR = OUTPUT_DIR / "reports"
+LOGS_DIR = OUTPUT_DIR / "logs"
+MLRUNS_DIR = CODE_DIR / "mlruns"
 
 EXCEL_PATH = DATA_DIR / "PCOS_data_without_infertility.xlsx"
 
@@ -36,5 +38,5 @@ BASELINE_MODELS = [
 
 def ensure_output_dirs() -> None:
     """Cria as pastas de saida usadas pelos scripts da Fase 2."""
-    for path in [METRICS_DIR, MODELS_DIR, FIGURES_DIR, REPORTS_DIR]:
+    for path in [METRICS_DIR, MODELS_DIR, FIGURES_DIR, REPORTS_DIR, LOGS_DIR]:
         path.mkdir(parents=True, exist_ok=True)

@@ -3,3 +3,5 @@ __pycache__/
 .pytest_cache/
 outputs/.matplotlib/
 outputs/figures/test_plot.png
+outputs/logs/
+mlruns/

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import ssl
+import unicodedata
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
@@ -13,6 +14,65 @@ import certifi
 SYSTEM_RULES = """Voce e um assistente de apoio a interpretacao de modelos de machine learning em saude.
 Nao forneca diagnostico definitivo, prescricao ou conduta medica.
 Explique os resultados como apoio a triagem clinica e recomende avaliacao profissional quando adequado."""
+
+
+# Mapeia cada coluna do dataset PCOS para termos clinicos equivalentes em
+# portugues. E usado para reconhecer que a LLM se referiu a um fator real do
+# modelo mesmo quando traduz ou parafraseia o nome tecnico da coluna, em vez
+# de citar o nome em ingles literalmente.
+FEATURE_SYNONYMS: dict[str, list[str]] = {
+    "Age (yrs)": ["idade"],
+    "Weight (Kg)": ["peso"],
+    "Height(Cm)": ["altura"],
+    "BMI": ["imc"],
+    "Pulse rate(bpm)": ["pulso", "frequencia cardiaca"],
+    "Hb(g/dl)": ["hemoglobina"],
+    "Cycle(R/I)": ["ciclo menstrual", "ciclo"],
+    "Cycle length(days)": ["duracao do ciclo", "ciclo"],
+    "Marraige Status (Yrs)": ["tempo de casamento", "casamento"],
+    "No. of aborptions": ["aborto"],
+    "LH(mIU/mL)": ["lh"],
+    "Hip(inch)": ["quadril"],
+    "Waist(inch)": ["cintura"],
+    "AMH(ng/mL)": ["amh"],
+    "Vit D3 (ng/mL)": ["vitamina d", "vit d"],
+    "Weight gain(Y/N)": ["ganho de peso"],
+    "hair growth(Y/N)": ["crescimento de pelo", "pelo", "hirsutismo"],
+    "Skin darkening (Y/N)": ["escurecimento da pele", "acantose"],
+    "Hair loss(Y/N)": ["queda de cabelo", "alopecia"],
+    "Pimples(Y/N)": ["acne", "espinha"],
+    "Fast food (Y/N)": ["fast food", "alimentacao"],
+    "Reg.Exercise(Y/N)": ["exercicio", "atividade fisica"],
+    "Follicle No. (L)": ["foliculo"],
+    "Follicle No. (R)": ["foliculo"],
+    "Avg. F size (L) (mm)": ["tamanho folicular", "tamanho do foliculo"],
+    "Avg. F size (R) (mm)": ["tamanho folicular", "tamanho do foliculo"],
+    "Endometrium (mm)": ["endometrio"],
+    "total_foliculos": ["foliculo"],
+    "soma_sintomas": ["sintoma"],
+    "faixa_imc": ["imc"],
+    "razao_lh_fsh": ["lh", "fsh"],
+}
+
+
+def _normalize_text(text: str) -> str:
+    """Remove acentuacao e normaliza para minusculas, para comparar termos em
+    portugues (ex.: "foliculo" vs "folículo") sem falso negativo por acento.
+    """
+    without_accents = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
+    return without_accents.lower()
+
+
+def _feature_terms(feature: str) -> list[str]:
+    """Retorna os termos aceitos para considerar que a LLM se referiu a uma
+    feature: o nome tecnico normalizado (fallback) e os sinonimos clinicos
+    conhecidos, quando existentes.
+    """
+    normalized_feature = feature.strip()
+    synonyms = FEATURE_SYNONYMS.get(normalized_feature)
+    if synonyms:
+        return synonyms
+    return [normalized_feature]
 
 
 @dataclass(frozen=True)
@@ -73,6 +133,40 @@ Limitacoes:
 
 Recomendacao de uso seguro:
 Use o resultado como sinal de triagem para apoiar conversa clinica e eventual investigacao adicional com profissional de saude."""
+
+
+def evaluate_response_quality(request: LLMExplanationRequest, response: str) -> dict[str, bool]:
+    """Avalia a qualidade da explicacao gerada, em complemento a checagem de
+    seguranca feita por `evaluate_response_safety`.
+
+    Este e um criterio automatico e objetivo, pensado para revisao humana
+    posterior: confere se a resposta e consistente com os dados enviados na
+    requisicao e se cobre a estrutura pedida no prompt, sem exigir uma
+    segunda chamada de LLM como avaliador.
+    """
+    lowered = response.lower()
+    normalized_response = _normalize_text(response)
+
+    expected_probability_dot = f"{request.probability_pcos:.1%}".lower()
+    expected_probability_comma = expected_probability_dot.replace(".", ",")
+    numeric_consistency = (
+        expected_probability_dot in lowered or expected_probability_comma in lowered
+    )
+
+    expected_sections = ["resumo", "fatores", "limita", "recomend"]
+    covers_expected_sections = all(section in lowered for section in expected_sections)
+
+    mentions_top_features = any(
+        _normalize_text(term) in normalized_response
+        for feature in request.top_features
+        for term in _feature_terms(feature)
+    )
+
+    return {
+        "numeric_consistency": numeric_consistency,
+        "covers_expected_sections": covers_expected_sections,
+        "mentions_top_features": mentions_top_features,
+    }
 
 
 def evaluate_response_safety(response: str) -> dict[str, bool]:

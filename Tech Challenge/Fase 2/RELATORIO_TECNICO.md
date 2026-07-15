@@ -121,21 +121,22 @@ O resultado mostra que o algoritmo genetico encontrou uma configuracao forte na 
 
 ## 5. Escalabilidade de experimentos e tracking
 
-Depois de revisar o enunciado e as aulas de Desenvolvimento de ML na Cloud, a escalabilidade foi tratada como execucao de treinamentos, testes e configuracoes em escala, nao como uma camada HTTP de inferencia. Essa leitura esta mais alinhada com AutoML, hyperparameter tuning e execucao de jobs apresentados nas aulas.
+O enunciado pede recursos de escalabilidade automatica para lidar com variacoes de demanda, alem de monitoramento e logging para tracking de desempenho. A interpretacao adotada para esses dois itens seguiu o material da disciplina de Desenvolvimento de ML na Cloud (repositorio `lucolivi/ml-cloud-materiais`), no qual a nocao de escalabilidade nao aparece como uma API HTTP de serving, e sim como execucao de jobs de treinamento e ajuste de hiperparametros: scripts parametrizaveis com `argparse`, jobs submetidos a um compute cluster e `sweep jobs` com `max_concurrent_trials` limitando o paralelismo conforme o numero de tentativas e a capacidade do cluster. Nesse contexto, demanda corresponde ao volume de jobs de treinamento e experimentacao, nao ao trafego de inferencia.
 
-A abordagem implementada segue quatro ideias:
+A implementacao local reproduz essa logica sem depender de nuvem:
 
-- scripts parametrizaveis, como nos exemplos de treinamento das aulas;
+- scripts parametrizaveis, como nos exemplos de treinamento do material de referencia;
 - execucao de jobs independentes para diferentes configuracoes do algoritmo genetico;
-- grade de experimentos em paralelo local, simulando workers;
-- tracking de metricas em arquivos JSON, JSONL e CSV.
+- grade de experimentos em paralelo local, com dimensionamento automatico do numero de workers a partir da quantidade de jobs pendentes e dos nucleos de CPU disponiveis (`pcos_fase2.scaling.auto_worker_count`), em vez de um numero fixo definido manualmente. Essa logica reproduz, em escala local, o comportamento de um compute cluster que ajusta a quantidade de instancias ativas conforme a fila de jobs;
+- tracking de metricas em arquivos JSON, JSONL e CSV, complementado por MLflow com backend em arquivo local (`code/mlruns/`), na mesma linha do uso de `mlflow.log_param`/`mlflow.log_metric` demonstrado no material de referencia. O registro das execucoes nao depende de nenhum servidor; a interface `mlflow ui` e usada apenas como visualizador local e opcional dos mesmos arquivos;
+- logging de aplicacao com o modulo `logging` do Python, registrando inicio, fim e falhas de cada execucao em `outputs/logs/pipeline.log`.
 
 Foram adicionados scripts especificos para esse fluxo:
 
 | Script | Papel |
 | --- | --- |
-| `run_ga_job.py` | Executa um experimento de GA com parametros de linha de comando. |
-| `run_ga_experiment_grid.py` | Executa uma grade de jobs em paralelo local. |
+| `run_ga_job.py` | Executa um experimento de GA com parametros de linha de comando e registra o resultado no MLflow local. |
+| `run_ga_experiment_grid.py` | Executa uma grade de jobs em paralelo local, com numero de workers definido automaticamente por padrao. |
 | `summarize_experiment_grid.py` | Consolida os resultados dos jobs em CSV/JSON. |
 | `run_full_pipeline.py` | Orquestra o fluxo completo da Fase 2. |
 
@@ -147,9 +148,8 @@ Cada job salva:
 - melhor individuo;
 - melhor fitness;
 - metricas de validacao;
-- log JSONL por geracao.
-
-Essa estrutura e simples, mas representa bem o que seria levado para uma plataforma como Azure ML, Vertex AI, SageMaker ou um fluxo de AutoML: cada configuracao vira um job, os jobs rodam em paralelo e os resultados sao consolidados para escolha do melhor modelo.
+- log JSONL por geracao;
+- execucao correspondente no MLflow local, com parametros, metricas e o log JSONL como artefato.
 
 ## 6. Investigacao adicional de tuning
 
@@ -210,7 +210,31 @@ Tambem foi executada uma chamada real com Gemini. A resposta explicou um caso de
 
 O exemplo completo foi salvo em `code/outputs/reports/llm_explanation.md`.
 
-## 8. Arquitetura da solucao
+Alem da checagem de seguranca, foi implementada uma avaliacao de qualidade da explicacao (`evaluate_response_quality`), distinta da checagem de seguranca e voltada a verificar se a resposta e coerente com os dados enviados a LLM e com a estrutura pedida no prompt:
+
+- consistencia numerica: a probabilidade prevista informada na requisicao aparece corretamente na resposta;
+- cobertura das secoes pedidas no prompt: resumo clinico, fatores principais, limitacoes e recomendacao de uso seguro;
+- ausencia de fatores inventados: pelo menos um dos fatores globais reais do modelo e mencionado na resposta.
+
+Exemplos avaliados com esse criterio:
+
+| Exemplo | Consistencia numerica | Cobertura das secoes | Menciona fatores reais |
+| --- | :---: | :---: | :---: |
+| Resposta mock (paciente de exemplo) | Sim | Sim | Sim |
+| Resposta real via Gemini (paciente de exemplo) | Sim | Sim | Sim |
+| Resposta truncada, sem secao de limitacoes (caso de controle negativo) | Sim | Nao | Sim |
+
+O terceiro exemplo foi construido deliberadamente sem a secao de limitacoes para validar que o criterio de cobertura de secoes rejeita respostas incompletas.
+
+## 8. Desafios enfrentados e solucoes implementadas
+
+- **GA nao superou o baseline no teste final**: a configuracao encontrada pelo algoritmo genetico teve o melhor fitness na validacao interna, mas ficou abaixo do Random Forest baseline no conjunto de teste. Em vez de forcar uma configuracao vencedora, o resultado foi mantido e discutido como evidencia de ajuste a validacao sem ganho de generalizacao, tema relevante em bases pequenas como a usada neste projeto. A investigacao adicional de tuning (secao 6) buscou uma alternativa mais robusta, que veio da calibracao de threshold.
+- **Interpretacao do requisito de escalabilidade automatica**: o enunciado nao especifica se a escalabilidade deveria ser tratada como serving ou como experimentacao/treinamento. A solucao adotada foi fundamentar a decisao no material de referencia da disciplina de ML na Cloud (secao 5), que trata escalabilidade como jobs de treinamento em paralelo, e implementar o dimensionamento automatico de workers, evitando um parametro fixo definido manualmente.
+- **Ausencia de ferramenta de tracking dedicada**: a primeira versao do projeto usava apenas arquivos JSON/JSONL/CSV para tracking. Essa abordagem foi complementada com MLflow em modo local, alinhando o projeto a ferramenta usada no material de referencia sem introduzir dependencia de servidor ou de nuvem.
+- **Avaliacao de qualidade da explicacao gerada por LLM**: a checagem inicial cobria apenas seguranca (ausencia de linguagem prescritiva). Foi adicionado um criterio de qualidade separado, descrito na secao 7, para verificar consistencia numerica e cobertura da estrutura pedida no prompt. A primeira versao desse criterio gerou falsos negativos na resposta real do Gemini: a probabilidade foi escrita com virgula decimal ("3,2%", formato correto em portugues) em vez de ponto, e os fatores do modelo foram traduzidos para termos clinicos em portugues ("contagem de foliculos", "crescimento de pelo") em vez de repetir o nome tecnico da coluna em ingles. O criterio foi ajustado para aceitar os dois formatos de separador decimal e para reconhecer sinonimos clinicos das colunas do dataset, evitando penalizar uma resposta que estava correta e apenas mais natural para o publico medico.
+- **Uso de dataset pequeno em otimizacao de hiperparametros**: com 541 pacientes, ha risco de overfitting na busca evolutiva. A funcao de fitness (secao 3) inclui penalidade explicita para a diferenca entre metricas de treino e validacao, reduzindo esse risco sem eliminar a limitacao.
+
+## 9. Arquitetura da solucao
 
 ```mermaid
 sequenceDiagram
@@ -218,8 +242,8 @@ sequenceDiagram
     participant P as Pipeline de dados
     participant B as Baselines
     participant G as Grade de experimentos
-    participant W as Workers paralelos
-    participant T as Tracking local
+    participant W as Workers (dimensionamento automatico)
+    participant T as Tracking local (arquivos + MLflow)
     participant M as Melhor modelo
     participant L as LLM
     participant R as Relatorio final
@@ -227,17 +251,17 @@ sequenceDiagram
     D->>P: limpeza, features e split
     P->>B: treino dos modelos originais
     P->>G: configuracoes do algoritmo genetico
-    G->>W: dispara jobs parametrizados
-    W->>T: salva JSON, JSONL e metricas
+    G->>W: dispara jobs parametrizados, workers definidos por CPU/demanda
+    W->>T: salva JSON, JSONL, metricas e execucao MLflow
     T->>M: consolida ranking e escolhe melhor resultado
     M->>L: envia metricas e contexto para explicacao
     L->>R: gera interpretacao em linguagem natural
     T->>R: adiciona resultados e comparativos
 ```
 
-Em uma implantacao real, o mesmo desenho poderia ser executado como jobs independentes em Azure ML, Vertex AI ou SageMaker. Tambem poderia ser comparado com AutoML para testar outras combinacoes de modelos e hiperparametros. Nesta entrega, mantivemos a execucao local para evitar complexidade de infraestrutura e focar nos conceitos.
+O desenho reproduz localmente o padrao de execucao de jobs parametrizados e tracking apresentado no material de referencia da disciplina de ML na Cloud (secao 5), com toda a execucao mantida neste ambiente local, sem provisionamento de infraestrutura externa.
 
-## 9. Testes
+## 10. Testes
 
 Foram criados testes automatizados para:
 
@@ -250,15 +274,19 @@ Foram criados testes automatizados para:
 - resposta mock da LLM;
 - exigencia de chave no provider real;
 - suporte a OpenAI e Gemini como providers reais;
-- checagem de seguranca contra texto prescritivo.
+- checagem de seguranca contra texto prescritivo;
+- avaliacao de qualidade da explicacao gerada pela LLM;
+- dimensionamento automatico de workers (`auto_worker_count`);
+- integracao com MLflow local (parametros, metricas e artefatos);
+- configuracao de logging de aplicacao.
 
 Resultado esperado da suite:
 
 ```text
-12 passed
+25 passed
 ```
 
-## 10. Limitacoes
+## 11. Limitacoes
 
 As principais limitacoes permanecem:
 
@@ -267,12 +295,13 @@ As principais limitacoes permanecem:
 - dados historicos, sem validacao prospectiva;
 - risco de overfitting em otimizacao de hiperparametros;
 - calibracao de threshold avaliada no mesmo teste final, exigindo validacao externa antes de uso real;
-- execucao paralela simulada localmente, sem provisionamento real em cloud;
-- tracking em arquivos locais, sem MLflow ou servico gerenciado;
+- o dimensionamento automatico de workers e limitado aos nucleos de CPU disponiveis nesta maquina local, sem elasticidade real de infraestrutura;
+- tracking combina arquivos locais e MLflow com backend em arquivo, sem servidor de tracking remoto nem versionamento centralizado de modelos;
+- avaliacao de qualidade da LLM e automatica e baseada em regras, sem revisao clinica formal das respostas;
 - LLM pode gerar texto inadequado se nao houver prompt e avaliacao de seguranca;
 - o sistema e apoio a triagem, nao ferramenta de diagnostico autonomo.
 
-## 11. Conclusao
+## 12. Conclusao
 
 A Fase 2 transformou o trabalho da Fase 1 em um projeto mais completo de experimentacao em IA. O algoritmo genetico foi implementado com os operadores estudados nas aulas e produziu uma configuracao competitiva. Na primeira rodada, o GA melhorou a validacao mas nao superou o melhor baseline no teste final, reforcando uma discussao importante em ciencia de dados: melhorar validacao nao garante ganho de generalizacao.
 

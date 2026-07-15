@@ -11,7 +11,12 @@ sys.path.insert(0, str(PROJECT_CODE_DIR / "src"))
 from pcos_fase2.config import MODELS_DIR, REPORTS_DIR, ensure_output_dirs
 from pcos_fase2.data import prepare_data
 from pcos_fase2.explainability import build_patient_explanation_payload, feature_importance_frame
-from pcos_fase2.llm_explainer import LLMExplanationRequest, build_prompt, generate_explanation
+from pcos_fase2.llm_explainer import (
+    LLMExplanationRequest,
+    build_prompt,
+    evaluate_response_quality,
+    generate_explanation,
+)
 
 
 def main() -> None:
@@ -45,6 +50,7 @@ def main() -> None:
     )
     prompt = build_prompt(request)
     response, safety = generate_explanation(request)
+    quality = evaluate_response_quality(request, response)
 
     report = f"""# Explicacao com LLM - Exemplo de Paciente
 
@@ -61,6 +67,10 @@ def main() -> None:
 ## Checagem de seguranca
 
 {safety}
+
+## Avaliacao de qualidade
+
+{quality}
 """
     output_path = REPORTS_DIR / "llm_explanation.md"
     output_path.write_text(report, encoding="utf-8")

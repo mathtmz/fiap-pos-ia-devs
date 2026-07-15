@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import os
 import sys
 import time
@@ -14,11 +15,13 @@ sys.path.insert(0, str(PROJECT_CODE_DIR / "src"))
 
 from pcos_fase2.config import METRICS_DIR, ensure_output_dirs
 from pcos_fase2.data import prepare_data
-from pcos_fase2.experiment_tracking import write_json
+from pcos_fase2.experiment_tracking import log_run_to_mlflow, write_json
 from pcos_fase2.genetic_optimizer import GeneticExperimentConfig, run_genetic_experiment
+from pcos_fase2.logging_setup import configure_logging
 
 
 JOB_DIR = METRICS_DIR / "ga_jobs"
+logger = logging.getLogger(__name__)
 
 
 def parse_args() -> argparse.Namespace:
@@ -38,6 +41,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def run_job(params: dict[str, Any]) -> dict[str, Any]:
+    configure_logging()
     ensure_output_dirs()
     JOB_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -52,6 +56,7 @@ def run_job(params: dict[str, Any]) -> dict[str, Any]:
         patience=int(params.get("patience", 8)),
     )
 
+    logger.info("Iniciando job de GA '%s'.", config.name)
     started = time.perf_counter()
     summary_path = JOB_DIR / f"{config.name}.json"
     log_path = JOB_DIR / f"{config.name}.jsonl"
@@ -66,24 +71,38 @@ def run_job(params: dict[str, Any]) -> dict[str, Any]:
             random_state=int(params.get("random_state", 42)),
         )
         best = result.best_individual
+        job_config = {
+            "population_size": config.population_size,
+            "generations": config.generations,
+            "mutation_rate": config.mutation_rate,
+            "crossover_rate": config.crossover_rate,
+            "elitism_rate": config.elitism_rate,
+            "tournament_size": config.tournament_size,
+            "patience": config.patience,
+        }
         payload = {
             "status": "success",
             "experiment": config.name,
-            "config": {
-                "population_size": config.population_size,
-                "generations": config.generations,
-                "mutation_rate": config.mutation_rate,
-                "crossover_rate": config.crossover_rate,
-                "elitism_rate": config.elitism_rate,
-                "tournament_size": config.tournament_size,
-                "patience": config.patience,
-            },
+            "config": job_config,
             "elapsed_seconds": round(time.perf_counter() - started, 3),
             "best_fitness": best.fitness,
             "best_genes": best.genes,
             "validation_metrics": best.validation_metrics.as_dict(),
             "log_path": str(log_path.relative_to(PROJECT_CODE_DIR)),
         }
+        log_run_to_mlflow(
+            experiment_name="ga_jobs",
+            run_name=config.name,
+            params=job_config,
+            metrics={"best_fitness": best.fitness, **best.validation_metrics.as_dict()},
+            artifact_paths=[log_path],
+        )
+        logger.info(
+            "Job de GA '%s' concluido em %.2fs (fitness=%.4f).",
+            config.name,
+            payload["elapsed_seconds"],
+            best.fitness,
+        )
     except Exception as error:
         payload = {
             "status": "error",
@@ -92,6 +111,7 @@ def run_job(params: dict[str, Any]) -> dict[str, Any]:
             "elapsed_seconds": round(time.perf_counter() - started, 3),
             "error": str(error),
         }
+        logger.error("Job de GA '%s' falhou: %s", config.name, error)
 
     write_json(summary_path, payload)
     return payload
