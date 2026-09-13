@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-09-13",
+  "policy": "O demo usa somente documentos sintéticos. MedQuAD e PubMedQA não são redistribuídos nem baixados automaticamente.",
+  "external_sources_planned": [
+    {
+      "name": "MedQuAD",
+      "version": "a fixar antes do download",
+      "license": "verificar na origem",
+      "status": "not_downloaded"
+    },
+    {
+      "name": "PubMedQA",
+      "version": "a fixar antes do download",
+      "license": "verificar na origem",
+      "status": "not_downloaded"
+    }
+  ],
+  "local_sources": [
+    {
+      "source_id": "SYN-PROTO-001",
+      "title": "Protocolo fictício de triagem SOP",
+      "version": "2026.1-ficticio"
+    },
+    {
+      "source_id": "SYN-PROTO-002",
+      "title": "Checklist fictício de pendências",
+      "version": "2026.1-ficticio"
+    },
+    {
+      "source_id": "SYN-FAQ-001",
+      "title": "FAQ fictícia: limites do assistente",
+      "version": "2026.1-ficticio"
+    },
+    {
+      "source_id": "SYN-REPORT-001",
+      "title": "Modelo fictício de laudo",
+      "version": "2026.1-ficticio"
+    }
+  ]
+}
