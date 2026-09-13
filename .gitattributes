@@ -1,0 +1,7 @@
+# Arquivos didáticos binários: preservar sem validação/conversão textual.
+*.pdf binary
+*.pptx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
