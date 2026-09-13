@@ -1,0 +1,6 @@
+{
+  "precision_at_3": 0.3333333333333333,
+  "recall_at_3": 1.0,
+  "mrr": 0.5,
+  "note": "M\u00e9tricas do corpus sint\u00e9tico m\u00ednimo; n\u00e3o s\u00e3o desempenho cl\u00ednico."
+}
