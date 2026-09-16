@@ -15,3 +15,12 @@ __pycache__/
 # Arquivos temporários
 *.tmp
 *.log
+
+# Fase 3 QLoRA checkpoints/cache generated locally
+Tech Challenge/Fase 3/code/outputs/lora_adapter/checkpoints/
+Tech Challenge/Fase 3/code/outputs/fase3_lora_adapter_bundle.zip
+
+# Artefatos de revisão e apresentação gerados localmente
+Tech Challenge/Fase 3/.codex-ppt-review/
+Tech Challenge/Fase 3/output/
+tmp/

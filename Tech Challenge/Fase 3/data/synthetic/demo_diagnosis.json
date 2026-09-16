@@ -1,0 +1,10 @@
+{
+  "example_id": "DEMO-DX-001",
+  "fictional": true,
+  "demo_only": true,
+  "not_for_triage": true,
+  "title": "Exemplo didático de hipótese diagnóstica",
+  "case_vignette": "Vinheta separada dos registros: pessoa adulta relata ciclos irregulares e acne. Não há avaliação clínica nem resultados de exames apresentados neste exemplo.",
+  "mock_output": "Hipótese demonstrativa fictícia: síndrome dos ovários policísticos (SOP).",
+  "disclaimer": "O rótulo foi escrito manualmente apenas para demonstrar a apresentação de uma hipótese. Ele não foi inferido pelo assistente, não está associado a nenhum registro selecionado e não constitui avaliação clínica. Em uma situação real, o médico responsável deve avaliar e validar qualquer hipótese e mantém a decisão diagnóstica final."
+}

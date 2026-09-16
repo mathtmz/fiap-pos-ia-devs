@@ -1,1 +1,1 @@
-600 exemplos sintéticos: 420 treino, 90 validação, 90 teste. Uso: formato, tom, limites e recusa; nunca fatos clínicos mutáveis.
+600 exemplos sintéticos variados: 420 treino, 90 validação e 90 teste. O conjunto ensina formato, tom, segurança, rastreabilidade e abstinência; não contém prontuários nem fatos clínicos mutáveis.
