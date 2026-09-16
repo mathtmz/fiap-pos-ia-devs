@@ -1,0 +1,42 @@
+{
+  "created_at_utc": "2026-09-15T21:15:56.653579+00:00",
+  "synthetic_data_only": true,
+  "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+  "config": {
+    "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+    "epochs": 2,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "max_length": 1024,
+    "use_qlora": true
+  },
+  "dataset_sizes": {
+    "train": 420,
+    "validation": 90,
+    "test": 90
+  },
+  "train_metrics": {
+    "train_runtime": 409.2112,
+    "train_samples_per_second": 2.053,
+    "train_steps_per_second": 0.259,
+    "total_flos": 370639108730880.0,
+    "train_loss": 2.767061305495928,
+    "epoch": 2.0
+  },
+  "validation_metrics": {
+    "validation_loss": 2.607795000076294,
+    "validation_runtime": 14.4825,
+    "validation_samples_per_second": 6.214,
+    "validation_steps_per_second": 6.214,
+    "epoch": 2.0
+  },
+  "test_metrics": {
+    "test_loss": 2.4071435928344727,
+    "test_runtime": 14.8199,
+    "test_samples_per_second": 6.073,
+    "test_steps_per_second": 6.073,
+    "epoch": 2.0
+  },
+  "device": "cuda",
+  "note": "Losses são métricas de engenharia do conjunto sintético, não validação clínica."
+}

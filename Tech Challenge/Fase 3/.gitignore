@@ -2,4 +2,9 @@ code/outputs/audit.jsonl
 code/__pycache__/
 code/**/__pycache__/
 code/.pytest_cache/
+code/.pytest-tmp/
+code/pytest-cache-files-*/
+.tmp-pytest/
 .env
+code/.venv/
+code/outputs/lora_adapter/checkpoints/

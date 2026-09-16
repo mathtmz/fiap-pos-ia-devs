@@ -1,40 +1,109 @@
 {
-  "generated_at": "2026-09-13",
-  "policy": "O demo usa somente documentos sintéticos. MedQuAD e PubMedQA não são redistribuídos nem baixados automaticamente.",
-  "external_sources_planned": [
+  "generated_at": "2026-09-15",
+  "policy": "Corpus local: quatro notas internas de demonstração e resumos parafraseados de fontes institucionais oficiais. Nenhum dataset externo ou documento integral é redistribuído.",
+  "clinical_validation": "Todos os resumos locais têm clinical_validated=false e supports_individual_decisions=false. A autoridade da fonte original é registrada separadamente da revisão clínica do resumo; a referência não autoriza decisão individual.",
+  "source_review": "URLs, emissores, edições e metadados foram conferidos em 2026-09-15. O portal Monash aponta PDF de junho de 2026, mas seu texto integral não foi incorporado ao corpus; os resumos clínicos internacionais abaixo são da recomendação de 2023.",
+  "external_sources": [
     {
-      "name": "MedQuAD",
-      "version": "a fixar antes do download",
-      "license": "verificar na origem",
-      "status": "not_downloaded"
+      "source_id": "BR-MS-PCDT-SOP-2019",
+      "title": "PCDT brasileiro: Síndrome de Ovários Policísticos",
+      "publisher": "Ministério da Saúde / CONITEC",
+      "published": "2019-07-02",
+      "source_url": "https://www.gov.br/saude/pt-br/assuntos/pcdt/s/sindrome-de-ovarios-policisticos/view",
+      "document_url": null,
+      "review_status": "fonte oficial conferida; resumo local não revisado por profissional de saúde"
     },
     {
-      "name": "PubMedQA",
-      "version": "a fixar antes do download",
-      "license": "verificar na origem",
-      "status": "not_downloaded"
+      "source_id": "INT-ASRM-PMOS-2023-ADULT",
+      "title": "Diretriz internacional 2023: critérios em adultas",
+      "publisher": "Monash University e organizações parceiras; página da ASRM",
+      "published": "2023",
+      "source_url": "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-from-the-2023-international-evidence-based-guideline-for-the-assessment-and-management-of-polyendocrine-metabolic-ovarian-syndrome-2023/",
+      "document_url": null,
+      "review_status": "fonte profissional primária conferida; resumo local não revisado por profissional de saúde"
+    },
+    {
+      "source_id": "INT-ASRM-PMOS-2023-ADOLESCENT",
+      "title": "Diretriz internacional 2023: cuidados na adolescência",
+      "publisher": "Monash University e organizações parceiras; página da ASRM",
+      "published": "2023",
+      "source_url": "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-from-the-2023-international-evidence-based-guideline-for-the-assessment-and-management-of-polyendocrine-metabolic-ovarian-syndrome-2023/",
+      "document_url": null,
+      "review_status": "fonte profissional primária conferida; resumo local não revisado por profissional de saúde"
+    },
+    {
+      "source_id": "INT-ASRM-PMOS-2023-EVIDENCE",
+      "title": "Diretriz internacional 2023: força e limites da evidência",
+      "publisher": "Monash University e organizações parceiras; página da ASRM",
+      "published": "2023",
+      "source_url": "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-from-the-2023-international-evidence-based-guideline-for-the-assessment-and-management-of-polyendocrine-metabolic-ovarian-syndrome-2023/",
+      "document_url": null,
+      "review_status": "fonte profissional primária conferida; resumo local não revisado por profissional de saúde"
+    },
+    {
+      "source_id": "MONASH-PMOS-GUIDELINE-2026-PORTAL",
+      "title": "Portal da diretriz internacional PMOS: versão vigente",
+      "publisher": "Monash Centre for Health Research and Implementation (MCHRI)",
+      "published": "2026-06-12",
+      "source_url": "https://www.monash.edu/medicine/mchri/pcos/guideline",
+      "document_url": "https://www.monash.edu/__data/assets/pdf_file/0009/4360095/Updated-PMOS-Guideline-12-June26.pdf",
+      "review_status": "portal e metadados verificados; texto integral de 2026 não incorporado ao corpus"
     }
   ],
   "local_sources": [
     {
       "source_id": "SYN-PROTO-001",
-      "title": "Protocolo fictício de triagem SOP",
-      "version": "2026.1-ficticio"
+      "title": "Protocolo de triagem SOP",
+      "version": "2026.1",
+      "source_type": "nota interna de demonstração"
     },
     {
       "source_id": "SYN-PROTO-002",
-      "title": "Checklist fictício de pendências",
-      "version": "2026.1-ficticio"
+      "title": "Checklist de pendências",
+      "version": "2026.1",
+      "source_type": "nota interna de demonstração"
     },
     {
       "source_id": "SYN-FAQ-001",
-      "title": "FAQ fictícia: limites do assistente",
-      "version": "2026.1-ficticio"
+      "title": "FAQ: limites do assistente",
+      "version": "2026.1",
+      "source_type": "nota interna de demonstração"
     },
     {
       "source_id": "SYN-REPORT-001",
-      "title": "Modelo fictício de laudo",
-      "version": "2026.1-ficticio"
+      "title": "Modelo de laudo e rastreabilidade",
+      "version": "2026.1",
+      "source_type": "nota interna de demonstração"
+    },
+    {
+      "source_id": "BR-MS-PCDT-SOP-2019",
+      "title": "PCDT brasileiro: Síndrome de Ovários Policísticos",
+      "version": "Portaria Conjunta nº 6/2019; página oficial verificada em 2026-09-15",
+      "source_type": "protocolo clínico oficial"
+    },
+    {
+      "source_id": "INT-ASRM-PMOS-2023-ADULT",
+      "title": "Diretriz internacional 2023: critérios em adultas",
+      "version": "2023; artigo de recomendações hospedado pela ASRM",
+      "source_type": "recomendação internacional baseada em evidências"
+    },
+    {
+      "source_id": "INT-ASRM-PMOS-2023-ADOLESCENT",
+      "title": "Diretriz internacional 2023: cuidados na adolescência",
+      "version": "2023; artigo de recomendações hospedado pela ASRM",
+      "source_type": "recomendação internacional baseada em evidências"
+    },
+    {
+      "source_id": "INT-ASRM-PMOS-2023-EVIDENCE",
+      "title": "Diretriz internacional 2023: força e limites da evidência",
+      "version": "2023; artigo de recomendações hospedado pela ASRM",
+      "source_type": "recomendação internacional baseada em evidências"
+    },
+    {
+      "source_id": "MONASH-PMOS-GUIDELINE-2026-PORTAL",
+      "title": "Portal da diretriz internacional PMOS: versão vigente",
+      "version": "portal consultado em 2026-09-15; diretriz atualizada em junho de 2026",
+      "source_type": "portal institucional da diretriz"
     }
   ]
 }
