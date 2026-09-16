@@ -1,6 +1,619 @@
 {
-  "precision_at_3": 0.3333333333333333,
-  "recall_at_3": 1.0,
-  "mrr": 0.5,
-  "note": "M\u00e9tricas do corpus sint\u00e9tico m\u00ednimo; n\u00e3o s\u00e3o desempenho cl\u00ednico."
+  "metrics": {
+    "k": 3,
+    "case_count": 44,
+    "precision_at_3": 0.32575757575757575,
+    "recall_at_3": 0.9431818181818182,
+    "mrr": 0.8787878787878788,
+    "retriever": "weighted lexical cosine over text, titles, and curated keywords",
+    "note": "Avaliação de recuperação de engenharia sobre notas de demonstração e resumos parafraseados de fontes oficiais; não representa desempenho clínico nem valida os resumos para decisões individuais."
+  },
+  "per_case": [
+    {
+      "id": "EVAL-001",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "BR-MS-PCDT-SOP-2019",
+        "SYN-REPORT-001"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-002",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "BR-MS-PCDT-SOP-2019"
+      ],
+      "relevant_source_ids": [
+        "SYN-FAQ-001",
+        "SYN-PROTO-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-003",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "BR-MS-PCDT-SOP-2019",
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-004",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "SYN-PROTO-002",
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-005",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL",
+        "SYN-REPORT-001"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-006",
+      "retrieved_source_ids": [
+        "SYN-PROTO-002"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-002"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-007",
+      "retrieved_source_ids": [
+        "SYN-PROTO-002",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "SYN-FAQ-001"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-002"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-008",
+      "retrieved_source_ids": [
+        "SYN-PROTO-002",
+        "SYN-FAQ-001"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-002"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-009",
+      "retrieved_source_ids": [
+        "SYN-PROTO-002"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-002"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-010",
+      "retrieved_source_ids": [
+        "SYN-PROTO-002",
+        "SYN-FAQ-001",
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-002"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-011",
+      "retrieved_source_ids": [
+        "SYN-FAQ-001",
+        "INT-ASRM-PMOS-2023-EVIDENCE",
+        "SYN-PROTO-002"
+      ],
+      "relevant_source_ids": [
+        "SYN-FAQ-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-012",
+      "retrieved_source_ids": [
+        "SYN-FAQ-001",
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "relevant_source_ids": [
+        "SYN-FAQ-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-013",
+      "retrieved_source_ids": [
+        "BR-MS-PCDT-SOP-2019",
+        "SYN-PROTO-001"
+      ],
+      "relevant_source_ids": [
+        "SYN-FAQ-001",
+        "SYN-PROTO-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 0.5,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "EVAL-014",
+      "retrieved_source_ids": [
+        "SYN-REPORT-001",
+        "INT-ASRM-PMOS-2023-EVIDENCE"
+      ],
+      "relevant_source_ids": [
+        "SYN-FAQ-001"
+      ],
+      "precision_at_k": 0.0,
+      "recall_at_k": 0.0,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "id": "EVAL-015",
+      "retrieved_source_ids": [
+        "SYN-FAQ-001",
+        "SYN-REPORT-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "SYN-FAQ-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-016",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "SYN-REPORT-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "SYN-REPORT-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "EVAL-017",
+      "retrieved_source_ids": [
+        "SYN-REPORT-001",
+        "SYN-PROTO-002",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "SYN-REPORT-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-018",
+      "retrieved_source_ids": [
+        "SYN-REPORT-001"
+      ],
+      "relevant_source_ids": [
+        "SYN-REPORT-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-019",
+      "retrieved_source_ids": [
+        "SYN-REPORT-001",
+        "INT-ASRM-PMOS-2023-EVIDENCE"
+      ],
+      "relevant_source_ids": [
+        "SYN-REPORT-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-020",
+      "retrieved_source_ids": [
+        "SYN-REPORT-001",
+        "SYN-FAQ-001"
+      ],
+      "relevant_source_ids": [
+        "SYN-REPORT-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-021",
+      "retrieved_source_ids": [
+        "SYN-FAQ-001",
+        "SYN-PROTO-002"
+      ],
+      "relevant_source_ids": [
+        "SYN-FAQ-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-022",
+      "retrieved_source_ids": [
+        "SYN-PROTO-002",
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "SYN-PROTO-002"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-023",
+      "retrieved_source_ids": [
+        "SYN-PROTO-002",
+        "SYN-REPORT-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "SYN-REPORT-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "EVAL-024",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "SYN-FAQ-001",
+        "SYN-PROTO-001"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 0.5,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-PCDT-001",
+      "retrieved_source_ids": [
+        "BR-MS-PCDT-SOP-2019",
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "relevant_source_ids": [
+        "BR-MS-PCDT-SOP-2019"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-PCDT-002",
+      "retrieved_source_ids": [
+        "BR-MS-PCDT-SOP-2019",
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "BR-MS-PCDT-SOP-2019"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-PCDT-003",
+      "retrieved_source_ids": [
+        "BR-MS-PCDT-SOP-2019",
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "BR-MS-PCDT-SOP-2019"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-PCDT-004",
+      "retrieved_source_ids": [
+        "BR-MS-PCDT-SOP-2019",
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "BR-MS-PCDT-SOP-2019"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-ADULT-001",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "BR-MS-PCDT-SOP-2019"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "EVAL-ADULT-002",
+      "retrieved_source_ids": [
+        "INT-ASRM-PMOS-2023-ADULT",
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "INT-ASRM-PMOS-2023-EVIDENCE"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-ADULT-003",
+      "retrieved_source_ids": [
+        "INT-ASRM-PMOS-2023-ADULT",
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "SYN-FAQ-001"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-ADULT-004",
+      "retrieved_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "EVAL-ADO-001",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "BR-MS-PCDT-SOP-2019",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 0.3333333333333333
+    },
+    {
+      "id": "EVAL-ADO-002",
+      "retrieved_source_ids": [
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-ADO-003",
+      "retrieved_source_ids": [
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "SYN-PROTO-001",
+        "BR-MS-PCDT-SOP-2019"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-ADO-004",
+      "retrieved_source_ids": [
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "SYN-PROTO-001"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-EVID-001",
+      "retrieved_source_ids": [
+        "SYN-PROTO-001",
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "INT-ASRM-PMOS-2023-EVIDENCE"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-EVIDENCE"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 0.3333333333333333
+    },
+    {
+      "id": "EVAL-EVID-002",
+      "retrieved_source_ids": [
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "INT-ASRM-PMOS-2023-EVIDENCE",
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-EVIDENCE"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "EVAL-EVID-003",
+      "retrieved_source_ids": [
+        "INT-ASRM-PMOS-2023-EVIDENCE",
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "SYN-PROTO-002"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-EVIDENCE"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-EVID-004",
+      "retrieved_source_ids": [
+        "INT-ASRM-PMOS-2023-EVIDENCE",
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "relevant_source_ids": [
+        "INT-ASRM-PMOS-2023-EVIDENCE"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-MONASH-001",
+      "retrieved_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-MONASH-002",
+      "retrieved_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "SYN-PROTO-001"
+      ],
+      "relevant_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-MONASH-003",
+      "retrieved_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL",
+        "INT-ASRM-PMOS-2023-ADULT",
+        "INT-ASRM-PMOS-2023-ADOLESCENT"
+      ],
+      "relevant_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "EVAL-MONASH-004",
+      "retrieved_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL",
+        "INT-ASRM-PMOS-2023-ADOLESCENT",
+        "INT-ASRM-PMOS-2023-ADULT"
+      ],
+      "relevant_source_ids": [
+        "MONASH-PMOS-GUIDELINE-2026-PORTAL"
+      ],
+      "precision_at_k": 0.3333333333333333,
+      "recall_at_k": 1.0,
+      "reciprocal_rank": 1.0
+    }
+  ]
 }
