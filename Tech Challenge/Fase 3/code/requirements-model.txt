@@ -1,0 +1,5 @@
+# Versions compatible with the current Colab Hugging Face Hub 1.x stack.
+# Install torch separately for the target platform (Colab provides it).
+transformers==5.17.0
+peft==0.20.0
+accelerate==1.15.0
