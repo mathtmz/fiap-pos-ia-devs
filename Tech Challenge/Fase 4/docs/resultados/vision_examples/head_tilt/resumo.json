@@ -1,0 +1,35 @@
+{
+  "source": "head_tilt.mp4",
+  "frames": 141,
+  "source_fps": 30.0,
+  "sample_fps": 5.0,
+  "duration_s": 4.7,
+  "sampled_frames": 24,
+  "frame_selection": "full_video",
+  "pose_frames": 12,
+  "objects_by_class": {
+    "person": 24,
+    "dining table": 7,
+    "umbrella": 6
+  },
+  "yolov8_status": "ok",
+  "openpose_status": "ok",
+  "repetitions": [],
+  "events": [],
+  "inference_latency_ms": {
+    "median": 2351.36,
+    "p95": 2386.36
+  },
+  "elapsed_s": 57.0,
+  "annotated_video": "/Users/matheustomaz/MBA/fiap-pos-ia-devs/Tech Challenge/Fase 4/docs/resultados/vision_examples/head_tilt/openpose_yolo_temporal.mp4",
+  "limitation": "YOLOv8 usa classes gerais e seleciona a pessoa principal; OpenPose COCO usa máximos dos mapas 2D. Regras e segmentos são exploratórios e requerem revisão humana.",
+  "demonstration_label": "head_tilt",
+  "ground_truth_error": "ERR_HEAD_TO_SIDE",
+  "ground_truth_additional_errors": null,
+  "source_video": "ex1_Petra",
+  "source_frames": [
+    492,
+    602
+  ],
+  "source_url": "https://zenodo.org/records/23018128"
+}

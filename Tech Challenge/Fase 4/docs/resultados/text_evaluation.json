@@ -1,0 +1,835 @@
+{
+  "dataset": "Casos sintéticos de avaliação textual — português",
+  "dataset_version": 1,
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "case_count": 30,
+  "sentiment_accuracy": 0.6333,
+  "sentiment_macro_f1": 0.6067,
+  "sentiment_by_class": {
+    "positivo": {
+      "tp": 6,
+      "fp": 1,
+      "fn": 4,
+      "tn": 19,
+      "precision": 0.8571,
+      "recall": 0.6,
+      "f1": 0.7059
+    },
+    "negativo": {
+      "tp": 10,
+      "fp": 8,
+      "fn": 0,
+      "tn": 12,
+      "precision": 0.5556,
+      "recall": 1.0,
+      "f1": 0.7143
+    },
+    "neutro": {
+      "tp": 3,
+      "fp": 2,
+      "fn": 7,
+      "tn": 18,
+      "precision": 0.6,
+      "recall": 0.3,
+      "f1": 0.4
+    }
+  },
+  "terms_by_class": {
+    "dor": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 2,
+      "tn": 17,
+      "precision": 1.0,
+      "recall": 0.8462,
+      "f1": 0.9167
+    },
+    "cansaço": {
+      "tp": 9,
+      "fp": 0,
+      "fn": 1,
+      "tn": 20,
+      "precision": 1.0,
+      "recall": 0.9,
+      "f1": 0.9474
+    },
+    "falta_de_ar": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 2,
+      "tn": 23,
+      "precision": 1.0,
+      "recall": 0.7143,
+      "f1": 0.8333
+    }
+  },
+  "alert_routing": {
+    "tp": 12,
+    "fp": 0,
+    "fn": 2,
+    "tn": 16,
+    "precision": 1.0,
+    "recall": 0.8571,
+    "f1": 0.9231
+  },
+  "human_review_routing": {
+    "tp": 9,
+    "fp": 0,
+    "fn": 2,
+    "tn": 19,
+    "precision": 1.0,
+    "recall": 0.8182,
+    "f1": 0.9
+  },
+  "elapsed_s": 52.462,
+  "cases": [
+    {
+      "id": "N01",
+      "text": "Sinto dor no ombro ao levantar o braço.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 5.543,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "dor"
+        ],
+        "raw_output": "{\n  \"sentiment\": \"negativo\",\n  \"terms\": [\"dor\", \"ombro\"]\n}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N02",
+      "text": "Estou com cansaço durante os exercícios.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "cansaço"
+      ],
+      "actual_terms": [
+        "cansaço"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 2.182,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "cansaço"
+        ],
+        "raw_output": "{\n  \"sentiment\": \"negativo\",\n  \"terms\": [\n    \"cansaço\",\n    \"falta de ar\"\n  ]\n}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N03",
+      "text": "Tenho falta de ar ao caminhar.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "falta_de_ar"
+      ],
+      "actual_terms": [],
+      "expected_alert": true,
+      "actual_alert": false,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.616,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [],
+        "raw_output": "{\n  \"sentiment\": \"negativo\",\n  \"terms\": [\"falta\", \"ar\"]\n}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N04",
+      "text": "A dor no quadril piorou hoje.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.484,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "dor"
+        ],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"dor\", \"quadril\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N05",
+      "text": "Sinto cansaço e falta de ar depois da sessão.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "cansaço",
+        "falta_de_ar"
+      ],
+      "actual_terms": [
+        "cansaço",
+        "falta_de_ar"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.594,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "cansaço",
+          "falta de ar"
+        ],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"cansaço\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N06",
+      "text": "A dor continua mesmo em repouso.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.462,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "dor"
+        ],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"dor\", \"repouso\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N07",
+      "text": "Sinto cansaço e dor ao me movimentar.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "cansaço",
+        "dor"
+      ],
+      "actual_terms": [
+        "cansaço",
+        "dor"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 2.057,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "cansaço",
+          "dor"
+        ],
+        "raw_output": "{\n  \"sentiment\": \"negativo\",\n  \"terms\": [\n    \"cansaço\",\n    \"dor\"\n  ]\n}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N08",
+      "text": "Tenho falta de ar quando faço esforço.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "falta_de_ar"
+      ],
+      "actual_terms": [
+        "falta_de_ar"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.613,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "falta de ar"
+        ],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"falta de ar\", \"esforço\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N09",
+      "text": "Sinto fadiga e dor após caminhar.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "cansaço",
+        "dor"
+      ],
+      "actual_terms": [
+        "cansaço",
+        "dor"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 2.052,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "fadiga",
+          "dor"
+        ],
+        "raw_output": "{\n  \"sentiment\": \"negativo\",\n  \"terms\": [\n    \"fadiga\",\n    \"dor\"\n  ]\n}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "N10",
+      "text": "Estou com muito cansaço e falta de ar.",
+      "expected_sentiment": "negativo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "cansaço",
+        "falta_de_ar"
+      ],
+      "actual_terms": [
+        "cansaço",
+        "falta_de_ar"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 2.183,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "cansaço",
+          "falta de ar"
+        ],
+        "raw_output": "{\n  \"sentiment\": \"negativo\",\n  \"terms\": [\n    \"cansaço\",\n    \"falta de ar\"\n  ]\n}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P01",
+      "text": "Hoje consegui caminhar sem dor e estou satisfeito.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "positivo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.552,
+      "model_output": {
+        "sentiment": "positivo",
+        "terms": [],
+        "raw_output": "{\"sentiment\": \"positivo\", \"terms\": [\"caminhar\", \"satisfeito\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P02",
+      "text": "Estou sem cansaço e mais disposto.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "positivo",
+      "expected_terms": [
+        "cansaço"
+      ],
+      "actual_terms": [
+        "cansaço"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.72,
+      "model_output": {
+        "sentiment": "positivo",
+        "terms": [
+          "sem cansaço"
+        ],
+        "raw_output": "{\"sentiment\": \"positivo\", \"terms\": [\"sem cansaço\", \"mais disposto\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P03",
+      "text": "Não sinto falta de ar durante a caminhada.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "neutro",
+      "expected_terms": [
+        "falta_de_ar"
+      ],
+      "actual_terms": [
+        "falta_de_ar"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.532,
+      "model_output": {
+        "sentiment": "neutro",
+        "terms": [
+          "falta de ar"
+        ],
+        "raw_output": "{\"sentiment\": \"neutral\", \"terms\": [\"falta de ar\", \"cansaço\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P04",
+      "text": "A dor diminuiu e estou contente.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "positivo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.523,
+      "model_output": {
+        "sentiment": "positivo",
+        "terms": [
+          "dor"
+        ],
+        "raw_output": "{\"sentiment\": \"positivo\", \"terms\": [\"dor\", \"estou_contente\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P05",
+      "text": "O cansaço melhorou, mas ainda aparece no final.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "cansaço"
+      ],
+      "actual_terms": [
+        "cansaço"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.59,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "cansaço"
+        ],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"cansaço\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P06",
+      "text": "Não tenho dor hoje.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "neutro",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.397,
+      "model_output": {
+        "sentiment": "neutro",
+        "terms": [
+          "não tenho dor hoje."
+        ],
+        "raw_output": "{\"sentiment\": \"neutral\", \"terms\": [\"não tenho dor hoje.\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P07",
+      "text": "Sem falta de ar, consegui terminar o exercício.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "positivo",
+      "expected_terms": [
+        "falta_de_ar"
+      ],
+      "actual_terms": [],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.471,
+      "model_output": {
+        "sentiment": "positivo",
+        "terms": [],
+        "raw_output": "{\"sentiment\": \"positivo\", \"terms\": [\"terminar\", \"exercício\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P08",
+      "text": "Estou contente, sem cansaço após a atividade.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "positivo",
+      "expected_terms": [
+        "cansaço"
+      ],
+      "actual_terms": [
+        "cansaço"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.524,
+      "model_output": {
+        "sentiment": "positivo",
+        "terms": [
+          "sem cansaço"
+        ],
+        "raw_output": "{\"sentiment\": \"positivo\", \"terms\": [\"contentido\", \"sem cansaço\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P09",
+      "text": "Fiz o exercício com dor leve, porém estou melhor.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": true,
+      "actual_alert": true,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.529,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "dor"
+        ],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"dor\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "P10",
+      "text": "Minha dor está controlada e me sinto confiante.",
+      "expected_sentiment": "positivo",
+      "actual_sentiment": "positivo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [],
+      "expected_alert": true,
+      "actual_alert": false,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.455,
+      "model_output": {
+        "sentiment": "positivo",
+        "terms": [],
+        "raw_output": "{\"sentiment\": \"positivo\", \"terms\": [\"controlada\", \"confiante\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U01",
+      "text": "A sessão começou às dez horas.",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "negativo",
+      "expected_terms": [],
+      "actual_terms": [],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.588,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"cansaço\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U02",
+      "text": "Fiz três séries de dez repetições.",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "negativo",
+      "expected_terms": [],
+      "actual_terms": [],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.593,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"cansaço\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U03",
+      "text": "Não houve alteração no horário da sessão.",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "neutro",
+      "expected_terms": [],
+      "actual_terms": [],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.922,
+      "model_output": {
+        "sentiment": "neutro",
+        "terms": [],
+        "raw_output": "{\"sentiment\": \"neutro\", \"terms\": [\"dor\", \"cansaço\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U04",
+      "text": "A fisioterapeuta registrou a amplitude do braço.",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "negativo",
+      "expected_terms": [],
+      "actual_terms": [],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.596,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"cansaço\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U05",
+      "text": "A próxima consulta será na quinta-feira.",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "negativo",
+      "expected_terms": [],
+      "actual_terms": [],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": false,
+      "actual_review": false,
+      "status": "ok",
+      "seconds": 1.588,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"cansaço\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U06",
+      "text": "Você sente dor no ombro?",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.139,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "dor"
+        ],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"dor\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U07",
+      "text": "O paciente nega cansaço hoje.",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "neutro",
+      "expected_terms": [
+        "cansaço"
+      ],
+      "actual_terms": [
+        "cansaço"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.665,
+      "model_output": {
+        "sentiment": "neutro",
+        "terms": [
+          "cansaço"
+        ],
+        "raw_output": "{\"sentiment\": \"neutro\", \"terms\": [\"cansaço\", \"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U08",
+      "text": "Você sentiu falta de ar?",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "negativo",
+      "expected_terms": [
+        "falta_de_ar"
+      ],
+      "actual_terms": [
+        "falta_de_ar"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.298,
+      "model_output": {
+        "sentiment": "negativo",
+        "terms": [
+          "falta de ar"
+        ],
+        "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"falta de ar\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U09",
+      "text": "Não relatou dor nem cansaço.",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "neutro",
+      "expected_terms": [
+        "dor",
+        "cansaço"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.849,
+      "model_output": {
+        "sentiment": "neutro",
+        "terms": [
+          "não relatou dor"
+        ],
+        "raw_output": "{\"sentiment\": \"neutral\", \"terms\": [\"não relatou dor\", \"não relatou cansaço\"]}",
+        "status": "ok"
+      }
+    },
+    {
+      "id": "U10",
+      "text": "O profissional perguntou: está com dor?",
+      "expected_sentiment": "neutro",
+      "actual_sentiment": "positivo",
+      "expected_terms": [
+        "dor"
+      ],
+      "actual_terms": [
+        "dor"
+      ],
+      "expected_alert": false,
+      "actual_alert": false,
+      "expected_review": true,
+      "actual_review": true,
+      "status": "ok",
+      "seconds": 1.141,
+      "model_output": {
+        "sentiment": "positivo",
+        "terms": [
+          "dor"
+        ],
+        "raw_output": "{\"sentiment\": \"positivo\", \"terms\": [\"dor\"]}",
+        "status": "ok"
+      }
+    }
+  ],
+  "limitation": "Frases sintéticas fixas; resultados não validam interpretação clínica nem generalização para consultas reais."
+}

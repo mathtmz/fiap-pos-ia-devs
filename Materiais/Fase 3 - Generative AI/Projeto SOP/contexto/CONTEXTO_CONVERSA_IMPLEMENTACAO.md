@@ -1,6 +1,6 @@
 # Registro técnico de implementação — Fase 3
 
-Atualizado em 15/09/2026. Para o estado consolidado, consulte o [contexto da Fase 3](./CONTEXTO_FASE3_IA_GENERATIVA.md), o [relatório técnico](./docs/RELATORIO_TECNICO.md), o [README](./README.md) e o [roteiro do vídeo](./docs/ROTEIRO_VIDEO.md).
+Atualizado em 15/09/2026. Para o estado consolidado, consulte o [contexto da Fase 3](CONTEXTO_FASE3_IA_GENERATIVA.md), o [relatório técnico](../relatorios/RELATORIO_TECNICO.md), o [README](../../../../Tech%20Challenge/Fase%203/README.md) e o [roteiro do vídeo](../apresentacao/ROTEIRO_VIDEO.md).
 
 ## Decisões de implementação
 

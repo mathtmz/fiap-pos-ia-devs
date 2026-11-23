@@ -1,0 +1,2357 @@
+{
+  "dataset": "REHAB26-ViewAngles, exercise 1 (arm abduction)",
+  "participants": [
+    "Honza",
+    "Mima",
+    "Petra",
+    "Terka",
+    "Vasil"
+  ],
+  "evaluation": "5-fold leave-one-participant-out; thresholds fit on four training participants only",
+  "sample_fps": 0.5,
+  "repetitions": 556,
+  "error_types": [
+    "ERR_LOW_ABDUCTION",
+    "ERR_BENT_ARM",
+    "ERR_ELEVATED_SHOULDER",
+    "ERR_HEAD_TO_SIDE",
+    "ERR_ARM_FORWARD"
+  ],
+  "folds": [
+    {
+      "held_out_participant": "Honza",
+      "training_participants": [
+        "Mima",
+        "Petra",
+        "Terka",
+        "Vasil"
+      ],
+      "test_repetitions": 110,
+      "per_error_type": {
+        "ERR_LOW_ABDUCTION": {
+          "feature": "max_arm_angle",
+          "direction": "lt",
+          "threshold": 13.32,
+          "evaluated": 57,
+          "coverage": 0.5182,
+          "tp": 0,
+          "fp": 0,
+          "fn": 6,
+          "tn": 51,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_BENT_ARM": {
+          "feature": "min_elbow_angle",
+          "direction": "lt",
+          "threshold": 124.6,
+          "evaluated": 57,
+          "coverage": 0.5182,
+          "tp": 0,
+          "fp": 5,
+          "fn": 5,
+          "tn": 47,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_ELEVATED_SHOULDER": {
+          "feature": "max_shoulder_elevation_ratio",
+          "direction": "gt",
+          "threshold": -0.2811,
+          "evaluated": 57,
+          "coverage": 0.5182,
+          "tp": 5,
+          "fp": 52,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.0877,
+          "recall": 1.0,
+          "f1": 0.1613
+        },
+        "ERR_HEAD_TO_SIDE": {
+          "feature": "max_head_tilt_deg",
+          "direction": "gt",
+          "threshold": 17.445,
+          "evaluated": 20,
+          "coverage": 0.1818,
+          "tp": 1,
+          "fp": 3,
+          "fn": 0,
+          "tn": 16,
+          "precision": 0.25,
+          "recall": 1.0,
+          "f1": 0.4
+        },
+        "ERR_ARM_FORWARD": {
+          "feature": "median_arm_lateral_ratio",
+          "direction": "lt",
+          "threshold": 1.3157,
+          "evaluated": 55,
+          "coverage": 0.5,
+          "tp": 5,
+          "fp": 29,
+          "fn": 3,
+          "tn": 18,
+          "precision": 0.1471,
+          "recall": 0.625,
+          "f1": 0.2381
+        }
+      },
+      "mediapipe_binary": {
+        "threshold": 156.2,
+        "evaluated": 82,
+        "coverage": 0.7455,
+        "tp": 37,
+        "fp": 38,
+        "fn": 3,
+        "tn": 4,
+        "precision": 0.4933,
+        "recall": 0.925,
+        "f1": 0.6435
+      },
+      "openpose_yolo_binary": {
+        "evaluated": 34,
+        "inconclusive": 76,
+        "coverage": 0.3091,
+        "tp": 21,
+        "fp": 13,
+        "fn": 0,
+        "tn": 0,
+        "precision": 0.6176,
+        "recall": 1.0,
+        "f1": 0.7636
+      },
+      "openpose_yolo_macro_f1": 0.1599,
+      "test_predictions": [
+        {
+          "participant": "Honza",
+          "frames": [
+            22480,
+            22603
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            22624,
+            22747
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            22770,
+            22926
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            22970,
+            23102
+          ],
+          "true_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "predicted_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            23114,
+            23292
+          ],
+          "true_errors": [
+            "ERR_ELEVATED_SHOULDER"
+          ],
+          "predicted_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            23302,
+            23486
+          ],
+          "true_errors": [
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            23506,
+            23635
+          ],
+          "true_errors": [
+            "ERR_LOW_ABDUCTION"
+          ],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            23670,
+            23829
+          ],
+          "true_errors": [
+            "ERR_BENT_ARM"
+          ],
+          "predicted_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            23858,
+            24042
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Honza",
+          "frames": [
+            24064,
+            24230
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        }
+      ]
+    },
+    {
+      "held_out_participant": "Mima",
+      "training_participants": [
+        "Honza",
+        "Petra",
+        "Terka",
+        "Vasil"
+      ],
+      "test_repetitions": 112,
+      "per_error_type": {
+        "ERR_LOW_ABDUCTION": {
+          "feature": "max_arm_angle",
+          "direction": "lt",
+          "threshold": 105.805,
+          "evaluated": 40,
+          "coverage": 0.3571,
+          "tp": 5,
+          "fp": 24,
+          "fn": 0,
+          "tn": 11,
+          "precision": 0.1724,
+          "recall": 1.0,
+          "f1": 0.2941
+        },
+        "ERR_BENT_ARM": {
+          "feature": "min_elbow_angle",
+          "direction": "lt",
+          "threshold": 157.055,
+          "evaluated": 40,
+          "coverage": 0.3571,
+          "tp": 2,
+          "fp": 5,
+          "fn": 4,
+          "tn": 29,
+          "precision": 0.2857,
+          "recall": 0.3333,
+          "f1": 0.3077
+        },
+        "ERR_ELEVATED_SHOULDER": {
+          "feature": "max_shoulder_elevation_ratio",
+          "direction": "gt",
+          "threshold": 0.1774,
+          "evaluated": 40,
+          "coverage": 0.3571,
+          "tp": 0,
+          "fp": 2,
+          "fn": 8,
+          "tn": 30,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_HEAD_TO_SIDE": {
+          "feature": "max_head_tilt_deg",
+          "direction": "gt",
+          "threshold": 16.455,
+          "evaluated": 26,
+          "coverage": 0.2321,
+          "tp": 0,
+          "fp": 5,
+          "fn": 0,
+          "tn": 21,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_ARM_FORWARD": {
+          "feature": "median_arm_lateral_ratio",
+          "direction": "lt",
+          "threshold": 1.4813,
+          "evaluated": 28,
+          "coverage": 0.25,
+          "tp": 4,
+          "fp": 23,
+          "fn": 0,
+          "tn": 1,
+          "precision": 0.1481,
+          "recall": 1.0,
+          "f1": 0.2581
+        }
+      },
+      "mediapipe_binary": {
+        "threshold": 158.45,
+        "evaluated": 83,
+        "coverage": 0.7411,
+        "tp": 40,
+        "fp": 41,
+        "fn": 1,
+        "tn": 1,
+        "precision": 0.4938,
+        "recall": 0.9756,
+        "f1": 0.6557
+      },
+      "openpose_yolo_binary": {
+        "evaluated": 6,
+        "inconclusive": 106,
+        "coverage": 0.0536,
+        "tp": 3,
+        "fp": 3,
+        "fn": 0,
+        "tn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6667
+      },
+      "openpose_yolo_macro_f1": 0.172,
+      "test_predictions": [
+        {
+          "participant": "Mima",
+          "frames": [
+            12630,
+            12716
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            12722,
+            12810
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            12819,
+            12914
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            12930,
+            13021
+          ],
+          "true_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            13027,
+            13146
+          ],
+          "true_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            13162,
+            13276
+          ],
+          "true_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            13285,
+            13365
+          ],
+          "true_errors": [
+            "ERR_LOW_ABDUCTION"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            13380,
+            13476
+          ],
+          "true_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            13489,
+            13566
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            13570,
+            13658
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Mima",
+          "frames": [
+            9969,
+            10053
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": true
+        }
+      ]
+    },
+    {
+      "held_out_participant": "Petra",
+      "training_participants": [
+        "Honza",
+        "Mima",
+        "Terka",
+        "Vasil"
+      ],
+      "test_repetitions": 111,
+      "per_error_type": {
+        "ERR_LOW_ABDUCTION": {
+          "feature": "max_arm_angle",
+          "direction": "lt",
+          "threshold": 13.32,
+          "evaluated": 29,
+          "coverage": 0.2613,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 27,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_BENT_ARM": {
+          "feature": "min_elbow_angle",
+          "direction": "lt",
+          "threshold": 157.055,
+          "evaluated": 29,
+          "coverage": 0.2613,
+          "tp": 1,
+          "fp": 3,
+          "fn": 2,
+          "tn": 23,
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1": 0.2857
+        },
+        "ERR_ELEVATED_SHOULDER": {
+          "feature": "max_shoulder_elevation_ratio",
+          "direction": "gt",
+          "threshold": 0.1774,
+          "evaluated": 29,
+          "coverage": 0.2613,
+          "tp": 0,
+          "fp": 3,
+          "fn": 2,
+          "tn": 24,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_HEAD_TO_SIDE": {
+          "feature": "max_head_tilt_deg",
+          "direction": "gt",
+          "threshold": 17.47,
+          "evaluated": 15,
+          "coverage": 0.1351,
+          "tp": 2,
+          "fp": 2,
+          "fn": 1,
+          "tn": 10,
+          "precision": 0.5,
+          "recall": 0.6667,
+          "f1": 0.5714
+        },
+        "ERR_ARM_FORWARD": {
+          "feature": "median_arm_lateral_ratio",
+          "direction": "lt",
+          "threshold": 1.4813,
+          "evaluated": 18,
+          "coverage": 0.1622,
+          "tp": 5,
+          "fp": 13,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.2778,
+          "recall": 1.0,
+          "f1": 0.4348
+        }
+      },
+      "mediapipe_binary": {
+        "threshold": 171.2,
+        "evaluated": 77,
+        "coverage": 0.6937,
+        "tp": 39,
+        "fp": 36,
+        "fn": 0,
+        "tn": 2,
+        "precision": 0.52,
+        "recall": 1.0,
+        "f1": 0.6842
+      },
+      "openpose_yolo_binary": {
+        "evaluated": 7,
+        "inconclusive": 104,
+        "coverage": 0.0631,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "tn": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "openpose_yolo_macro_f1": 0.2584,
+      "test_predictions": [
+        {
+          "participant": "Petra",
+          "frames": [
+            11852,
+            11929
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            11942,
+            12026
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            12037,
+            12122
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            12132,
+            12212
+          ],
+          "true_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "predicted_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            12228,
+            12321
+          ],
+          "true_errors": [
+            "ERR_ELEVATED_SHOULDER"
+          ],
+          "predicted_errors": [
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            12327,
+            12430
+          ],
+          "true_errors": [
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "predicted_errors": [
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            12442,
+            12519
+          ],
+          "true_errors": [
+            "ERR_LOW_ABDUCTION"
+          ],
+          "predicted_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            12534,
+            12634
+          ],
+          "true_errors": [
+            "ERR_BENT_ARM"
+          ],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            12645,
+            12736
+          ],
+          "true_errors": [],
+          "predicted_errors": [],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            12751,
+            12837
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Petra",
+          "frames": [
+            3477,
+            3568
+          ],
+          "true_errors": [
+            "ERR_BENT_ARM"
+          ],
+          "predicted_errors": [],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": false,
+            "ERR_BENT_ARM": false,
+            "ERR_ELEVATED_SHOULDER": false,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 1,
+            "max_arm_angle": 16.84,
+            "min_elbow_angle": 166.21,
+            "max_shoulder_elevation_ratio": -0.0937,
+            "max_head_tilt_deg": null,
+            "median_arm_lateral_ratio": null,
+            "mean_pose_confidence": 0.318,
+            "evidence_frames": [
+              3540
+            ]
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": true
+        }
+      ]
+    },
+    {
+      "held_out_participant": "Terka",
+      "training_participants": [
+        "Honza",
+        "Mima",
+        "Petra",
+        "Vasil"
+      ],
+      "test_repetitions": 110,
+      "per_error_type": {
+        "ERR_LOW_ABDUCTION": {
+          "feature": "max_arm_angle",
+          "direction": "lt",
+          "threshold": 101.545,
+          "evaluated": 31,
+          "coverage": 0.2818,
+          "tp": 4,
+          "fp": 25,
+          "fn": 1,
+          "tn": 1,
+          "precision": 0.1379,
+          "recall": 0.8,
+          "f1": 0.2353
+        },
+        "ERR_BENT_ARM": {
+          "feature": "min_elbow_angle",
+          "direction": "lt",
+          "threshold": 157.055,
+          "evaluated": 31,
+          "coverage": 0.2818,
+          "tp": 1,
+          "fp": 14,
+          "fn": 2,
+          "tn": 14,
+          "precision": 0.0667,
+          "recall": 0.3333,
+          "f1": 0.1111
+        },
+        "ERR_ELEVATED_SHOULDER": {
+          "feature": "max_shoulder_elevation_ratio",
+          "direction": "gt",
+          "threshold": 0.1774,
+          "evaluated": 31,
+          "coverage": 0.2818,
+          "tp": 0,
+          "fp": 1,
+          "fn": 2,
+          "tn": 28,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_HEAD_TO_SIDE": {
+          "feature": "max_head_tilt_deg",
+          "direction": "gt",
+          "threshold": 17.47,
+          "evaluated": 13,
+          "coverage": 0.1182,
+          "tp": 0,
+          "fp": 5,
+          "fn": 1,
+          "tn": 7,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_ARM_FORWARD": {
+          "feature": "median_arm_lateral_ratio",
+          "direction": "lt",
+          "threshold": 1.4813,
+          "evaluated": 12,
+          "coverage": 0.1091,
+          "tp": 3,
+          "fp": 9,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.25,
+          "recall": 1.0,
+          "f1": 0.4
+        }
+      },
+      "mediapipe_binary": {
+        "threshold": 154.45,
+        "evaluated": 87,
+        "coverage": 0.7909,
+        "tp": 35,
+        "fp": 32,
+        "fn": 9,
+        "tn": 11,
+        "precision": 0.5224,
+        "recall": 0.7955,
+        "f1": 0.6306
+      },
+      "openpose_yolo_binary": {
+        "evaluated": 10,
+        "inconclusive": 100,
+        "coverage": 0.0909,
+        "tp": 7,
+        "fp": 3,
+        "fn": 0,
+        "tn": 0,
+        "precision": 0.7,
+        "recall": 1.0,
+        "f1": 0.8235
+      },
+      "openpose_yolo_macro_f1": 0.1493,
+      "test_predictions": [
+        {
+          "participant": "Terka",
+          "frames": [
+            13933,
+            13999
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14005,
+            14074
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14079,
+            14144
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14163,
+            14233
+          ],
+          "true_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14265,
+            14352
+          ],
+          "true_errors": [
+            "ERR_ELEVATED_SHOULDER"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14363,
+            14451
+          ],
+          "true_errors": [
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14509,
+            14590
+          ],
+          "true_errors": [
+            "ERR_LOW_ABDUCTION"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14599,
+            14690
+          ],
+          "true_errors": [
+            "ERR_BENT_ARM"
+          ],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_BENT_ARM",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14718,
+            14780
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_LOW_ABDUCTION",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Terka",
+          "frames": [
+            14784,
+            14842
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_LOW_ABDUCTION",
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        }
+      ]
+    },
+    {
+      "held_out_participant": "Vasil",
+      "training_participants": [
+        "Honza",
+        "Mima",
+        "Petra",
+        "Terka"
+      ],
+      "test_repetitions": 113,
+      "per_error_type": {
+        "ERR_LOW_ABDUCTION": {
+          "feature": "max_arm_angle",
+          "direction": "lt",
+          "threshold": 13.32,
+          "evaluated": 35,
+          "coverage": 0.3097,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "tn": 30,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_BENT_ARM": {
+          "feature": "min_elbow_angle",
+          "direction": "lt",
+          "threshold": 157.055,
+          "evaluated": 35,
+          "coverage": 0.3097,
+          "tp": 1,
+          "fp": 11,
+          "fn": 1,
+          "tn": 22,
+          "precision": 0.0833,
+          "recall": 0.5,
+          "f1": 0.1429
+        },
+        "ERR_ELEVATED_SHOULDER": {
+          "feature": "max_shoulder_elevation_ratio",
+          "direction": "gt",
+          "threshold": 0.1749,
+          "evaluated": 35,
+          "coverage": 0.3097,
+          "tp": 0,
+          "fp": 1,
+          "fn": 3,
+          "tn": 31,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ERR_HEAD_TO_SIDE": {
+          "feature": "max_head_tilt_deg",
+          "direction": "gt",
+          "threshold": 25.175,
+          "evaluated": 23,
+          "coverage": 0.2035,
+          "tp": 1,
+          "fp": 2,
+          "fn": 2,
+          "tn": 18,
+          "precision": 0.3333,
+          "recall": 0.3333,
+          "f1": 0.3333
+        },
+        "ERR_ARM_FORWARD": {
+          "feature": "median_arm_lateral_ratio",
+          "direction": "lt",
+          "threshold": 1.4813,
+          "evaluated": 26,
+          "coverage": 0.2301,
+          "tp": 4,
+          "fp": 22,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.1538,
+          "recall": 1.0,
+          "f1": 0.2667
+        }
+      },
+      "mediapipe_binary": {
+        "threshold": 158.6,
+        "evaluated": 77,
+        "coverage": 0.6814,
+        "tp": 36,
+        "fp": 37,
+        "fn": 1,
+        "tn": 3,
+        "precision": 0.4932,
+        "recall": 0.973,
+        "f1": 0.6545
+      },
+      "openpose_yolo_binary": {
+        "evaluated": 3,
+        "inconclusive": 110,
+        "coverage": 0.0265,
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "tn": 0,
+        "precision": 0.6667,
+        "recall": 1.0,
+        "f1": 0.8
+      },
+      "openpose_yolo_macro_f1": 0.1486,
+      "test_predictions": [
+        {
+          "participant": "Vasil",
+          "frames": [
+            11137,
+            11194
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11197,
+            11253
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11256,
+            11311
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11317,
+            11378
+          ],
+          "true_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11383,
+            11457
+          ],
+          "true_errors": [
+            "ERR_ELEVATED_SHOULDER"
+          ],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11469,
+            11540
+          ],
+          "true_errors": [
+            "ERR_HEAD_TO_SIDE"
+          ],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_BENT_ARM",
+            "ERR_HEAD_TO_SIDE",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11565,
+            11623
+          ],
+          "true_errors": [
+            "ERR_LOW_ABDUCTION"
+          ],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11642,
+            11721
+          ],
+          "true_errors": [
+            "ERR_BENT_ARM"
+          ],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11739,
+            11798
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ELEVATED_SHOULDER",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            11802,
+            11856
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_BENT_ARM",
+            "ERR_ARM_FORWARD",
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            10947,
+            11007
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": null,
+            "ERR_BENT_ARM": null,
+            "ERR_ELEVATED_SHOULDER": null,
+            "ERR_HEAD_TO_SIDE": null,
+            "ERR_ARM_FORWARD": null
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 0
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": null
+        },
+        {
+          "participant": "Vasil",
+          "frames": [
+            1220,
+            1320
+          ],
+          "true_errors": [],
+          "predicted_errors": [
+            "ERR_ARM_FORWARD"
+          ],
+          "type_predictions": {
+            "ERR_LOW_ABDUCTION": false,
+            "ERR_BENT_ARM": false,
+            "ERR_ELEVATED_SHOULDER": false,
+            "ERR_HEAD_TO_SIDE": false,
+            "ERR_ARM_FORWARD": true
+          },
+          "features": {
+            "pose_status": "inconclusivo",
+            "sample_count": 1,
+            "max_arm_angle": 141.94,
+            "min_elbow_angle": 164.0,
+            "max_shoulder_elevation_ratio": 0.1012,
+            "max_head_tilt_deg": 0.0,
+            "median_arm_lateral_ratio": 1.0816,
+            "mean_pose_confidence": 0.375,
+            "evidence_frames": [
+              1260
+            ]
+          },
+          "pose_status": "inconclusivo",
+          "mediapipe_binary_prediction": true
+        }
+      ]
+    }
+  ],
+  "aggregate": {
+    "openpose_yolo_macro_f1_mean": 0.1776,
+    "openpose_yolo_binary_f1_mean": 0.8108,
+    "mediapipe_binary_f1_mean": 0.6537,
+    "openpose_yolo_binary_micro": {
+      "evaluated": 60,
+      "coverage": 0.1079,
+      "tp": 39,
+      "fp": 20,
+      "fn": 0,
+      "tn": 1,
+      "precision": 0.661,
+      "recall": 1.0,
+      "f1": 0.7959
+    },
+    "mediapipe_binary_micro": {
+      "evaluated": 406,
+      "coverage": 0.7302,
+      "tp": 187,
+      "fp": 184,
+      "fn": 14,
+      "tn": 21,
+      "precision": 0.504,
+      "recall": 0.9303,
+      "f1": 0.6538
+    },
+    "per_error_type_micro": {
+      "ERR_LOW_ABDUCTION": {
+        "evaluated": 192,
+        "coverage": 0.3453,
+        "tp": 9,
+        "fp": 49,
+        "fn": 14,
+        "tn": 120,
+        "precision": 0.1552,
+        "recall": 0.3913,
+        "f1": 0.2222
+      },
+      "ERR_BENT_ARM": {
+        "evaluated": 192,
+        "coverage": 0.3453,
+        "tp": 5,
+        "fp": 38,
+        "fn": 14,
+        "tn": 135,
+        "precision": 0.1163,
+        "recall": 0.2632,
+        "f1": 0.1613
+      },
+      "ERR_ELEVATED_SHOULDER": {
+        "evaluated": 192,
+        "coverage": 0.3453,
+        "tp": 5,
+        "fp": 59,
+        "fn": 15,
+        "tn": 113,
+        "precision": 0.0781,
+        "recall": 0.25,
+        "f1": 0.119
+      },
+      "ERR_HEAD_TO_SIDE": {
+        "evaluated": 97,
+        "coverage": 0.1745,
+        "tp": 4,
+        "fp": 17,
+        "fn": 4,
+        "tn": 72,
+        "precision": 0.1905,
+        "recall": 0.5,
+        "f1": 0.2759
+      },
+      "ERR_ARM_FORWARD": {
+        "evaluated": 139,
+        "coverage": 0.25,
+        "tp": 21,
+        "fp": 96,
+        "fn": 3,
+        "tn": 19,
+        "precision": 0.1795,
+        "recall": 0.875,
+        "f1": 0.2979
+      }
+    }
+  },
+  "inference": {
+    "Honza": {
+      "sample_fps": 0.5,
+      "sampled_frames": 268,
+      "pose_frames": 95,
+      "elapsed_s": 825.333,
+      "inference_latency_ms": {
+        "median": 2352.56,
+        "p95": 2370.91
+      },
+      "object_classes": {
+        "person": 268,
+        "dining table": 235,
+        "umbrella": 211,
+        "remote": 1
+      },
+      "repetitions": 110
+    },
+    "Mima": {
+      "sample_fps": 0.5,
+      "sampled_frames": 187,
+      "pose_frames": 46,
+      "elapsed_s": 458.252,
+      "inference_latency_ms": {
+        "median": 2349.41,
+        "p95": 2367.4
+      },
+      "object_classes": {
+        "person": 187,
+        "dining table": 183,
+        "umbrella": 119
+      },
+      "repetitions": 112
+    },
+    "Petra": {
+      "sample_fps": 0.5,
+      "sampled_frames": 170,
+      "pose_frames": 36,
+      "elapsed_s": 415.003,
+      "inference_latency_ms": {
+        "median": 2350.63,
+        "p95": 2369.41
+      },
+      "object_classes": {
+        "person": 175,
+        "umbrella": 58,
+        "dining table": 13
+      },
+      "repetitions": 111
+    },
+    "Terka": {
+      "sample_fps": 0.5,
+      "sampled_frames": 161,
+      "pose_frames": 41,
+      "elapsed_s": 399.301,
+      "inference_latency_ms": {
+        "median": 2350.58,
+        "p95": 2372.3
+      },
+      "object_classes": {
+        "person": 164,
+        "dining table": 140,
+        "umbrella": 39
+      },
+      "repetitions": 110
+    },
+    "Vasil": {
+      "sample_fps": 0.5,
+      "sampled_frames": 140,
+      "pose_frames": 38,
+      "elapsed_s": 345.258,
+      "inference_latency_ms": {
+        "median": 2348.73,
+        "p95": 2362.26
+      },
+      "object_classes": {
+        "person": 144,
+        "umbrella": 45,
+        "dining table": 99
+      },
+      "repetitions": 113
+    }
+  },
+  "limitations": [
+    "Volunteer demonstrations in controlled settings, not hospitalized patients.",
+    "OpenPose COCO points are two-dimensional; arm-forward is represented by a limited lateral-projection proxy.",
+    "YOLOv8 uses general pretrained object classes and is not trained to identify clinical critical regions.",
+    "Thresholds and alerts are experimental; no clinical validity is claimed."
+  ]
+}

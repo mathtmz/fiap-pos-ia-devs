@@ -1,0 +1,116 @@
+{
+  "processing_elapsed_s": 16.631,
+  "events_by_type": [
+    [
+      "sinais_vitais",
+      "heart_rate"
+    ],
+    [
+      "sinais_vitais",
+      "systolic_bp"
+    ],
+    [
+      "sinais_vitais",
+      "spo2"
+    ],
+    [
+      "prescricao",
+      "variacao_dose"
+    ],
+    [
+      "prescricao",
+      "unidade_alterada"
+    ],
+    [
+      "video",
+      "amplitude_baixa"
+    ],
+    [
+      "video",
+      "amplitude_baixa"
+    ],
+    [
+      "audio",
+      "padrao_vocal_exploratorio"
+    ],
+    [
+      "texto",
+      "termo_critico"
+    ]
+  ],
+  "alerts": 2,
+  "yolov8": {
+    "status": "ok",
+    "objects": [
+      {
+        "class": "person",
+        "confidence": 0.865,
+        "box": [
+          243.5,
+          65.8,
+          320.0,
+          331.6
+        ]
+      },
+      {
+        "class": "chair",
+        "confidence": 0.816,
+        "box": [
+          459.4,
+          164.9,
+          567.4,
+          300.2
+        ]
+      },
+      {
+        "class": "person",
+        "confidence": 0.794,
+        "box": [
+          578.5,
+          162.0,
+          639.8,
+          357.5
+        ]
+      },
+      {
+        "class": "chair",
+        "confidence": 0.544,
+        "box": [
+          312.4,
+          150.7,
+          403.5,
+          289.8
+        ]
+      },
+      {
+        "class": "tv",
+        "confidence": 0.513,
+        "box": [
+          513.6,
+          154.1,
+          572.5,
+          193.2
+        ]
+      }
+    ]
+  },
+  "openpose": {
+    "status": "ok",
+    "points_count": 15
+  },
+  "audio_screening": {
+    "status": "avaliado_experimental",
+    "events": [
+      {
+        "case_id": "caso_demo",
+        "time_s": 0.0,
+        "modality": "audio",
+        "kind": "padrao_vocal_exploratorio",
+        "evidence": "64.1 palavras/min; 53.1% quadros silenciosos",
+        "rule": "Regra arbitrária: <80 palavras/min e >50% quadros silenciosos; revisão humana necessária"
+      }
+    ],
+    "reason": "Não constitui detecção clínica nem identifica causas."
+  },
+  "qwen_status": "ok"
+}

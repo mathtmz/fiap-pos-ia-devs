@@ -1,0 +1,44 @@
+[
+  {
+    "segmento": "normal",
+    "rotulo_incorreto": false,
+    "alerta": false,
+    "repeticoes": 1,
+    "eventos": 0
+  },
+  {
+    "segmento": "erro_1",
+    "rotulo_incorreto": true,
+    "alerta": false,
+    "repeticoes": 1,
+    "eventos": 0
+  },
+  {
+    "segmento": "erro_2",
+    "rotulo_incorreto": true,
+    "alerta": true,
+    "repeticoes": 3,
+    "eventos": 1
+  },
+  {
+    "segmento": "erro_3",
+    "rotulo_incorreto": true,
+    "alerta": true,
+    "repeticoes": 2,
+    "eventos": 2
+  },
+  {
+    "segmento": "erro_4",
+    "rotulo_incorreto": true,
+    "alerta": true,
+    "repeticoes": 2,
+    "eventos": 1
+  },
+  {
+    "segmento": "erro_5",
+    "rotulo_incorreto": true,
+    "alerta": false,
+    "repeticoes": 1,
+    "eventos": 0
+  }
+]

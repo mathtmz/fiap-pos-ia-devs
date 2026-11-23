@@ -1,0 +1,63 @@
+{
+  "cases": [
+    {
+      "text": "Sinto dor no ombro.",
+      "expected_alert": true,
+      "actual_alert": true,
+      "review_items": 0,
+      "terms": [
+        "dor"
+      ]
+    },
+    {
+      "text": "Não sinto dor.",
+      "expected_alert": false,
+      "actual_alert": false,
+      "review_items": 1,
+      "terms": [
+        "não sinto dor"
+      ]
+    },
+    {
+      "text": "Você sente dor?",
+      "expected_alert": false,
+      "actual_alert": false,
+      "review_items": 1,
+      "terms": [
+        "dor"
+      ]
+    },
+    {
+      "text": "Estou com falta de ar.",
+      "expected_alert": true,
+      "actual_alert": true,
+      "review_items": 0,
+      "terms": [
+        "falta de ar"
+      ]
+    },
+    {
+      "text": "Estou descansado.",
+      "expected_alert": false,
+      "actual_alert": false,
+      "review_items": 0,
+      "terms": []
+    },
+    {
+      "text": "Nega dor.",
+      "expected_alert": false,
+      "actual_alert": false,
+      "review_items": 1,
+      "terms": [
+        "dor"
+      ]
+    }
+  ],
+  "tp": 2,
+  "fp": 0,
+  "fn": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "limitation": "Seis frases sintéticas curtas, rótulos manuais; não avalia consultas reais."
+}

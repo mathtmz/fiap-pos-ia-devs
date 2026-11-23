@@ -1,0 +1,44 @@
+[
+  {
+    "label": "normal",
+    "ground_truth_error": null,
+    "video": "docs/resultados/vision_examples/normal/openpose_yolo_temporal.mp4",
+    "summary": "docs/resultados/vision_examples/normal/resumo.json",
+    "events": 0
+  },
+  {
+    "label": "arm_forward",
+    "ground_truth_error": "ERR_ARM_FORWARD",
+    "video": "docs/resultados/vision_examples/arm_forward/openpose_yolo_temporal.mp4",
+    "summary": "docs/resultados/vision_examples/arm_forward/resumo.json",
+    "events": 0
+  },
+  {
+    "label": "shoulder_elevated",
+    "ground_truth_error": "ERR_ELEVATED_SHOULDER",
+    "video": "docs/resultados/vision_examples/shoulder_elevated/openpose_yolo_temporal.mp4",
+    "summary": "docs/resultados/vision_examples/shoulder_elevated/resumo.json",
+    "events": 0
+  },
+  {
+    "label": "head_tilt",
+    "ground_truth_error": "ERR_HEAD_TO_SIDE",
+    "video": "docs/resultados/vision_examples/head_tilt/openpose_yolo_temporal.mp4",
+    "summary": "docs/resultados/vision_examples/head_tilt/resumo.json",
+    "events": 0
+  },
+  {
+    "label": "low_abduction",
+    "ground_truth_error": "ERR_LOW_ABDUCTION",
+    "video": "docs/resultados/vision_examples/low_abduction/openpose_yolo_temporal.mp4",
+    "summary": "docs/resultados/vision_examples/low_abduction/resumo.json",
+    "events": 0
+  },
+  {
+    "label": "bent_arm",
+    "ground_truth_error": "ERR_BENT_ARM",
+    "video": "docs/resultados/vision_examples/bent_arm/openpose_yolo_temporal.mp4",
+    "summary": "docs/resultados/vision_examples/bent_arm/resumo.json",
+    "events": 0
+  }
+]

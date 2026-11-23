@@ -1,0 +1,1513 @@
+{
+  "case_id": "caso_demo_sintetico",
+  "modalities": {
+    "sinais_vitais": {
+      "status": "ok",
+      "elapsed_s": 0.001,
+      "result": {
+        "events": [
+          {
+            "case_id": "caso_demo_sintetico",
+            "time_s": 20.0,
+            "modality": "sinais_vitais",
+            "kind": "heart_rate",
+            "evidence": "heart_rate: 130 bpm",
+            "rule": "Fora do intervalo experimental [50, 120]",
+            "source": "vitais_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "a495a51f5f118286"
+          },
+          {
+            "case_id": "caso_demo_sintetico",
+            "time_s": 30.0,
+            "modality": "sinais_vitais",
+            "kind": "systolic_bp",
+            "evidence": "systolic_bp: 165 mmHg",
+            "rule": "Fora do intervalo experimental [90, 160]",
+            "source": "vitais_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "d75d5c4f3396a188"
+          },
+          {
+            "case_id": "caso_demo_sintetico",
+            "time_s": 30.0,
+            "modality": "sinais_vitais",
+            "kind": "spo2",
+            "evidence": "spo2: 91 %",
+            "rule": "Fora do intervalo experimental [92, 100]",
+            "source": "vitais_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "2384386f52e48db2"
+          }
+        ]
+      }
+    },
+    "prescricoes": {
+      "status": "ok",
+      "elapsed_s": 0.0,
+      "result": {
+        "events": [
+          {
+            "case_id": "caso_demo_sintetico",
+            "time_s": 20.0,
+            "modality": "prescricao",
+            "kind": "variacao_dose",
+            "evidence": "medicamento_exemplo: 10 → 20 mg",
+            "rule": "Variação relativa de dose >= 50% entre registros consecutivos",
+            "source": "prescricoes_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "b7a674afaf95a543"
+          },
+          {
+            "case_id": "caso_demo_sintetico",
+            "time_s": 40.0,
+            "modality": "prescricao",
+            "kind": "unidade_alterada",
+            "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+            "rule": "Unidades divergentes exigem revisão; sem comparação numérica",
+            "source": "prescricoes_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "ef8b399636da39fb"
+          }
+        ]
+      }
+    },
+    "video": {
+      "status": "ok",
+      "elapsed_s": 7.704,
+      "result": {
+        "frames": 120,
+        "fps": 30.0,
+        "duration_s": 4.0,
+        "frames_pose": 40,
+        "frames_analyzed": 40,
+        "frame_selection": "full_video",
+        "repetitions": 1,
+        "angles": [
+          {
+            "time_s": 0.0,
+            "angle": 18.0,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.0,
+            "angle": 18.8,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.1,
+            "angle": 18.0,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.1,
+            "angle": 18.8,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.2,
+            "angle": 18.0,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.2,
+            "angle": 18.9,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.3,
+            "angle": 18.0,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.3,
+            "angle": 19.1,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.4,
+            "angle": 18.0,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.4,
+            "angle": 19.6,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.5,
+            "angle": 17.9,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.5,
+            "angle": 21.3,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.6,
+            "angle": 17.9,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.6,
+            "angle": 27.1,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.7,
+            "angle": 17.7,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.7,
+            "angle": 37.2,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.8,
+            "angle": 17.6,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.8,
+            "angle": 52.0,
+            "side": "direito"
+          },
+          {
+            "time_s": 0.9,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 0.9,
+            "angle": 69.6,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.0,
+            "angle": 17.3,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.0,
+            "angle": 86.9,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.1,
+            "angle": 17.2,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.1,
+            "angle": 99.0,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.2,
+            "angle": 17.3,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.2,
+            "angle": 108.5,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.3,
+            "angle": 17.3,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.3,
+            "angle": 114.0,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.4,
+            "angle": 17.2,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.4,
+            "angle": 117.7,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.5,
+            "angle": 17.3,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.5,
+            "angle": 119.2,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.6,
+            "angle": 17.3,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.6,
+            "angle": 118.6,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.7,
+            "angle": 17.3,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.7,
+            "angle": 117.8,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.8,
+            "angle": 17.3,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.8,
+            "angle": 116.7,
+            "side": "direito"
+          },
+          {
+            "time_s": 1.9,
+            "angle": 17.4,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 1.9,
+            "angle": 114.2,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.0,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.0,
+            "angle": 110.6,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.1,
+            "angle": 17.7,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.1,
+            "angle": 109.7,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.2,
+            "angle": 17.9,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.2,
+            "angle": 96.7,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.3,
+            "angle": 18.0,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.3,
+            "angle": 84.4,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.4,
+            "angle": 18.0,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.4,
+            "angle": 72.1,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.5,
+            "angle": 18.0,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.5,
+            "angle": 62.4,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.6,
+            "angle": 17.9,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.6,
+            "angle": 50.6,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.7,
+            "angle": 17.8,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.7,
+            "angle": 41.9,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.8,
+            "angle": 17.8,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.8,
+            "angle": 35.0,
+            "side": "direito"
+          },
+          {
+            "time_s": 2.9,
+            "angle": 17.7,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 2.9,
+            "angle": 32.1,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.0,
+            "angle": 17.6,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.0,
+            "angle": 29.6,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.1,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.1,
+            "angle": 26.4,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.2,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.2,
+            "angle": 24.8,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.3,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.3,
+            "angle": 23.3,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.4,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.4,
+            "angle": 22.6,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.5,
+            "angle": 17.4,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.5,
+            "angle": 21.0,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.6,
+            "angle": 17.4,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.6,
+            "angle": 20.7,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.7,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.7,
+            "angle": 20.9,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.8,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.8,
+            "angle": 21.3,
+            "side": "direito"
+          },
+          {
+            "time_s": 3.9,
+            "angle": 17.5,
+            "side": "esquerdo"
+          },
+          {
+            "time_s": 3.9,
+            "angle": 21.4,
+            "side": "direito"
+          }
+        ],
+        "measurements": [
+          {
+            "time_s": 0.0,
+            "side": "esquerdo",
+            "elbow_angle": 175.5,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 0.0,
+            "side": "direito",
+            "elbow_angle": 177.4,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 0.1,
+            "side": "esquerdo",
+            "elbow_angle": 175.4,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 0.1,
+            "side": "direito",
+            "elbow_angle": 177.2,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 0.2,
+            "side": "esquerdo",
+            "elbow_angle": 175.4,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 0.2,
+            "side": "direito",
+            "elbow_angle": 177.2,
+            "trunk_tilt": 9.5
+          },
+          {
+            "time_s": 0.3,
+            "side": "esquerdo",
+            "elbow_angle": 175.2,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 0.3,
+            "side": "direito",
+            "elbow_angle": 177.5,
+            "trunk_tilt": 9.5
+          },
+          {
+            "time_s": 0.4,
+            "side": "esquerdo",
+            "elbow_angle": 175.2,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 0.4,
+            "side": "direito",
+            "elbow_angle": 178.9,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 0.5,
+            "side": "esquerdo",
+            "elbow_angle": 175.3,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 0.5,
+            "side": "direito",
+            "elbow_angle": 173.0,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 0.6,
+            "side": "esquerdo",
+            "elbow_angle": 175.4,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 0.6,
+            "side": "direito",
+            "elbow_angle": 165.5,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 0.7,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 0.7,
+            "side": "direito",
+            "elbow_angle": 161.1,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 0.8,
+            "side": "esquerdo",
+            "elbow_angle": 176.0,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 0.8,
+            "side": "direito",
+            "elbow_angle": 160.0,
+            "trunk_tilt": 9.0
+          },
+          {
+            "time_s": 0.9,
+            "side": "esquerdo",
+            "elbow_angle": 176.1,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 0.9,
+            "side": "direito",
+            "elbow_angle": 164.5,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 1.0,
+            "side": "esquerdo",
+            "elbow_angle": 176.2,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 1.0,
+            "side": "direito",
+            "elbow_angle": 170.1,
+            "trunk_tilt": 9.9
+          },
+          {
+            "time_s": 1.1,
+            "side": "esquerdo",
+            "elbow_angle": 176.1,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.1,
+            "side": "direito",
+            "elbow_angle": 168.9,
+            "trunk_tilt": 9.7
+          },
+          {
+            "time_s": 1.2,
+            "side": "esquerdo",
+            "elbow_angle": 175.8,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.2,
+            "side": "direito",
+            "elbow_angle": 171.1,
+            "trunk_tilt": 9.6
+          },
+          {
+            "time_s": 1.3,
+            "side": "esquerdo",
+            "elbow_angle": 175.4,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.3,
+            "side": "direito",
+            "elbow_angle": 172.2,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 1.4,
+            "side": "esquerdo",
+            "elbow_angle": 175.3,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.4,
+            "side": "direito",
+            "elbow_angle": 170.4,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 1.5,
+            "side": "esquerdo",
+            "elbow_angle": 175.1,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.5,
+            "side": "direito",
+            "elbow_angle": 170.6,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 1.6,
+            "side": "esquerdo",
+            "elbow_angle": 175.1,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.6,
+            "side": "direito",
+            "elbow_angle": 169.4,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 1.7,
+            "side": "esquerdo",
+            "elbow_angle": 175.2,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.7,
+            "side": "direito",
+            "elbow_angle": 168.0,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 1.8,
+            "side": "esquerdo",
+            "elbow_angle": 175.4,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.8,
+            "side": "direito",
+            "elbow_angle": 167.2,
+            "trunk_tilt": 9.0
+          },
+          {
+            "time_s": 1.9,
+            "side": "esquerdo",
+            "elbow_angle": 175.3,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 1.9,
+            "side": "direito",
+            "elbow_angle": 169.0,
+            "trunk_tilt": 9.0
+          },
+          {
+            "time_s": 2.0,
+            "side": "esquerdo",
+            "elbow_angle": 175.1,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 2.0,
+            "side": "direito",
+            "elbow_angle": 170.6,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 2.1,
+            "side": "esquerdo",
+            "elbow_angle": 174.8,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 2.1,
+            "side": "direito",
+            "elbow_angle": 169.1,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 2.2,
+            "side": "esquerdo",
+            "elbow_angle": 174.4,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 2.2,
+            "side": "direito",
+            "elbow_angle": 172.3,
+            "trunk_tilt": 9.5
+          },
+          {
+            "time_s": 2.3,
+            "side": "esquerdo",
+            "elbow_angle": 174.4,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 2.3,
+            "side": "direito",
+            "elbow_angle": 168.5,
+            "trunk_tilt": 9.7
+          },
+          {
+            "time_s": 2.4,
+            "side": "esquerdo",
+            "elbow_angle": 174.6,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 2.4,
+            "side": "direito",
+            "elbow_angle": 161.3,
+            "trunk_tilt": 9.9
+          },
+          {
+            "time_s": 2.5,
+            "side": "esquerdo",
+            "elbow_angle": 174.6,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 2.5,
+            "side": "direito",
+            "elbow_angle": 161.3,
+            "trunk_tilt": 9.9
+          },
+          {
+            "time_s": 2.6,
+            "side": "esquerdo",
+            "elbow_angle": 174.8,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 2.6,
+            "side": "direito",
+            "elbow_angle": 155.7,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 2.7,
+            "side": "esquerdo",
+            "elbow_angle": 175.1,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 2.7,
+            "side": "direito",
+            "elbow_angle": 157.4,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 2.8,
+            "side": "esquerdo",
+            "elbow_angle": 175.3,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 2.8,
+            "side": "direito",
+            "elbow_angle": 156.8,
+            "trunk_tilt": 8.8
+          },
+          {
+            "time_s": 2.9,
+            "side": "esquerdo",
+            "elbow_angle": 175.5,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 2.9,
+            "side": "direito",
+            "elbow_angle": 161.7,
+            "trunk_tilt": 8.6
+          },
+          {
+            "time_s": 3.0,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 3.0,
+            "side": "direito",
+            "elbow_angle": 166.5,
+            "trunk_tilt": 8.6
+          },
+          {
+            "time_s": 3.1,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 3.1,
+            "side": "direito",
+            "elbow_angle": 168.9,
+            "trunk_tilt": 8.6
+          },
+          {
+            "time_s": 3.2,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 3.2,
+            "side": "direito",
+            "elbow_angle": 174.6,
+            "trunk_tilt": 8.7
+          },
+          {
+            "time_s": 3.3,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 3.3,
+            "side": "direito",
+            "elbow_angle": 178.8,
+            "trunk_tilt": 8.7
+          },
+          {
+            "time_s": 3.4,
+            "side": "esquerdo",
+            "elbow_angle": 175.8,
+            "trunk_tilt": 9.4
+          },
+          {
+            "time_s": 3.4,
+            "side": "direito",
+            "elbow_angle": 178.7,
+            "trunk_tilt": 8.7
+          },
+          {
+            "time_s": 3.5,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.3
+          },
+          {
+            "time_s": 3.5,
+            "side": "direito",
+            "elbow_angle": 177.4,
+            "trunk_tilt": 8.8
+          },
+          {
+            "time_s": 3.6,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.2
+          },
+          {
+            "time_s": 3.6,
+            "side": "direito",
+            "elbow_angle": 175.2,
+            "trunk_tilt": 8.8
+          },
+          {
+            "time_s": 3.7,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 3.7,
+            "side": "direito",
+            "elbow_angle": 173.4,
+            "trunk_tilt": 8.9
+          },
+          {
+            "time_s": 3.8,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.1
+          },
+          {
+            "time_s": 3.8,
+            "side": "direito",
+            "elbow_angle": 172.1,
+            "trunk_tilt": 8.9
+          },
+          {
+            "time_s": 3.9,
+            "side": "esquerdo",
+            "elbow_angle": 175.7,
+            "trunk_tilt": 9.0
+          },
+          {
+            "time_s": 3.9,
+            "side": "direito",
+            "elbow_angle": 171.9,
+            "trunk_tilt": 8.9
+          }
+        ],
+        "repetition_details": [
+          {
+            "start_s": 0.7,
+            "end_s": 2.9,
+            "side": "direito",
+            "samples": 23,
+            "max_angle": 119.2,
+            "min_elbow_angle": 155.7,
+            "max_trunk_tilt": 9.9,
+            "status": "avaliavel",
+            "reason": "completa",
+            "events": [
+              {
+                "case_id": "caso_demo_sintetico",
+                "time_s": 0.7,
+                "modality": "video",
+                "kind": "amplitude_baixa",
+                "evidence": "max_angle: 119.2° na repetição 0.7–2.9 s",
+                "rule": "limiar experimental lt 132.35°",
+                "source": "low_abduction.mp4",
+                "model": "MediaPipe Pose",
+                "frame_index": 21,
+                "confidence": null,
+                "review_status": "revisao_humana_requerida",
+                "event_id": "bb4cc83e5a95933e"
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "case_id": "caso_demo_sintetico",
+            "time_s": 0.7,
+            "modality": "video",
+            "kind": "amplitude_baixa",
+            "evidence": "max_angle: 119.2° na repetição 0.7–2.9 s",
+            "rule": "limiar experimental lt 132.35°",
+            "source": "low_abduction.mp4",
+            "model": "MediaPipe Pose",
+            "frame_index": 21,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "bb4cc83e5a95933e"
+          }
+        ],
+        "output_video": "code/outputs/reproduction/full/anomaly/video_anotado.mp4",
+        "status_movimento": "avaliado",
+        "limitation": "Ângulo 2D depende da câmera; limiar exploratório, não diagnóstico.",
+        "modelos_adicionais": {
+          "source": "low_abduction.mp4",
+          "frames": 120,
+          "source_fps": 30.0,
+          "sample_fps": 0.5,
+          "duration_s": 4.0,
+          "sampled_frames": 2,
+          "frame_selection": "full_video",
+          "pose_frames": 1,
+          "objects_by_class": {
+            "person": 2,
+            "umbrella": 2,
+            "dining table": 1
+          },
+          "yolov8_status": "ok",
+          "openpose_status": "ok",
+          "repetitions": [],
+          "events": [],
+          "inference_latency_ms": {
+            "median": 2517.17,
+            "p95": 2517.17
+          },
+          "elapsed_s": 5.234,
+          "annotated_video": "code/outputs/reproduction/full/anomaly/modelos_visao/openpose_yolo_temporal.mp4",
+          "limitation": "YOLOv8 usa classes gerais e seleciona a pessoa principal; OpenPose COCO usa máximos dos mapas 2D. Regras e segmentos são exploratórios e requerem revisão humana.",
+          "details_json": "code/outputs/reproduction/full/anomaly/modelos_visao/analise_temporal.json"
+        }
+      }
+    },
+    "audio": {
+      "status": "ok",
+      "elapsed_s": 14.864,
+      "result": {
+        "transcription": {
+          "text": "Como você tem estado desde a última visita? Não tenho passado muito bem, doutor. Estou muito cansada, quase sem energia. Há quanto tempo isso vem acontecendo? Já faz umas duas semanas e tenho sentido uma dor incômoda no quadril também. Essa dor é constante ou vai e volta? É quase o tempo todo, piora quando ando mais. Isso está afetando seu sono? Sim, tenho dormido mal por causa da dor. Vamos reavaliar sua medicação e pedir alguns exames.",
+          "language": "pt",
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 3.0,
+              "text": "Como você tem estado desde a última visita?"
+            },
+            {
+              "start": 4.5,
+              "end": 10.5,
+              "text": "Não tenho passado muito bem, doutor. Estou muito cansada, quase sem energia."
+            },
+            {
+              "start": 12.3,
+              "end": 14.8,
+              "text": "Há quanto tempo isso vem acontecendo?"
+            },
+            {
+              "start": 16.4,
+              "end": 22.7,
+              "text": "Já faz umas duas semanas e tenho sentido uma dor incômoda no quadril também."
+            },
+            {
+              "start": 24.4,
+              "end": 26.8,
+              "text": "Essa dor é constante ou vai e volta?"
+            },
+            {
+              "start": 26.8,
+              "end": 32.8,
+              "text": "É quase o tempo todo, piora quando ando mais."
+            },
+            {
+              "start": 32.8,
+              "end": 36.8,
+              "text": "Isso está afetando seu sono?"
+            },
+            {
+              "start": 36.8,
+              "end": 41.8,
+              "text": "Sim, tenho dormido mal por causa da dor."
+            },
+            {
+              "start": 41.8,
+              "end": 46.8,
+              "text": "Vamos reavaliar sua medicação e pedir alguns exames."
+            }
+          ],
+          "vad_status": "inativo"
+        },
+        "acoustics": {
+          "duration_s": 47.51,
+          "silent_frame_fraction": 0.532,
+          "words_per_minute": 98.5,
+          "rms_threshold": 0.02798,
+          "limitation": "Medidas descritivas; silêncio e ritmo não diagnosticam fadiga ou dispneia."
+        },
+        "diarization": {
+          "status": "desativado"
+        },
+        "vocal_screening": {
+          "status": "avaliado_experimental",
+          "events": [],
+          "reason": "Não constitui detecção clínica nem identifica causas."
+        },
+        "configuration": {
+          "whisper_model": "small",
+          "language": "pt",
+          "vad": false,
+          "diarization_enabled": false,
+          "qwen_enabled": true,
+          "qwen_model": "Qwen/Qwen2.5-0.5B-Instruct"
+        },
+        "events": [
+          {
+            "case_id": "caso_demo_sintetico",
+            "time_s": 16.4,
+            "modality": "texto",
+            "kind": "termo_critico",
+            "evidence": "dor: Já faz umas duas semanas e tenho sentido uma dor incômoda no quadril também.",
+            "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+            "source": "OAW04_consultation.wav",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_pendente",
+            "event_id": "8e0c9a9400f17a5a",
+            "speaker": "não identificado",
+            "role": "não identificado"
+          },
+          {
+            "case_id": "caso_demo_sintetico",
+            "time_s": 36.8,
+            "modality": "texto",
+            "kind": "termo_critico",
+            "evidence": "dor: Sim, tenho dormido mal por causa da dor.",
+            "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+            "source": "OAW04_consultation.wav",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_pendente",
+            "event_id": "a893985d6b79f006",
+            "speaker": "não identificado",
+            "role": "não identificado"
+          }
+        ],
+        "text_analysis": {
+          "status": "ok",
+          "chunks": [
+            {
+              "start": 0.0,
+              "end": 46.8,
+              "analysis": {
+                "sentiment": "negativo",
+                "terms": [
+                  "dor"
+                ],
+                "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"dor\", \"cansei\", \"falta de ar\", \"sintomas\"]}",
+                "status": "ok"
+              }
+            }
+          ],
+          "speaker_status": "não identificado",
+          "events": [
+            {
+              "case_id": "caso_demo_sintetico",
+              "time_s": 16.4,
+              "modality": "texto",
+              "kind": "termo_critico",
+              "evidence": "dor: Já faz umas duas semanas e tenho sentido uma dor incômoda no quadril também.",
+              "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+              "source": "OAW04_consultation.wav",
+              "model": null,
+              "frame_index": null,
+              "confidence": null,
+              "review_status": "revisao_pendente",
+              "event_id": "8e0c9a9400f17a5a",
+              "speaker": "não identificado",
+              "role": "não identificado"
+            },
+            {
+              "case_id": "caso_demo_sintetico",
+              "time_s": 36.8,
+              "modality": "texto",
+              "kind": "termo_critico",
+              "evidence": "dor: Sim, tenho dormido mal por causa da dor.",
+              "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+              "source": "OAW04_consultation.wav",
+              "model": null,
+              "frame_index": null,
+              "confidence": null,
+              "review_status": "revisao_pendente",
+              "event_id": "a893985d6b79f006",
+              "speaker": "não identificado",
+              "role": "não identificado"
+            }
+          ],
+          "review_items": [
+            {
+              "case_id": "caso_demo_sintetico",
+              "time_s": 24.4,
+              "modality": "texto",
+              "kind": "termo_critico",
+              "evidence": "dor: Essa dor é constante ou vai e volta?",
+              "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+              "source": null,
+              "model": null,
+              "frame_index": null,
+              "confidence": null,
+              "review_status": "revisar_negacao_ou_pergunta",
+              "event_id": "51eb8ab0d8f43e8e",
+              "speaker": "não identificado",
+              "role": "não identificado"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "case_id": "caso_demo_sintetico",
+      "time_s": 20.0,
+      "modality": "sinais_vitais",
+      "kind": "heart_rate",
+      "evidence": "heart_rate: 130 bpm",
+      "rule": "Fora do intervalo experimental [50, 120]",
+      "source": "vitais_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "a495a51f5f118286"
+    },
+    {
+      "case_id": "caso_demo_sintetico",
+      "time_s": 30.0,
+      "modality": "sinais_vitais",
+      "kind": "systolic_bp",
+      "evidence": "systolic_bp: 165 mmHg",
+      "rule": "Fora do intervalo experimental [90, 160]",
+      "source": "vitais_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "d75d5c4f3396a188"
+    },
+    {
+      "case_id": "caso_demo_sintetico",
+      "time_s": 30.0,
+      "modality": "sinais_vitais",
+      "kind": "spo2",
+      "evidence": "spo2: 91 %",
+      "rule": "Fora do intervalo experimental [92, 100]",
+      "source": "vitais_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "2384386f52e48db2"
+    },
+    {
+      "case_id": "caso_demo_sintetico",
+      "time_s": 20.0,
+      "modality": "prescricao",
+      "kind": "variacao_dose",
+      "evidence": "medicamento_exemplo: 10 → 20 mg",
+      "rule": "Variação relativa de dose >= 50% entre registros consecutivos",
+      "source": "prescricoes_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "b7a674afaf95a543"
+    },
+    {
+      "case_id": "caso_demo_sintetico",
+      "time_s": 40.0,
+      "modality": "prescricao",
+      "kind": "unidade_alterada",
+      "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+      "rule": "Unidades divergentes exigem revisão; sem comparação numérica",
+      "source": "prescricoes_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "ef8b399636da39fb"
+    },
+    {
+      "case_id": "caso_demo_sintetico",
+      "time_s": 0.7,
+      "modality": "video",
+      "kind": "amplitude_baixa",
+      "evidence": "max_angle: 119.2° na repetição 0.7–2.9 s",
+      "rule": "limiar experimental lt 132.35°",
+      "source": "low_abduction.mp4",
+      "model": "MediaPipe Pose",
+      "frame_index": 21,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "bb4cc83e5a95933e"
+    },
+    {
+      "case_id": "caso_demo_sintetico",
+      "time_s": 16.4,
+      "modality": "texto",
+      "kind": "termo_critico",
+      "evidence": "dor: Já faz umas duas semanas e tenho sentido uma dor incômoda no quadril também.",
+      "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+      "source": "OAW04_consultation.wav",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_pendente",
+      "event_id": "8e0c9a9400f17a5a",
+      "speaker": "não identificado",
+      "role": "não identificado"
+    },
+    {
+      "case_id": "caso_demo_sintetico",
+      "time_s": 36.8,
+      "modality": "texto",
+      "kind": "termo_critico",
+      "evidence": "dor: Sim, tenho dormido mal por causa da dor.",
+      "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+      "source": "OAW04_consultation.wav",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_pendente",
+      "event_id": "a893985d6b79f006",
+      "speaker": "não identificado",
+      "role": "não identificado"
+    }
+  ],
+  "alerts": [
+    {
+      "case_id": "caso_demo_sintetico",
+      "window_start_s": 0,
+      "window_end_s": 30,
+      "modalities": [
+        "prescricao",
+        "sinais_vitais",
+        "texto",
+        "video"
+      ],
+      "events": [
+        {
+          "case_id": "caso_demo_sintetico",
+          "time_s": 0.7,
+          "modality": "video",
+          "kind": "amplitude_baixa",
+          "evidence": "max_angle: 119.2° na repetição 0.7–2.9 s",
+          "rule": "limiar experimental lt 132.35°",
+          "source": "low_abduction.mp4",
+          "model": "MediaPipe Pose",
+          "frame_index": 21,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "bb4cc83e5a95933e"
+        },
+        {
+          "case_id": "caso_demo_sintetico",
+          "time_s": 16.4,
+          "modality": "texto",
+          "kind": "termo_critico",
+          "evidence": "dor: Já faz umas duas semanas e tenho sentido uma dor incômoda no quadril também.",
+          "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+          "source": "OAW04_consultation.wav",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_pendente",
+          "event_id": "8e0c9a9400f17a5a",
+          "speaker": "não identificado",
+          "role": "não identificado"
+        },
+        {
+          "case_id": "caso_demo_sintetico",
+          "time_s": 20.0,
+          "modality": "sinais_vitais",
+          "kind": "heart_rate",
+          "evidence": "heart_rate: 130 bpm",
+          "rule": "Fora do intervalo experimental [50, 120]",
+          "source": "vitais_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "a495a51f5f118286"
+        },
+        {
+          "case_id": "caso_demo_sintetico",
+          "time_s": 20.0,
+          "modality": "prescricao",
+          "kind": "variacao_dose",
+          "evidence": "medicamento_exemplo: 10 → 20 mg",
+          "rule": "Variação relativa de dose >= 50% entre registros consecutivos",
+          "source": "prescricoes_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "b7a674afaf95a543"
+        }
+      ],
+      "message": "Revisão humana necessária; critérios experimentais."
+    },
+    {
+      "case_id": "caso_demo_sintetico",
+      "window_start_s": 30,
+      "window_end_s": 60,
+      "modalities": [
+        "prescricao",
+        "sinais_vitais",
+        "texto"
+      ],
+      "events": [
+        {
+          "case_id": "caso_demo_sintetico",
+          "time_s": 30.0,
+          "modality": "sinais_vitais",
+          "kind": "systolic_bp",
+          "evidence": "systolic_bp: 165 mmHg",
+          "rule": "Fora do intervalo experimental [90, 160]",
+          "source": "vitais_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "d75d5c4f3396a188"
+        },
+        {
+          "case_id": "caso_demo_sintetico",
+          "time_s": 30.0,
+          "modality": "sinais_vitais",
+          "kind": "spo2",
+          "evidence": "spo2: 91 %",
+          "rule": "Fora do intervalo experimental [92, 100]",
+          "source": "vitais_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "2384386f52e48db2"
+        },
+        {
+          "case_id": "caso_demo_sintetico",
+          "time_s": 36.8,
+          "modality": "texto",
+          "kind": "termo_critico",
+          "evidence": "dor: Sim, tenho dormido mal por causa da dor.",
+          "rule": "Termo literal selecionado pelo modelo, sujeito à revisão",
+          "source": "OAW04_consultation.wav",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_pendente",
+          "event_id": "a893985d6b79f006",
+          "speaker": "não identificado",
+          "role": "não identificado"
+        },
+        {
+          "case_id": "caso_demo_sintetico",
+          "time_s": 40.0,
+          "modality": "prescricao",
+          "kind": "unidade_alterada",
+          "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+          "rule": "Unidades divergentes exigem revisão; sem comparação numérica",
+          "source": "prescricoes_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "ef8b399636da39fb"
+        }
+      ],
+      "message": "Revisão humana necessária; critérios experimentais."
+    }
+  ],
+  "processing_elapsed_s": 22.569,
+  "notice": "Protótipo acadêmico; dados associados artificialmente e critérios não validados clinicamente."
+}

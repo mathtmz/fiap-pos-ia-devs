@@ -1,0 +1,46 @@
+[
+  {
+    "text": "Sinto dor no ombro e cansaço ao levantar o braço.",
+    "expected_sentiment": "negativo",
+    "expected_terms": [
+      "dor",
+      "cansaço"
+    ],
+    "output": {
+      "sentiment": "negativo",
+      "terms": [
+        "dor",
+        "cansaço"
+      ],
+      "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"dor\", \"cansaço\"]}",
+      "status": "ok"
+    },
+    "seconds": 5.24
+  },
+  {
+    "text": "Consegui levantar o braço sem dor e estou satisfeito.",
+    "expected_sentiment": "positivo",
+    "expected_terms": [
+      "dor"
+    ],
+    "output": {
+      "sentiment": "positivo",
+      "terms": [],
+      "raw_output": "{\"sentiment\": \"positivo\", \"terms\": [\"levantar\", \"braço\"]}",
+      "status": "ok"
+    },
+    "seconds": 2.19
+  },
+  {
+    "text": "A sessão de fisioterapia começou às dez horas.",
+    "expected_sentiment": "neutro",
+    "expected_terms": [],
+    "output": {
+      "sentiment": "negativo",
+      "terms": [],
+      "raw_output": "{\"sentiment\": \"negativo\", \"terms\": [\"cansaço\", \"falta de ar\"]}",
+      "status": "ok"
+    },
+    "seconds": 2.08
+  }
+]

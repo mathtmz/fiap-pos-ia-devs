@@ -1,0 +1,61 @@
+{
+  "description": "Checksums of external assets downloaded for the experiments.",
+  "entries": [
+    {
+      "path": "data/public/consultas/OAW01_consultation.wav",
+      "source": "FIAP Module 04 Fake Consultation",
+      "source_url": "https://huggingface.co/datasets/ana-barbosa/fiap-module-04-fake-consultation",
+      "license": "MIT, conforme cartão do conjunto",
+      "bytes": 1860880,
+      "sha256": "c3319a4ed9258b3cf5aa72d039187c09678b6f30df1cf3480e001914c88f462c"
+    },
+    {
+      "path": "data/public/consultas/OAW01_transcript.json",
+      "source": "FIAP Module 04 Fake Consultation",
+      "source_url": "https://huggingface.co/datasets/ana-barbosa/fiap-module-04-fake-consultation",
+      "license": "MIT, conforme cartão do conjunto",
+      "bytes": 951,
+      "sha256": "4ce345eef8624c8824378a1984bad0e8d4b64f511d188d575b4be18c726c0ee5"
+    },
+    {
+      "path": "data/public/consultas/OAW04_consultation.wav",
+      "source": "FIAP Module 04 Fake Consultation",
+      "source_url": "https://huggingface.co/datasets/ana-barbosa/fiap-module-04-fake-consultation",
+      "license": "MIT, conforme cartão do conjunto",
+      "bytes": 2280374,
+      "sha256": "866eb08f72e51bd9f8dc5a9bbaa55e6a82f64861494670141453784ba7874c19"
+    },
+    {
+      "path": "data/public/consultas/OAW04_transcript.json",
+      "source": "FIAP Module 04 Fake Consultation",
+      "source_url": "https://huggingface.co/datasets/ana-barbosa/fiap-module-04-fake-consultation",
+      "license": "MIT, conforme cartão do conjunto",
+      "bytes": 1109,
+      "sha256": "b19c42c202bdcb4365420bb5cafdc2fd79827621696b367eb8621e1313d06f00"
+    },
+    {
+      "path": "data/public/rehab26/Segmentation.csv",
+      "source": "REHAB26-ViewAngles",
+      "source_url": "https://zenodo.org/records/23018128",
+      "license": "CC BY-NC 4.0, conferir os termos atuais da fonte",
+      "bytes": 83334,
+      "sha256": "2b431fca60d0f722f47cb5de5844e5ff26203d6881a1cae4991cf79deb40e1e3"
+    },
+    {
+      "path": "data/public/rehab26/Segmentation.txt",
+      "source": "REHAB26-ViewAngles",
+      "source_url": "https://zenodo.org/records/23018128",
+      "license": "CC BY-NC 4.0, conferir os termos atuais da fonte",
+      "bytes": 2019,
+      "sha256": "2dd5061bb7a25b9cc947a227559775970630c37ffb044396cf9a67ff49229b34"
+    },
+    {
+      "path": "data/public/rehab26/Error_types.csv",
+      "source": "REHAB26-ViewAngles",
+      "source_url": "https://zenodo.org/records/23018128",
+      "license": "CC BY-NC 4.0, conferir os termos atuais da fonte",
+      "bytes": 934,
+      "sha256": "62d5ad6239e24e33c418838d3b652c163b273839065589aae736010472d3d404"
+    }
+  ]
+}

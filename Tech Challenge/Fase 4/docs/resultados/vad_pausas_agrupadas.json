@@ -1,0 +1,9 @@
+{
+  "modelo": "tiny",
+  "vad": true,
+  "palavras_referencia": 78,
+  "edicoes": 63,
+  "wer": 0.8077,
+  "segundos": 3.21,
+  "segmentos": 16
+}

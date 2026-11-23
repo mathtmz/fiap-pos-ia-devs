@@ -1,6 +1,6 @@
 # Contexto da Fase 3 — IA Generativa
 
-Estado consolidado em 15/09/2026. O enunciado oficial está em [8IADT - Fase 3 - Tech challenge.pdf](../../Materiais/Fase%203%20-%20Generative%20AI/Tech%20Challenge/8IADT%20-%20Fase%203%20-%20Tech%20challenge.pdf).
+Estado consolidado em 15/09/2026. O enunciado oficial está em [8IADT - Fase 3 - Tech challenge.pdf](../../Tech%20Challenge/8IADT%20-%20Fase%203%20-%20Tech%20challenge.pdf).
 
 ## Escopo e entregas solicitadas
 
@@ -24,6 +24,6 @@ Os 48 testes automatizados passaram na execução local consolidada. O modelo e 
 
 ## Situação da entrega
 
-O código, os dados de demonstração, o adaptador, a avaliação, o README, o relatório técnico e o roteiro estão organizados no repositório. Falta gravar e conferir o vídeo demonstrativo de até 15 minutos. A sequência e as falas sugeridas estão em [docs/ROTEIRO_VIDEO.md](./docs/ROTEIRO_VIDEO.md). A revisão manual complementar das 270 respostas pode ampliar a análise, mas não constitui pendência formal do desafio.
+O código, os dados de demonstração, o adaptador, a avaliação, o README, o relatório técnico e o roteiro estão organizados no repositório. Falta gravar e conferir o vídeo demonstrativo de até 15 minutos. A sequência e as falas sugeridas estão em [docs/ROTEIRO_VIDEO.md](../apresentacao/ROTEIRO_VIDEO.md). A revisão manual complementar das 270 respostas pode ampliar a análise, mas não constitui pendência formal do desafio.
 
-Os resultados têm finalidade acadêmica e de engenharia. O corpus é pequeno, o mecanismo de recuperação é lexical e os resumos locais não foram revisados clinicamente. O protótipo não foi validado para uso clínico. Consulte o [relatório técnico](./docs/RELATORIO_TECNICO.md), o [inventário de fontes](./docs/FONTES_CLINICAS.md) e o [README](./README.md) para detalhes e reprodução.
+Os resultados têm finalidade acadêmica e de engenharia. O corpus é pequeno, o mecanismo de recuperação é lexical e os resumos locais não foram revisados clinicamente. O protótipo não foi validado para uso clínico. Consulte o [relatório técnico](../relatorios/RELATORIO_TECNICO.md), o [inventário de fontes](FONTES_CLINICAS.md) e o [README](../../../../Tech%20Challenge/Fase%203/README.md) para detalhes e reprodução.

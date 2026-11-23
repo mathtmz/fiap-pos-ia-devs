@@ -1,0 +1,217 @@
+{
+  "case_id": "caso_demo",
+  "modalities": {
+    "sinais_vitais": {
+      "status": "ok",
+      "elapsed_s": 0.0,
+      "result": {
+        "events": [
+          {
+            "case_id": "caso_demo",
+            "time_s": 20.0,
+            "modality": "sinais_vitais",
+            "kind": "heart_rate",
+            "evidence": "heart_rate: 130 bpm",
+            "rule": "Fora do intervalo experimental [50, 120]"
+          },
+          {
+            "case_id": "caso_demo",
+            "time_s": 30.0,
+            "modality": "sinais_vitais",
+            "kind": "systolic_bp",
+            "evidence": "systolic_bp: 165 mmHg",
+            "rule": "Fora do intervalo experimental [90, 160]"
+          },
+          {
+            "case_id": "caso_demo",
+            "time_s": 30.0,
+            "modality": "sinais_vitais",
+            "kind": "spo2",
+            "evidence": "spo2: 91 %",
+            "rule": "Fora do intervalo experimental [92, 100]"
+          }
+        ]
+      }
+    },
+    "prescricoes": {
+      "status": "ok",
+      "elapsed_s": 0.0,
+      "result": {
+        "events": [
+          {
+            "case_id": "caso_demo",
+            "time_s": 20.0,
+            "modality": "prescricao",
+            "kind": "variacao_dose",
+            "evidence": "medicamento_exemplo: 10 → 20 mg",
+            "rule": "Variação relativa de dose >= 50% entre registros consecutivos"
+          },
+          {
+            "case_id": "caso_demo",
+            "time_s": 40.0,
+            "modality": "prescricao",
+            "kind": "unidade_alterada",
+            "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+            "rule": "Unidades divergentes exigem revisão; sem comparação numérica"
+          }
+        ]
+      }
+    },
+    "video": {
+      "status": "ok",
+      "elapsed_s": 2.135,
+      "result": {
+        "frames": 251,
+        "fps": 30.0,
+        "duration_s": 8.37,
+        "frames_pose": 84,
+        "frames_analyzed": 84,
+        "repetitions": 1,
+        "events": [],
+        "output_video": "outputs/final/video_anotado.mp4",
+        "limitation": "Ângulo 2D depende da câmera; limiar exploratório, não diagnóstico."
+      }
+    },
+    "audio": {
+      "status": "ok",
+      "elapsed_s": 5.404,
+      "result": {
+        "transcription": {
+          "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country.",
+          "language": "en",
+          "segments": [
+            {
+              "start": 0.0,
+              "end": 11.0,
+              "text": "And so my fellow Americans ask not what your country can do for you ask what you can do for your country."
+            }
+          ]
+        },
+        "acoustics": {
+          "duration_s": 11.0,
+          "silent_frame_fraction": 0.518,
+          "words_per_minute": 120.0,
+          "rms_threshold": 0.03918,
+          "limitation": "Medidas descritivas; silêncio e ritmo não diagnosticam fadiga ou dispneia."
+        },
+        "events": [],
+        "text_analysis": {
+          "sentiment": "neutro",
+          "terms": [],
+          "raw_output": "{\"sentiment\": \"neutral\", \"terms\": [\"country\", \"can\", \"do\"]}",
+          "status": "ok"
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "case_id": "caso_demo",
+      "time_s": 20.0,
+      "modality": "sinais_vitais",
+      "kind": "heart_rate",
+      "evidence": "heart_rate: 130 bpm",
+      "rule": "Fora do intervalo experimental [50, 120]"
+    },
+    {
+      "case_id": "caso_demo",
+      "time_s": 30.0,
+      "modality": "sinais_vitais",
+      "kind": "systolic_bp",
+      "evidence": "systolic_bp: 165 mmHg",
+      "rule": "Fora do intervalo experimental [90, 160]"
+    },
+    {
+      "case_id": "caso_demo",
+      "time_s": 30.0,
+      "modality": "sinais_vitais",
+      "kind": "spo2",
+      "evidence": "spo2: 91 %",
+      "rule": "Fora do intervalo experimental [92, 100]"
+    },
+    {
+      "case_id": "caso_demo",
+      "time_s": 20.0,
+      "modality": "prescricao",
+      "kind": "variacao_dose",
+      "evidence": "medicamento_exemplo: 10 → 20 mg",
+      "rule": "Variação relativa de dose >= 50% entre registros consecutivos"
+    },
+    {
+      "case_id": "caso_demo",
+      "time_s": 40.0,
+      "modality": "prescricao",
+      "kind": "unidade_alterada",
+      "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+      "rule": "Unidades divergentes exigem revisão; sem comparação numérica"
+    }
+  ],
+  "alerts": [
+    {
+      "case_id": "caso_demo",
+      "window_start_s": 0,
+      "window_end_s": 30,
+      "modalities": [
+        "prescricao",
+        "sinais_vitais"
+      ],
+      "events": [
+        {
+          "case_id": "caso_demo",
+          "time_s": 20.0,
+          "modality": "sinais_vitais",
+          "kind": "heart_rate",
+          "evidence": "heart_rate: 130 bpm",
+          "rule": "Fora do intervalo experimental [50, 120]"
+        },
+        {
+          "case_id": "caso_demo",
+          "time_s": 20.0,
+          "modality": "prescricao",
+          "kind": "variacao_dose",
+          "evidence": "medicamento_exemplo: 10 → 20 mg",
+          "rule": "Variação relativa de dose >= 50% entre registros consecutivos"
+        }
+      ],
+      "message": "Revisão humana necessária; critérios experimentais."
+    },
+    {
+      "case_id": "caso_demo",
+      "window_start_s": 30,
+      "window_end_s": 60,
+      "modalities": [
+        "prescricao",
+        "sinais_vitais"
+      ],
+      "events": [
+        {
+          "case_id": "caso_demo",
+          "time_s": 30.0,
+          "modality": "sinais_vitais",
+          "kind": "systolic_bp",
+          "evidence": "systolic_bp: 165 mmHg",
+          "rule": "Fora do intervalo experimental [90, 160]"
+        },
+        {
+          "case_id": "caso_demo",
+          "time_s": 30.0,
+          "modality": "sinais_vitais",
+          "kind": "spo2",
+          "evidence": "spo2: 91 %",
+          "rule": "Fora do intervalo experimental [92, 100]"
+        },
+        {
+          "case_id": "caso_demo",
+          "time_s": 40.0,
+          "modality": "prescricao",
+          "kind": "unidade_alterada",
+          "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+          "rule": "Unidades divergentes exigem revisão; sem comparação numérica"
+        }
+      ],
+      "message": "Revisão humana necessária; critérios experimentais."
+    }
+  ],
+  "processing_elapsed_s": 7.539,
+  "notice": "Protótipo acadêmico; dados associados artificialmente e critérios não validados clinicamente."
+}

@@ -2,6 +2,8 @@
 
 **FIAP POSTECH — IA para Devs | Fase 1**
 
+O [enunciado oficial](../../Materiais/Fase%201/Aulas/IADT%20-%20Fase%201%20-%20Tech%20challenge%20A.pdf), o [relatório acadêmico](../../Materiais/Fase%201/RELATORIO_TECNICO.md), os [slides](../../Materiais/Fase%201/Tech_Challenge_Fase1_Apresentacao.pptx) e os [roteiros de apresentação](../../Materiais/Fase%201/) ficam em `Materiais/Fase 1`.
+
 Sistema de apoio ao diagnóstico de **Síndrome dos Ovários Policísticos (SOP)** usando Machine Learning aplicado a dados clínicos de 541 pacientes coletados em 10 hospitais de Kerala, Índia.
 
 ---
@@ -24,8 +26,7 @@ Sistema de apoio ao diagnóstico de **Síndrome dos Ovários Policísticos (SOP)
 ```
 Tech Challenge/Fase 1/
 │
-├── README.md                               ← este arquivo
-├── IADT - Fase 1 - Tech challenge A.pdf    ← enunciado do challenge
+├── README.md                               ← instruções técnicas e resultados principais
 │
 ├── code/
 │   ├── pcos_diagnostico.ipynb              ← notebook principal (limpo)

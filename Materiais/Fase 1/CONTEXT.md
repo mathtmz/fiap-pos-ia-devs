@@ -147,7 +147,7 @@ Suave o suficiente para funcionar bem. Monitorar recall da classe positiva (SOP=
 
 | Arquivo | Conteúdo |
 |---|---|
-| [`IADT - Fase 1 - Tech challenge A.pdf`](./IADT%20-%20Fase%201%20-%20Tech%20challenge%20A.pdf) | Enunciado completo do challenge |
+| [`IADT - Fase 1 - Tech challenge A.pdf`](./Aulas/IADT%20-%20Fase%201%20-%20Tech%20challenge%20A.pdf) | Enunciado completo do challenge |
 | [`pcos_data/PCOS_data_without_infertility.xlsx`](./pcos_data/PCOS_data_without_infertility.xlsx) | Dataset principal (sheet `Full_new`) |
 | [`pcos_data/PCOS_infertility.csv`](./pcos_data/PCOS_infertility.csv) | Features adicionais para merge |
 | `Machine Learning/` | Aulas 1–4: fundamentos, regressão, PCA, feature scaling |

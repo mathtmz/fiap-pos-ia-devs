@@ -1,0 +1,6 @@
+{
+  "reference_words": 78,
+  "edit_distance": 11,
+  "wer": 0.141,
+  "normalization": "casefold e remoção de pontuação"
+}

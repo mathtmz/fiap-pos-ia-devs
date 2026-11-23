@@ -1,0 +1,24 @@
+[
+  {
+    "segmento": "correto",
+    "rotulo_desvio": false,
+    "predicao_desvio": false,
+    "acerto": true,
+    "segundos": 1.97,
+    "frames": 195,
+    "frames_com_pose": 65,
+    "quadros_analisados": 65,
+    "angulo_maximo": 137.2
+  },
+  {
+    "segmento": "incorreto",
+    "rotulo_desvio": true,
+    "predicao_desvio": false,
+    "acerto": false,
+    "segundos": 1.55,
+    "frames": 251,
+    "frames_com_pose": 84,
+    "quadros_analisados": 84,
+    "angulo_maximo": 127.5
+  }
+]

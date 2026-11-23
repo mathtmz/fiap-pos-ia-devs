@@ -1,0 +1,29 @@
+{
+  "case_id": "caso_demo",
+  "modalities": {
+    "sinais_vitais": {
+      "status": "ok",
+      "elapsed_s": 0.0,
+      "result": {
+        "events": []
+      }
+    },
+    "prescricoes": {
+      "status": "ok",
+      "elapsed_s": 0.0,
+      "result": {
+        "events": []
+      }
+    },
+    "video": {
+      "status": "ausente"
+    },
+    "audio": {
+      "status": "ausente"
+    }
+  },
+  "events": [],
+  "alerts": [],
+  "processing_elapsed_s": 0.001,
+  "notice": "Protótipo acadêmico; dados associados artificialmente e critérios não validados clinicamente."
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "segment": "normal",
+    "frames": "35-154",
+    "ground_truth": "correto",
+    "prediction": "sem desvio",
+    "max_angle": 153.5,
+    "pose": "40/40"
+  },
+  {
+    "segment": "erro_1",
+    "frames": "680-810",
+    "ground_truth": "incorreto",
+    "prediction": "sem desvio",
+    "max_angle": 172.1,
+    "pose": "44/44"
+  },
+  {
+    "segment": "erro_2",
+    "frames": "811-940",
+    "ground_truth": "incorreto",
+    "prediction": "sem desvio",
+    "max_angle": 176.1,
+    "pose": "44/44"
+  },
+  {
+    "segment": "erro_3",
+    "frames": "941-1065",
+    "ground_truth": "incorreto",
+    "prediction": "sem desvio",
+    "max_angle": 113.4,
+    "pose": "42/42"
+  },
+  {
+    "segment": "erro_4",
+    "frames": "1066-1185",
+    "ground_truth": "incorreto",
+    "prediction": "sem desvio",
+    "max_angle": 179.5,
+    "pose": "40/40"
+  },
+  {
+    "segment": "erro_5",
+    "frames": "1186-1296",
+    "ground_truth": "incorreto",
+    "prediction": "sem desvio",
+    "max_angle": 179.6,
+    "pose": "37/37"
+  }
+]

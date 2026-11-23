@@ -1,0 +1,10 @@
+{
+  "dataset": "OAW04 synthetic consultation",
+  "reference_words": 78,
+  "transcribed_words": 78,
+  "aligned_words": 78,
+  "aligned_words_with_cluster": 78,
+  "speaker_accuracy_best_mapping": 1.0,
+  "mapping_selected_using_reference": true,
+  "limitation": "One synthetic consultation; word-aligned cluster accuracy after choosing the better speaker mapping. This is not diarization error rate."
+}

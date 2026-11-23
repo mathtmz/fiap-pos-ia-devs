@@ -1,0 +1,29 @@
+{
+  "description": "Checksums for local model files used by the visual experiments. Weights are downloaded from their upstream sources and are not stored in Git.",
+  "python": "3.12.14",
+  "entries": [
+    {
+      "path": "data/public/modelos/openpose/pose_deploy.prototxt",
+      "source_url": "https://raw.githubusercontent.com/CMU-Perceptual-Computing-Lab/openpose/master/models/pose/coco/pose_deploy_linevec.prototxt",
+      "license": "OpenPose license; consult the upstream terms before use or redistribution.",
+      "bytes": 46372,
+      "sha256": "17051b87f709aa094e09c5da7b78e9016a1f37b2b452ed1f190fe74cce70b1ad"
+    },
+    {
+      "path": "data/public/modelos/openpose/pose_iter_440000.caffemodel",
+      "source_url": "https://posefs1.perception.cs.cmu.edu/OpenPose/models/pose/coco/pose_iter_440000.caffemodel",
+      "license": "OpenPose license; consult the upstream terms before use or redistribution.",
+      "bytes": 209274056,
+      "sha256": "b4cf475576abd7b15d5316f1ee65eb492b5c9f5865e70a2e7882ed31fb682549"
+    },
+    {
+      "path": "data/public/modelos/yolov8n.pt",
+      "source_url": "https://github.com/ultralytics/assets/releases",
+      "model_id": "Ultralytics YOLOv8n, pretrained COCO weights",
+      "package_version": "ultralytics==8.3.203",
+      "license": "AGPL-3.0 or Ultralytics Enterprise; consult the upstream license.",
+      "bytes": 6549796,
+      "sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36"
+    }
+  ]
+}

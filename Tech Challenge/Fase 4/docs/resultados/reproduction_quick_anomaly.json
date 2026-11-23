@@ -1,0 +1,267 @@
+{
+  "case_id": "caso_demo",
+  "modalities": {
+    "sinais_vitais": {
+      "status": "ok",
+      "elapsed_s": 0.0,
+      "result": {
+        "events": [
+          {
+            "case_id": "caso_demo",
+            "time_s": 20.0,
+            "modality": "sinais_vitais",
+            "kind": "heart_rate",
+            "evidence": "heart_rate: 130 bpm",
+            "rule": "Fora do intervalo experimental [50, 120]",
+            "source": "vitais_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "d61f3caceea4d8d9"
+          },
+          {
+            "case_id": "caso_demo",
+            "time_s": 30.0,
+            "modality": "sinais_vitais",
+            "kind": "systolic_bp",
+            "evidence": "systolic_bp: 165 mmHg",
+            "rule": "Fora do intervalo experimental [90, 160]",
+            "source": "vitais_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "29a3676c14bcf96d"
+          },
+          {
+            "case_id": "caso_demo",
+            "time_s": 30.0,
+            "modality": "sinais_vitais",
+            "kind": "spo2",
+            "evidence": "spo2: 91 %",
+            "rule": "Fora do intervalo experimental [92, 100]",
+            "source": "vitais_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "cbfbf51faec9ef95"
+          }
+        ]
+      }
+    },
+    "prescricoes": {
+      "status": "ok",
+      "elapsed_s": 0.0,
+      "result": {
+        "events": [
+          {
+            "case_id": "caso_demo",
+            "time_s": 20.0,
+            "modality": "prescricao",
+            "kind": "variacao_dose",
+            "evidence": "medicamento_exemplo: 10 → 20 mg",
+            "rule": "Variação relativa de dose >= 50% entre registros consecutivos",
+            "source": "prescricoes_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "331efb6f4cdabe8b"
+          },
+          {
+            "case_id": "caso_demo",
+            "time_s": 40.0,
+            "modality": "prescricao",
+            "kind": "unidade_alterada",
+            "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+            "rule": "Unidades divergentes exigem revisão; sem comparação numérica",
+            "source": "prescricoes_anomalia.csv",
+            "model": null,
+            "frame_index": null,
+            "confidence": null,
+            "review_status": "revisao_humana_requerida",
+            "event_id": "e864d9cc04477183"
+          }
+        ]
+      }
+    },
+    "video": {
+      "status": "ausente"
+    },
+    "audio": {
+      "status": "ausente"
+    }
+  },
+  "events": [
+    {
+      "case_id": "caso_demo",
+      "time_s": 20.0,
+      "modality": "sinais_vitais",
+      "kind": "heart_rate",
+      "evidence": "heart_rate: 130 bpm",
+      "rule": "Fora do intervalo experimental [50, 120]",
+      "source": "vitais_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "d61f3caceea4d8d9"
+    },
+    {
+      "case_id": "caso_demo",
+      "time_s": 30.0,
+      "modality": "sinais_vitais",
+      "kind": "systolic_bp",
+      "evidence": "systolic_bp: 165 mmHg",
+      "rule": "Fora do intervalo experimental [90, 160]",
+      "source": "vitais_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "29a3676c14bcf96d"
+    },
+    {
+      "case_id": "caso_demo",
+      "time_s": 30.0,
+      "modality": "sinais_vitais",
+      "kind": "spo2",
+      "evidence": "spo2: 91 %",
+      "rule": "Fora do intervalo experimental [92, 100]",
+      "source": "vitais_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "cbfbf51faec9ef95"
+    },
+    {
+      "case_id": "caso_demo",
+      "time_s": 20.0,
+      "modality": "prescricao",
+      "kind": "variacao_dose",
+      "evidence": "medicamento_exemplo: 10 → 20 mg",
+      "rule": "Variação relativa de dose >= 50% entre registros consecutivos",
+      "source": "prescricoes_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "331efb6f4cdabe8b"
+    },
+    {
+      "case_id": "caso_demo",
+      "time_s": 40.0,
+      "modality": "prescricao",
+      "kind": "unidade_alterada",
+      "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+      "rule": "Unidades divergentes exigem revisão; sem comparação numérica",
+      "source": "prescricoes_anomalia.csv",
+      "model": null,
+      "frame_index": null,
+      "confidence": null,
+      "review_status": "revisao_humana_requerida",
+      "event_id": "e864d9cc04477183"
+    }
+  ],
+  "alerts": [
+    {
+      "case_id": "caso_demo",
+      "window_start_s": 0,
+      "window_end_s": 30,
+      "modalities": [
+        "prescricao",
+        "sinais_vitais"
+      ],
+      "events": [
+        {
+          "case_id": "caso_demo",
+          "time_s": 20.0,
+          "modality": "sinais_vitais",
+          "kind": "heart_rate",
+          "evidence": "heart_rate: 130 bpm",
+          "rule": "Fora do intervalo experimental [50, 120]",
+          "source": "vitais_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "d61f3caceea4d8d9"
+        },
+        {
+          "case_id": "caso_demo",
+          "time_s": 20.0,
+          "modality": "prescricao",
+          "kind": "variacao_dose",
+          "evidence": "medicamento_exemplo: 10 → 20 mg",
+          "rule": "Variação relativa de dose >= 50% entre registros consecutivos",
+          "source": "prescricoes_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "331efb6f4cdabe8b"
+        }
+      ],
+      "message": "Revisão humana necessária; critérios experimentais."
+    },
+    {
+      "case_id": "caso_demo",
+      "window_start_s": 30,
+      "window_end_s": 60,
+      "modalities": [
+        "prescricao",
+        "sinais_vitais"
+      ],
+      "events": [
+        {
+          "case_id": "caso_demo",
+          "time_s": 30.0,
+          "modality": "sinais_vitais",
+          "kind": "systolic_bp",
+          "evidence": "systolic_bp: 165 mmHg",
+          "rule": "Fora do intervalo experimental [90, 160]",
+          "source": "vitais_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "29a3676c14bcf96d"
+        },
+        {
+          "case_id": "caso_demo",
+          "time_s": 30.0,
+          "modality": "sinais_vitais",
+          "kind": "spo2",
+          "evidence": "spo2: 91 %",
+          "rule": "Fora do intervalo experimental [92, 100]",
+          "source": "vitais_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "cbfbf51faec9ef95"
+        },
+        {
+          "case_id": "caso_demo",
+          "time_s": 40.0,
+          "modality": "prescricao",
+          "kind": "unidade_alterada",
+          "evidence": "medicamento_exemplo: 20 mg → 20 mcg",
+          "rule": "Unidades divergentes exigem revisão; sem comparação numérica",
+          "source": "prescricoes_anomalia.csv",
+          "model": null,
+          "frame_index": null,
+          "confidence": null,
+          "review_status": "revisao_humana_requerida",
+          "event_id": "e864d9cc04477183"
+        }
+      ],
+      "message": "Revisão humana necessária; critérios experimentais."
+    }
+  ],
+  "processing_elapsed_s": 0.0,
+  "notice": "Protótipo acadêmico; dados associados artificialmente e critérios não validados clinicamente."
+}

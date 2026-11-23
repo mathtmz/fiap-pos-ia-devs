@@ -1,0 +1,29 @@
+[
+  {
+    "model": "tiny",
+    "reference_words": 70,
+    "edits": 2,
+    "wer": 0.0286,
+    "seconds": 2.16,
+    "maxrss_process_bytes": 603602944,
+    "status": "ok"
+  },
+  {
+    "model": "base",
+    "reference_words": 70,
+    "edits": 2,
+    "wer": 0.0286,
+    "seconds": 2.29,
+    "maxrss_process_bytes": 1034141696,
+    "status": "ok"
+  },
+  {
+    "model": "small",
+    "reference_words": 70,
+    "edits": 0,
+    "wer": 0.0,
+    "seconds": 6.24,
+    "maxrss_process_bytes": 2633908224,
+    "status": "ok"
+  }
+]

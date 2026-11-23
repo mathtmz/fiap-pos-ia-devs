@@ -1,0 +1,5 @@
+time_s,heart_rate,systolic_bp,diastolic_bp,spo2
+0,80,120,75,98
+10,85,125,78,97
+20,95,130,80,98
+30,90,125,78,97

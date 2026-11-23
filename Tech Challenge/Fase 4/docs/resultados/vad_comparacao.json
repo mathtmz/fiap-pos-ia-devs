@@ -1,0 +1,25 @@
+{
+  "dataset": "OAW04 synthetic consultation",
+  "model": "Whisper tiny",
+  "normalization": "casefold and Unicode word tokenization; punctuation excluded",
+  "comparisons": [
+    {
+      "vad": false,
+      "reference_words": 78,
+      "edits": 12,
+      "wer": 0.1538,
+      "seconds": 2.316,
+      "segments": 11
+    },
+    {
+      "vad": true,
+      "reference_words": 78,
+      "edits": 63,
+      "wer": 0.8077,
+      "seconds": 2.091,
+      "segments": 16
+    }
+  ],
+  "selected_configuration": false,
+  "limitation": "One synthetic consultation. VAD results do not validate speech detection in clinical recordings; quiet speech may be cut."
+}

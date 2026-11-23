@@ -1,0 +1,107 @@
+{
+  "normalization": "casefold and Unicode word tokenization; punctuation excluded",
+  "consultations": [
+    "OAW01",
+    "OAW04"
+  ],
+  "models": {
+    "tiny": {
+      "successful_samples": 2,
+      "total_samples": 2,
+      "reference_words": 148,
+      "edits": 14,
+      "aggregate_wer": 0.0946,
+      "total_seconds": 4.275,
+      "mean_peak_rss_mib": 577.2
+    },
+    "base": {
+      "successful_samples": 2,
+      "total_samples": 2,
+      "reference_words": 148,
+      "edits": 10,
+      "aggregate_wer": 0.0676,
+      "total_seconds": 6.395,
+      "mean_peak_rss_mib": 815.9
+    },
+    "small": {
+      "successful_samples": 2,
+      "total_samples": 2,
+      "reference_words": 148,
+      "edits": 0,
+      "aggregate_wer": 0.0,
+      "total_seconds": 14.434,
+      "mean_peak_rss_mib": 2165.6
+    }
+  },
+  "selected_default": "small",
+  "selection_rule": "Lowest aggregate WER; ties go to lower total transcription time.",
+  "samples": [
+    {
+      "consultation": "OAW01",
+      "model": "tiny",
+      "reference_words": 70,
+      "edits": 2,
+      "wer": 0.0286,
+      "seconds": 2.155,
+      "peak_rss_mib": 577.0,
+      "language_detected": "pt",
+      "status": "ok"
+    },
+    {
+      "consultation": "OAW01",
+      "model": "base",
+      "reference_words": 70,
+      "edits": 2,
+      "wer": 0.0286,
+      "seconds": 3.169,
+      "peak_rss_mib": 820.6,
+      "language_detected": "pt",
+      "status": "ok"
+    },
+    {
+      "consultation": "OAW01",
+      "model": "small",
+      "reference_words": 70,
+      "edits": 0,
+      "wer": 0.0,
+      "seconds": 7.344,
+      "peak_rss_mib": 2130.1,
+      "language_detected": "pt",
+      "status": "ok"
+    },
+    {
+      "consultation": "OAW04",
+      "model": "tiny",
+      "reference_words": 78,
+      "edits": 12,
+      "wer": 0.1538,
+      "seconds": 2.12,
+      "peak_rss_mib": 577.5,
+      "language_detected": "pt",
+      "status": "ok"
+    },
+    {
+      "consultation": "OAW04",
+      "model": "base",
+      "reference_words": 78,
+      "edits": 8,
+      "wer": 0.1026,
+      "seconds": 3.226,
+      "peak_rss_mib": 811.2,
+      "language_detected": "pt",
+      "status": "ok"
+    },
+    {
+      "consultation": "OAW04",
+      "model": "small",
+      "reference_words": 78,
+      "edits": 0,
+      "wer": 0.0,
+      "seconds": 7.09,
+      "peak_rss_mib": 2201.0,
+      "language_detected": "pt",
+      "status": "ok"
+    }
+  ],
+  "limitation": "Two scripted synthetic consultations; does not estimate clinical transcription quality."
+}

@@ -2,6 +2,8 @@
 
 Projeto da FIAP POSTECH - IA para Devs, desenvolvido como evolucao direta da Fase 1.
 
+O [relatório acadêmico](../../Materiais/Fase%202%20-%20Evolu%C3%A7%C3%A3o%20da%20IA/RELATORIO_TECNICO.md), os [roteiros de vídeo](../../Materiais/Fase%202%20-%20Evolu%C3%A7%C3%A3o%20da%20IA/) e os materiais didáticos estão organizados em `Materiais/Fase 2 - Evolução da IA`.
+
 ## Projeto escolhido
 
 **Projeto 1 - Algoritmos Geneticos e Modelos Generativos aplicados ao projeto da Fase 1.**
@@ -25,7 +27,6 @@ explicabilidade e integracao com LLM. Toda a execucao e local, sem dependencia d
 ```text
 Tech Challenge/Fase 2/
 ├── README.md                    # este arquivo: execucao e resumo do projeto
-├── RELATORIO_TECNICO.md         # relatorio final da Fase 2
 ├── data/
 │   └── PCOS_data_without_infertility.xlsx
 └── code/
@@ -247,7 +248,7 @@ sequenceDiagram
 ## Documentos
 
 - `README.md`: execucao e resumo do projeto.
-- `RELATORIO_TECNICO.md`: relatorio final da Fase 2.
+- Relatório acadêmico: [Materiais/Fase 2 - Evolução da IA/RELATORIO_TECNICO.md](../../Materiais/Fase%202%20-%20Evolu%C3%A7%C3%A3o%20da%20IA/RELATORIO_TECNICO.md).
 
 ## Checklist
 

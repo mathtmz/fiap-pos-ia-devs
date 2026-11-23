@@ -1,0 +1,41 @@
+{
+  "description": "Minimized processing metadata for two public Portuguese videos. The original media remains at the linked sources and no transcript is included.",
+  "consultations": [
+    {
+      "id": "terapia_manual",
+      "title": "A terapia manual na prática! (ao vivo)",
+      "source_url": "https://www.youtube.com/watch?v=Y3Au3GcBbbg",
+      "source_media_stored_in_git": false,
+      "authorization": "Informada pela equipe; autorização não é armazenada neste repositório.",
+      "processing_status": "ok",
+      "whisper_model": "tiny",
+      "language_detected": "pt",
+      "media_duration_s": 2467.35,
+      "transcribed_word_count": 5075,
+      "segment_count": 618,
+      "processing_elapsed_s": 75.287,
+      "manual_reference_available": false,
+      "wer": null,
+      "transcript_included": false,
+      "interpretation": "Descriptive processing summary only. No transcript or clinical interpretation is retained in this artifact."
+    },
+    {
+      "id": "reabilitacao_quadril",
+      "title": "Artroplastia de quadril: fisioterapia e recuperação no pós-operatório",
+      "source_url": "https://www.youtube.com/watch?v=ihY3hJ9-RBg",
+      "source_media_stored_in_git": false,
+      "authorization": "Informada pela equipe; autorização não é armazenada neste repositório.",
+      "processing_status": "ok",
+      "whisper_model": "tiny",
+      "language_detected": "pt",
+      "media_duration_s": 287.15,
+      "transcribed_word_count": 151,
+      "segment_count": 13,
+      "processing_elapsed_s": 20.437,
+      "manual_reference_available": false,
+      "wer": null,
+      "transcript_included": false,
+      "interpretation": "Descriptive processing summary only. No transcript or clinical interpretation is retained in this artifact."
+    }
+  ]
+}
