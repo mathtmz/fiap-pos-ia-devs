@@ -11,8 +11,8 @@ Esta entrega reúne o código do projeto e sua demonstração audiovisual. Os ac
 
 | Artefato | Localização e finalidade |
 |---|---|
-| Repositório de código | [Acessar o repositório da Fase 4](https://github.com/mathtmz/fiap-pos-ia-devs/tree/main/Tech%20Challenge/Fase%204). Código-fonte, instruções técnicas, dados de avaliação e resultados computacionais. |
-| Vídeo demonstrativo | [Assistir ao vídeo no YouTube](https://youtu.be/gDM1GUhGqN0). Demonstração do processamento multimodal e da apresentação de eventos e alertas. |
+| Repositório de código | [Acessar o repositório da Fase 4](https://github.com/mathtmz/fiap-pos-ia-devs/tree/main/Tech%20Challenge/Fase%204)<br/>[https://github.com/mathtmz/fiap-pos-ia-devs/tree/main/Tech%20Challenge/Fase%204](https://github.com/mathtmz/fiap-pos-ia-devs/tree/main/Tech%20Challenge/Fase%204)<br/>Código-fonte, instruções técnicas, dados de avaliação e resultados computacionais. |
+| Vídeo demonstrativo | [Assistir ao vídeo no YouTube](https://youtu.be/gDM1GUhGqN0)<br/>[https://youtu.be/gDM1GUhGqN0](https://youtu.be/gDM1GUhGqN0)<br/>Demonstração do processamento multimodal e da apresentação de eventos e alertas. |
 
 ## Resumo
 
