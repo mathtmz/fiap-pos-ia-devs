@@ -5,6 +5,15 @@
 **Autor:** Matheus Tomaz<br>
 **Data:** novembro de 2026
 
+## Entregáveis e rastreabilidade
+
+Esta entrega reúne o código do projeto e sua demonstração audiovisual. Os acessos diretos aos artefatos estão disponíveis abaixo.
+
+| Artefato | Localização e finalidade |
+|---|---|
+| Repositório de código | [Acessar o repositório da Fase 4](https://github.com/mathtmz/fiap-pos-ia-devs/tree/main/Tech%20Challenge/Fase%204). Código-fonte, instruções técnicas, dados de avaliação e resultados computacionais. |
+| Vídeo demonstrativo | [Assistir ao vídeo no YouTube](https://youtu.be/gDM1GUhGqN0). Demonstração do processamento multimodal e da apresentação de eventos e alertas. |
+
 ## Resumo
 
 Este trabalho descreve a implementação e a avaliação de um protótipo acadêmico de monitoramento multimodal aplicado a exercícios de fisioterapia. O fluxo integra análise de movimento em vídeo, transcrição de fala em português, extração de termos e sentimento, regras sobre séries sintéticas de sinais vitais e prescrições e organização temporal de eventos para revisão humana. A implementação utiliza OpenCV, YOLOv8n, OpenPose COCO, MediaPipe Pose, Whisper, Qwen 2.5 e Streamlit.

@@ -19,6 +19,7 @@
 
 - [Slides em PowerPoint](apresentacao/APRESENTACAO_FASE_4.pptx)
 - [Apresentação no Google Slides](https://docs.google.com/presentation/d/197YK_4hPVpuIkeAcYp2NySnGYusyQrff4fP8jsHPrpc/edit)
+- [Vídeo demonstrativo no YouTube](https://youtu.be/gDM1GUhGqN0)
 - [Roteiro de gravação do vídeo de 15 minutos](apresentacao/ROTEIRO_VIDEO.md)
 - [Guia para a apresentação oral](apresentacao/GUIA_APRESENTACAO.md)
 

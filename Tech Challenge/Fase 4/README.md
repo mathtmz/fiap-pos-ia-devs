@@ -8,6 +8,7 @@ Protótipo acadêmico de monitoramento multimodal em fisioterapia. Ele reúne an
 - [Relatório final em PDF](../../Materiais/Fase%204%20-%20AI%20Text%20%26%20Media/Projeto%20de%20monitoramento%20multimodal/relatorios/RELATORIO_FINAL_ENTREGA.pdf) · [Relatório em Markdown](../../Materiais/Fase%204%20-%20AI%20Text%20%26%20Media/Projeto%20de%20monitoramento%20multimodal/relatorios/RELATORIO_FINAL_ENTREGA.md)
 - [Roteiro de vídeo de 15 minutos](../../Materiais/Fase%204%20-%20AI%20Text%20%26%20Media/Projeto%20de%20monitoramento%20multimodal/apresentacao/ROTEIRO_VIDEO.md)
 - [Apresentação no Google Slides](https://docs.google.com/presentation/d/197YK_4hPVpuIkeAcYp2NySnGYusyQrff4fP8jsHPrpc/edit)
+- [Vídeo demonstrativo no YouTube](https://youtu.be/gDM1GUhGqN0)
 - [Manifesto de fontes, dados e modelos](../../Materiais/Fase%204%20-%20AI%20Text%20%26%20Media/Projeto%20de%20monitoramento%20multimodal/contexto/FONTES_DADOS.md)
 - [Resultados reproduzíveis](docs/resultados/)
 
